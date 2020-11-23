@@ -38,7 +38,10 @@ Route::post("/funcionarios/add","EmployeeController@store")->name("employees.sto
 Route::get("/funcionarios/edit/{id}","EmployeeController@edit")->name("employees.edit");
 Route::post("/funcionarios/edit/{id}","EmployeeController@update")->name("employees.update");
 Route::get("funcionarios/{id}","EmployeeController@show")->name("employees.show");
-Route::delete("funcionarios/{id}","EmployeeController@destroy")->name("employee.delete");
+
+Route::get("funcionarios/edit/{id}","EmployeeController@edit")->name("employees.edit");
+Route::post("funcionarios/edit/{id}","EmployeeController@update")->name("employees.update");
+Route::delete("funcionarios/{id}","EmployeeController@destroy")->name("employees.delete");
 
 // CUSTOMER
 Route::get("/custumer",function()
