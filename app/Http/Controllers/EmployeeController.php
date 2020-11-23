@@ -85,6 +85,12 @@ class EmployeeController extends Controller
         return view("employees.details", ["employee" => $employee]);
     }
 
+    public function edit(Request $request, $id)
+    {
+        $employee = Employee::with(["bankData", "address", "contract"])->where("id", $id)->first();
+        return view("employees.edit", ["employee" => $employee]);
+    }
+
     public function destroy($id)
     {
         Employee::destroy($id);
