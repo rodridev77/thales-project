@@ -97,13 +97,13 @@ class EmployeeController extends Controller
         return view("employees.edit", ["employee" => $employee]);
     }
 
-    public function update($id, Request $request)
+    public function update(Request $request, $id)
     {
         try
         {
             DB::transaction(function() use ($id, $request)
             {
-                $employee = Employee::where("Id", $id)->update([
+                $employee = Employee::where("id", $id)->update([
                      "name"=> $request->name,
                      "birthday"=>$request->birthday,
                      "mother_name" => $request->mother_name,
