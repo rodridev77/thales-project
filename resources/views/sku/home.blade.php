@@ -77,7 +77,7 @@
                                 title: 'Sku Exclúido'
                             });
                             $('#sku-delete').modal("hide");
-                            loadViewInHome('{{route('sku.home')}}')
+                            loadViewInHome('{{route('sku.home')}}');
                         }
                     })
                     .catch((err) => {

@@ -73,7 +73,7 @@
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="#" class="small-box-footer">Ir <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer" onclick="loadViewInHome('{{url('sku.home')}}')">Ir <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>

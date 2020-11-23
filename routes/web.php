@@ -1,4 +1,4 @@
-[12:51, 17/11/2020] +55 41 9764-0936: <?php
+<?php
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -35,10 +35,12 @@ Route::get("/lte",function(){
 Route::get("funcionarios","EmployeeController@index")->name("employees");
 Route::get("/funcionarios/add","EmployeeController@create")->name("employees.create");
 Route::post("/funcionarios/add","EmployeeController@store")->name("employees.store");
+Route::get("/funcionarios/edit/{id}","EmployeeController@edit")->name("employees.edit");
+Route::post("/funcionarios/edit/{id}","EmployeeController@update")->name("employees.update");
 Route::get("funcionarios/{id}","EmployeeController@show")->name("employees.show");
 Route::delete("funcionarios/{id}","EmployeeController@destroy")->name("employee.delete");
 
-// CUSTOMER 
+// CUSTOMER
 Route::get("/custumer",function()
 {
     return view("custumer.index_custumer");
@@ -73,3 +75,15 @@ Route::post('company/search', "CompanyController@search")->name("company.search"
 
 // SETTINGS
 Route::get('settings', "SettingsController@index")->name('settings.home');
+
+// SKUS
+Route::get('sku', "SkuController@index")->name('sku.home');
+Route::get('/sku/list', "SkuController@showAll")->name("sku.list");
+Route::get('sku/create', "SkuController@create")->name("sku.create");
+Route::post('sku/store', "SkuController@store")->name("sku.store");
+Route::get('sku/edit', "SkuController@edit")->name("sku.edit");
+Route::put('sku/update', "SkuController@update")->name("sku.update");
+Route::get('sku/delete', "SkuController@delete")->name("sku.delete");
+Route::delete('sku/destroy', "SkuController@destroy")->name("sku.destroy");
+Route::get('sku/show', "SkuController@show")->name("sku.show");
+Route::post('sku/search', "SkuController@search")->name("sku.search");
