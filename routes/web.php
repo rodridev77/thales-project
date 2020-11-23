@@ -35,12 +35,17 @@ Route::get("/lte",function(){
 Route::get("funcionarios","EmployeeController@index")->name("employees");
 Route::get("/funcionarios/add","EmployeeController@create")->name("employees.create");
 Route::post("/funcionarios/add","EmployeeController@store")->name("employees.store");
+Route::get("/funcionarios/edit/{id}","EmployeeController@edit")->name("employees.edit");
+Route::post("/funcionarios/edit/{id}","EmployeeController@update")->name("employees.update");
 Route::get("funcionarios/{id}","EmployeeController@show")->name("employees.show");
 
+<<<<<<< HEAD
 Route::get("funcionarios/edit/{id}","EmployeeController@edit")->name("employees.edit");
 Route::post("funcionarios/edit/{id}","EmployeeController@update")->name("employees.update");
 Route::delete("funcionarios/{id}","EmployeeController@destroy")->name("employees.delete");
 
+=======
+>>>>>>> 03263021ec346db5812276281ddd57ce3156a49c
 // CUSTOMER
 Route::get("/custumer",function()
 {

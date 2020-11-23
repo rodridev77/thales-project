@@ -60,7 +60,11 @@ class EmployeeController extends Controller
 
             });
 
+<<<<<<< HEAD
             return response()->json(["message" => "funcionario criado"]);
+=======
+            return response()->json(["funcionario criado"]);
+>>>>>>> 03263021ec346db5812276281ddd57ce3156a49c
         }
         catch(Exception $error)
         {
@@ -85,12 +89,19 @@ class EmployeeController extends Controller
         return view("employees.details", ["employee" => $employee]);
     }
 
+    public function edit(Request $request, $id)
+    {
+        $employee = Employee::with(["bankData", "address", "contract"])->where("id", $id)->first();
+        return view("employees.edit", ["employee" => $employee]);
+    }
+
     public function destroy($id)
     {
         Employee::destroy($id);
         return response()->json(["Funcionario deletado"]);
     }
 
+<<<<<<< HEAD
     public function edit(Request $request, $id)
     {
         $employee = Employee::with(["bankData", "address", "contract"])->where("id", $id)->first();
@@ -99,11 +110,19 @@ class EmployeeController extends Controller
 
     public function update(Request $request, $id)
     {
+=======
+    public function update($id, Request $request)
+    {
+>>>>>>> 03263021ec346db5812276281ddd57ce3156a49c
         try
         {
             DB::transaction(function() use ($id, $request)
             {
+<<<<<<< HEAD
                 $employee = Employee::where("id", $id)->update([
+=======
+                $employee = Employee::where("Id", $id)->update([
+>>>>>>> 03263021ec346db5812276281ddd57ce3156a49c
                      "name"=> $request->name,
                      "birthday"=>$request->birthday,
                      "mother_name" => $request->mother_name,
@@ -123,14 +142,22 @@ class EmployeeController extends Controller
                      "street" => $request->street,
                      "zipcode" => $request->zipcode,
                      "number" => $request->number,
+<<<<<<< HEAD
                      "employee_id" => $id
+=======
+                     "employee_id" => $employee->id
+>>>>>>> 03263021ec346db5812276281ddd57ce3156a49c
                  ]);
 
                  $bank = BankData::where("employee_id", $id)->update([
                      "account_number" => $request->account_number,
                      "bank"=>$request->bank,
                      "agency" => $request->agency,
+<<<<<<< HEAD
                      "employee_id" => $id
+=======
+                     "employee_id" => $employee->id
+>>>>>>> 03263021ec346db5812276281ddd57ce3156a49c
                  ]);
 
                  $contract = Contract::where("employee_id", $id)->update([
@@ -138,16 +165,28 @@ class EmployeeController extends Controller
                      "salary" => $request->salary,
                      "admission_date" => $request->admission_date,
                      "dismission_date" => $request->dismission_date,
+<<<<<<< HEAD
                      "employee_id" => $id
+=======
+                     "employee_id" => $employee->id
+>>>>>>> 03263021ec346db5812276281ddd57ce3156a49c
                  ]);
 
             });
 
+<<<<<<< HEAD
             return response()->json(["funcionario atualizado"]);
         }
         catch(Exception $error)
         {
             return response()->json(["funcionario não atualizado -". $error->getMessage()],500);
+=======
+            return response()->json(["funcionario Atualizado"]);
+        }
+        catch(Exception $error)
+        {
+            return response()->json(["funcionario não atualizado"],500);
+>>>>>>> 03263021ec346db5812276281ddd57ce3156a49c
         }
     }
 }
