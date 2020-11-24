@@ -42,16 +42,16 @@ $title = "Tabela de Código SKU";
             </div>
 
             <div class="modal-body">
-                <div class="container" id="create-sku-form">
+                <div class="container" id="">
                     <div class="row justify-content-center">
                         <div class="col-sm-12 mb-3">
-                            <form data-savesku="{{route('sku.store')}}" method="POST">
+                            <form data-savesku='{{route('sku.store')}}' method="POST">
                                 @csrf
                                 <div class="form-row">
                                     <div class="form-group col-sm-12">
                                         <label for="cod">Código SKU: </label>
-                                        <input type="text" class="form-control" name="cod" id="cod" required="required"
-                                            value="">
+                                        <input type="text" class="form-control" name="cod" id="cod"
+                                            required="required" value="">
                                     </div>
                                 </div>
 
@@ -62,12 +62,7 @@ $title = "Tabela de Código SKU";
                                             required="required" value="">
                                     </div>
                                 </div>
-
-                                <div class="form-row justify-content-center">
-                                    <div class="col-sm-12">
-                                        <button type="submit" class="btn btn-primary" name="enviar">Cadastrar</button>
-                                    </div>
-                                </div>
+                                <button type="submit" class="btn btn-primary" name="enviar">Cadastrar</button>
                             </form>
                         </div>
                     </div>
@@ -106,7 +101,7 @@ $(function() {
     });
 });
 
-/**$('#sku-delete').on('show.bs.modal', function(event) {
+$('#sku-delete').on('show.bs.modal', function(event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
     var id = button.data('sku') // Extract info from data-* attributes
     let modalButton = $("#confirm-delete");
@@ -122,7 +117,7 @@ $(function() {
                         title: 'Sku Exclúido'
                     });
                     $('#sku-delete').modal("hide");
-                    loadViewInHome('{{route('sku')}}');
+                    loadViewInHome('{{route('sku.home')}}');
                 }
             })
             .catch((err) => {
@@ -135,7 +130,7 @@ $(function() {
             });
     });
 
-}); */
+});
 
 function loadSkuForm() {
     $('#create-sku-form').modal('show');
