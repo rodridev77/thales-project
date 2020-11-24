@@ -14,8 +14,8 @@ class SkuController extends Controller
     public function index()
     {
         //$id = 1;
-        $sku = ""; //Sku::where('id', $id)->first();
-        return view("sku.home", ["sku" => $sku]);
+        $skuList = Sku::all(); //Sku::where('id', $id)->first();
+        return view("sku.home", ["skuList" => $skuList]);
     }
 
     public function showAll()

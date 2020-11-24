@@ -6,6 +6,7 @@ $title = "Tabela de Código SKU";
 <button type="button" class="btn btn-success" onclick="loadSkuForm();"><i class="fas fa-plus"></i>Cadastrar SKU</button>
 @endsection
 @section('card-body')
+@if (count($skuList) > 0)
 <table id="layout-um" class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -15,20 +16,23 @@ $title = "Tabela de Código SKU";
         </tr>
     </thead>
     <tbody>
-
+    @foreach ($skuList as $sku)
         <tr>
-            <td></td>
-            <td></td>
+            <td>{{$sku->cod}}</td>
+            <td>{{$sku->description}}</td>
             <td>
                 <button class="btn btn-xs btn-info"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#sku-delete"><i
+                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#sku-delete" data-sku-id="{{$sku->id}}"><i
                         class="fa fa-trash"></i></button>
                 <button class="btn btn-xs btn-success"><i class="fa fa-eye"></i></button>
             </td>
         </tr>
-
+    @endforeach
     </tbody>
 </table>
+@else
+<p>Nenhum código SKU cadastrado</p>
+@endif
 
 <div class="modal fade" id="create-sku-form" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-md" role="document">
@@ -103,12 +107,12 @@ $(function() {
 
 $('#sku-delete').on('show.bs.modal', function(event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
-    var id = button.data('sku') // Extract info from data-* attributes
+    var id = button.data('sku-id') // Extract info from data-* attributes
     let modalButton = $("#confirm-delete");
 
     modalButton.on("click", function() {
 
-        axios.delete(`${'{{url("sku.delete")}}'}/${id}`)
+        axios.delete(`${'{{url("sku/destroy")}}'}/${id}`)
             .then((response) => {
                 if (response.status === 200) {
 

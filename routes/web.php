@@ -78,6 +78,6 @@ Route::post('sku/store', "SkuController@store")->name("sku.store");
 Route::get('sku/edit', "SkuController@edit")->name("sku.edit");
 Route::put('sku/update', "SkuController@update")->name("sku.update");
 Route::get('sku/delete', "SkuController@delete")->name("sku.delete");
-Route::delete('sku/destroy', "SkuController@destroy")->name("sku.destroy");
+Route::delete('sku/destroy/{id}', "SkuController@destroy")->name("sku.destroy");
 Route::get('sku/show', "SkuController@show")->name("sku.show");
 Route::post('sku/search', "SkuController@search")->name("sku.search");
