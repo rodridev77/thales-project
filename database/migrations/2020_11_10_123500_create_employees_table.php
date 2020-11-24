@@ -13,8 +13,10 @@ class CreateEmployeesTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('employees');
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
+            $table->string("image");
             $table->string("name");
             $table->string("image");
             $table->string("cpf")->unique();
@@ -28,7 +30,7 @@ class CreateEmployeesTable extends Migration
             $table->string("gender");
             $table->timestamps();
         });
-    } 
+    }
 
     /**
      * Reverse the migrations.

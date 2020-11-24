@@ -20,7 +20,16 @@ class EmployeeController extends Controller
         {
             DB::transaction(function() use ($request)
             {
+                $imagePath = null;
+                if ($request->hasFile('image')) {
+                    $image = $request->file('image');
+                    $name = time().'.'.$image->getClientOriginalExtension();
+                    $destinationPath = public_path('/images');
+                    $image->move($destinationPath, $name);
+                    $imagePath = "/images\/".$name;
+                }
                 $employee = Employee::create([
+                     "image" => $imagePath,
                      "name"=> $request->name,
                      "birthday"=>$request->birthday,
                      "mother_name" => $request->mother_name,
@@ -103,7 +112,17 @@ class EmployeeController extends Controller
         {
             DB::transaction(function() use ($id, $request)
             {
+                $imagePath = null;
+                if ($request->hasFile('image')) {
+                    $image = $request->file('image');
+                    $name = time().'.'.$image->getClientOriginalExtension();
+                    $destinationPath = public_path('/images');
+                    $image->move($destinationPath, $name);
+                    $imagePath = "/images\/".$name;
+                }
+
                 $employee = Employee::where("id", $id)->update([
+                     "image" => $imagePath,
                      "name"=> $request->name,
                      "birthday"=>$request->birthday,
                      "mother_name" => $request->mother_name,
