@@ -47,10 +47,10 @@ $title = "Funcionarios";
                 <p>Você Realmente deseja excluir esse funcionario ?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <form id="delete" data-saveemployee="{{url('/funcionarios/'.$employee->id)}}" method="DELETE">
-                    @method('DELETE')
-                    <button type="button" class="btn btn-outline-light" data-dismiss="modal">Não</button>
-                    <button type="submit" class="btn btn-outline-light" id="confirm-delete">Sim</button>
+                <form id="delete" data-destroyemployee="{{url('/funcionarios/'.$employee->id)}}" method="DELETE">
+                    @method("DELETE")
+                    <button class="btn btn-outline-light" data-dismiss="modal">Não</button>
+                    <button class="btn btn-outline-light" id="confirm-delete">Sim</button>
                 </form>
             </div>
         </div>
@@ -59,20 +59,15 @@ $title = "Funcionarios";
     <!-- /.modal-dialog -->
 </div>
 @else
-    <p>Nenhum Registro cadastrado</p>
+<p>Nenhum Registro cadastrado</p>
 @endif
 <script>
     $(function() {
-        $("form#delete1").on("submit", function(e) {
-            fetch($(this).attr("action"), {
-                    method: 'DELETE',
-                })
-                .then(res => {
-                    let response = res.json();
-                    console.log(res)
-                    alert("deletado com sucesso")
-                }).then(res => console.log(res))
+        $("button#confirm-delete").on("click", function(e) {
+            $('#exampleModal').modal('hide');
+
         })
+
         $("#example1").DataTable({
             "responsive": true,
             "autoWidth": false,
@@ -89,6 +84,8 @@ $title = "Funcionarios";
     });
 
     $('#exampleModal').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget) // Button that triggered the modal
+        var button = $(event.relatedTarget) // Button that triggered the modal
+
+    });
 </script>
 @endsection

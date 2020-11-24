@@ -292,34 +292,53 @@
         });
     </script>
     <script>
-        function loadViewInHome(url) 
+        function loadViewInHome(url)
         {
             $("#home_menu_container").html("");
 
             $("#spinner").removeClass("d-none");
 
-            axios.get(url).then((response) => 
+            axios.get(url).then((response) =>
             {
                 $("#spinner").addClass("d-none");
                 $("#home_menu_container").html(response.data);
             });
         }
 
-        request.makeRequest("data-saveemployee", (response) => 
+        request.makeRequest("data-saveemployee", (response) =>
         {
-            if (response.status === 500) 
+            if (response.status === 500)
             {
                 Toast.fire({
                     icon: 'error',
                     title: 'Houve um erro tente novamente , ou contacte o suporte'
                 });
             }
-            if (response.status === 200) 
+            if (response.status === 200)
             {
                 Toast.fire({
                     icon: 'success',
                     title: 'Funcionario Cadastrado'
                 });
+            }
+        });
+        /** Delete Employee form request */
+        request.makeRequest("data-destroyemployee", (response) =>
+        {
+            if (response.status === 500)
+            {
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Houve um erro tente novamente , ou contacte o suporte'
+                });
+            }
+            if (response.status === 200)
+            {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Funcionario Deletado'
+                });
+                loadViewInHome("{{url('/funcionarios/')}}")
             }
         });
 
