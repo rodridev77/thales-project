@@ -16,8 +16,16 @@ $title = "Cadastro de Funcionario"
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                
+
                     <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="exampleInputEmail1">Foto</label><br />
+                                <img width="65" height="65" id="avatar" />
+                                <input type="file" name="avatar" class="form-control" id="frmavatar" placeholder="avatar"
+                                style="height: 65px; margin-top: -65px; opacity: 0">
+                            </div>
+                        </div>
                         <div class="form-row">
                             <div class="form-group col-md-8">
                                 <label for="exampleInputEmail1">Nome Completo</label>
@@ -88,7 +96,7 @@ $title = "Cadastro de Funcionario"
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                
+
                     <div class="card-body">
                         <div class="form-row">
                             <div class="form-group col-md-4">
@@ -135,7 +143,7 @@ $title = "Cadastro de Funcionario"
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                
+
                     <div class="card-body">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Banco</label>
@@ -159,7 +167,7 @@ $title = "Cadastro de Funcionario"
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                
+
                     <div class="card-body">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Cargo</label>
@@ -182,4 +190,15 @@ $title = "Cadastro de Funcionario"
         </div>
     </div>
 </form>
+<script>
+    $("#frmavatar").on("change", function() {
+        var input = document.getElementById("frmavatar");
+        var fReader = new FileReader();
+        fReader.readAsDataURL(input.files[0]);
+        fReader.onloadend = function(event) {
+            var img = document.getElementById("avatar");
+            img.src = event.target.result;
+        }
+    });
+</script>
 @endsection

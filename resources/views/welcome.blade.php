@@ -95,7 +95,7 @@
                             </a>
                         </li>
                         <li class="nav-item border-bottom">
-                            <a href="#" class="nav-link" onclick="loadViewInHome('{{route('custumer')}}')">
+                            <a href="#" class="nav-link" onclick="loadViewInHome('{{route('customer.home')}}')">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Clientes
