@@ -20,7 +20,18 @@ class EmployeeController extends Controller
         {
             DB::transaction(function() use ($request)
             {
+                $imagePath = null;
+                if ($request->hasFile('image')) {
+                    $image = $request->file('image');
+                    $name = time().'.'.$image->getClientOriginalExtension();
+                    $destinationPath = public_path('/images');
+                    $image->move($destinationPath, $name);
+                    $imagePath = "{$destinationPath}/{$name}";
+                    return back()->with('success','Image Upload successfully');
+                }
+
                 $employee = Employee::create([
+                    "image" => $imagePath,
                      "name"=> $request->name,
                      "birthday"=>$request->birthday,
                      "mother_name" => $request->mother_name,
