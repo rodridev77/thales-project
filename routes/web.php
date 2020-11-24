@@ -44,25 +44,16 @@ Route::post("funcionarios/edit/{id}","EmployeeController@update")->name("employe
 Route::delete("funcionarios/{id}","EmployeeController@destroy")->name("employees.delete");
 
 // CUSTOMER
-Route::get("/custumer",function()
-{
-    return view("custumer.index_custumer");
-})->name("custumer");
-
-Route::get("/custumer/add",function()
-{
-    return view("custumer.cadastro_custumer");
-})->name("cadastro_custumer");
-
-Route::post("/custumer/add",function()
-{
-    return view("custumer.cadastro_custumer");
-})->name("cadastro_custumer");
-
-Route::post("/custumer/add", function()
-{
-    return view("custumer.cadastro_custumer");
-})->name("cadastro_custumer");
+Route::get('customer', "CustomerController@index")->name('customer.home');
+Route::get('/customer/list', "CustomerController@showAll")->name("customer.list");
+Route::get('customer/create', "CustomerController@create")->name("customer.create");
+Route::post('customer/store', "CustomerController@store")->name("customer.store");
+Route::get('customer/edit', "CustomerController@edit")->name("customer.edit");
+Route::put('customer/update', "CustomerController@update")->name("customer.update");
+Route::get('customer/delete', "CustomerController@delete")->name("customer.delete");
+Route::delete('customer/destroy', "CustomerController@destroy")->name("customer.destroy");
+Route::get('customer/show', "CustomerController@show")->name("customer.show");
+Route::post('customer/search', "CustomerController@search")->name("customer.search");
 
 // COMPANY
 Route::get('company', "CompanyController@index")->name('company.home');

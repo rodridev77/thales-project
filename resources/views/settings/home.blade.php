@@ -12,7 +12,7 @@
                     <i class="ion ion-bag"></i>
                     <ion-icon name="storefront-outline"></ion-icon>
                 </div>
-                <a href="#" class="small-box-footer" onclick="loadViewInHome('{{url('company')}}')">Ir <i
+                <a href="#" class="small-box-footer" onclick="loadViewInHome('{{route('company.home')}}')">Ir <i
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
@@ -73,7 +73,8 @@
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="#" class="small-box-footer" onclick="loadViewInHome('{{url('sku.home')}}')">Ir <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer" onclick="loadViewInHome('{{route('sku.home')}}')">Ir <i
+                        class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>

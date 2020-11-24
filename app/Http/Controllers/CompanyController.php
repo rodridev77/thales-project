@@ -12,8 +12,8 @@ class CompanyController extends Controller
 
     public function index()
     {
-        $id = 1;
-        $company = Company::where('id', $id)->first();
+        //$id = 1;
+        $company = "teste"; //Company::where('id', $id)->first();
         return view("company.home", ["company" => $company]);
     }
 
