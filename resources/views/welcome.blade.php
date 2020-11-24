@@ -143,8 +143,8 @@
                             </a>
                         </li>
                     </ul>
-                    </nav>
-                    <!-- /.sidebar-menu -->
+                </nav>
+                <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->
         </aside>
@@ -269,56 +269,81 @@
     <script src="{{asset('js/ajaxRequests.js')}}"></script>
 
     <script>
-    $(function() {
-        $("#example1").DataTable({
-            "responsive": true,
-            "autoWidth": false,
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
         });
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
         });
-    });
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000
-    });
     </script>
     <script>
-    function loadViewInHome(url) {
-        $("#home_menu_container").html("");
+        function loadViewInHome(url)
+        {
+            $("#home_menu_container").html("");
 
-        $("#spinner").removeClass("d-none");
+            $("#spinner").removeClass("d-none");
 
-        axios.get(url).then((response) => {
-            $("#spinner").addClass("d-none");
-            $("#home_menu_container").html(response.data);
+            axios.get(url).then((response) =>
+            {
+                $("#spinner").addClass("d-none");
+                $("#home_menu_container").html(response.data);
+            });
+        }
+        // Save Employee from request
+        request.makeRequest("data-saveemployee", (response) =>
+        {
+            if (response.status === 500)
+            {
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Houve um erro tente novamente , ou contacte o suporte'
+                });
+            }
+            if (response.status === 200)
+            {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Funcionario Cadastrado'
+                });
+            }
         });
-    }
+        // Delete Employee form request
+        request.makeRequest("data-deleteemployee", (response) =>
+        {
+            if (response.status === 500)
+            {
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Houve um erro tente novamente , ou contacte o suporte'
+                });
+            }
+            if (response.status === 200)
+            {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Funcionario Deletado'
+                });
+                loadViewInHome("{{url('/funcionarios/')}}")
+            }
+        });
 
-    request.makeRequest("data-saveemployee", (response) => {
-        if (response.status === 500) {
-            Toast.fire({
-                icon: 'error',
-                title: 'Houve um erro tente novamente , ou contacte o suporte'
-            });
-        }
-        if (response.status === 200) {
-            Toast.fire({
-                icon: 'success',
-                title: 'Funcionario Cadastrado'
-            });
-        }
-    });
-
-    request.makeRequest("data-savesku", (response) => {
+        // Save SKU from request
+        request.makeRequest("data-savesku", (response) => {
         if (response.status === 500) {
             Toast.fire({
                 icon: 'error',
@@ -332,6 +357,7 @@
             });
         }
     });
+
     </script>
 </body>
 
