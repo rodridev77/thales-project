@@ -304,7 +304,7 @@
                 $("#home_menu_container").html(response.data);
             });
         }
-
+        // Save Employee from request
         request.makeRequest("data-saveemployee", (response) =>
         {
             if (response.status === 500)
@@ -322,7 +322,7 @@
                 });
             }
         });
-        /** Delete Employee form request */
+        // Delete Employee form request
         request.makeRequest("data-deleteemployee", (response) =>
         {
             if (response.status === 500)
@@ -341,6 +341,22 @@
                 loadViewInHome("{{url('/funcionarios/')}}")
             }
         });
+
+        // Save SKU from request
+        request.makeRequest("data-savesku", (response) => {
+        if (response.status === 500) {
+            Toast.fire({
+                icon: 'error',
+                title: 'Houve um erro tente novamente , ou contacte o suporte'
+            });
+        }
+        if (response.status === 200) {
+            Toast.fire({
+                icon: 'success',
+                title: 'SKU Cadastrado'
+            });
+        }
+    });
 
     </script>
 </body>
