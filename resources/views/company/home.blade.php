@@ -12,7 +12,7 @@
 
 @extends('content_container_card')
 @php
-    $title = "Perfil do Funcionario"
+    $title = "Perfil da Empresa"
 @endphp
 @section('card-body')
 <div class="row">

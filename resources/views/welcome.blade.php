@@ -323,7 +323,7 @@
             }
         });
         /** Delete Employee form request */
-        request.makeRequest("data-destroyemployee", (response) =>
+        request.makeRequest("data-deleteemployee", (response) =>
         {
             if (response.status === 500)
             {
