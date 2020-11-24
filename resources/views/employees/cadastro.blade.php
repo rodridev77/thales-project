@@ -22,11 +22,7 @@ $title = "Cadastro de Funcionario"
                             <div class="form-group col-md-4">
                                 <label for="exampleInputEmail1">Foto</label><br />
                                 <img width="65" height="65" id="avatar" />
-<<<<<<< HEAD
                                 <input type="file" name="image" class="form-control" id="frmavatar" placeholder="avatar"
-=======
-                                <input type="file" name="avatar" class="form-control" id="frmavatar" placeholder="avatar"
->>>>>>> 4da4e3bcd29eb2c202577aa63efd3dc7ac0f1a95
                                 style="height: 65px; margin-top: -65px; opacity: 0">
                             </div>
                         </div>

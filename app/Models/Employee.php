@@ -13,6 +13,7 @@ class Employee extends Model
 {
     use HasFactory;
     protected $fillable = [
+                            "image",
                             "name",
                             "cpf",
                             "rg",
@@ -34,7 +35,7 @@ class Employee extends Model
     }
 
     public function grantAutorizedUserAccess(){
-        
+
     }
 
     public function bankData(){

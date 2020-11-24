@@ -26,12 +26,11 @@ class EmployeeController extends Controller
                     $name = time().'.'.$image->getClientOriginalExtension();
                     $destinationPath = public_path('/images');
                     $image->move($destinationPath, $name);
-                    $imagePath = "{$destinationPath}/{$name}";
-                    return back()->with('success','Image Upload successfully');
+                    $imagePath = "/images\/".$name;
+                    //return back()->with('success','Image Upload successfully');
                 }
-
                 $employee = Employee::create([
-                    "image" => $imagePath,
+                     "image" => $imagePath,
                      "name"=> $request->name,
                      "birthday"=>$request->birthday,
                      "mother_name" => $request->mother_name,
