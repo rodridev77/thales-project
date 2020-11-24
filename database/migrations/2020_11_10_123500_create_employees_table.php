@@ -18,6 +18,7 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->string("image");
             $table->string("name");
+            $table->string("image");
             $table->string("cpf")->unique();
             $table->string("rg")->unique();
             $table->string("phone")->unique();
