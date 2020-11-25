@@ -81,3 +81,9 @@ Route::get('sku/delete', "SkuController@delete")->name("sku.delete");
 Route::delete('sku/destroy', "SkuController@destroy")->name("sku.destroy");
 Route::get('sku/show', "SkuController@show")->name("sku.show");
 Route::post('sku/search', "SkuController@search")->name("sku.search");
+
+// EMPLOYEE
+Route::group(array('before' => 'lojas'), function()
+{
+    Route::get('/', "ShopController@index")->name("shop");
+});
