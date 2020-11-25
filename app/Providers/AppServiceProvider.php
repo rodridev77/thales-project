@@ -4,6 +4,7 @@ namespace App\Providers;
 use Faker\Generator as FakerGenerator;
 use Faker\Factory as FakerFactory;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,5 +28,16 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        Blade::directive('money', function ($amount) {
+            return "<?php echo number_format($amount, 2,',','.'); ?>";
+        });
+
+        Blade::directive('date', function ($date) {
+            return "<?php echo date('d/m/Y', strtotime($date)); ?>";
+        });
+
+        Blade::directive('datetime', function ($date) {
+            return "<?php echo date('d/m/Y h:i:s', strtotime($date)); ?>";
+        });
     }
 }
