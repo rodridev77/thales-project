@@ -41,13 +41,13 @@ class CategoryController extends Controller
             return response()->json(["Não foi possível criar a loja"], 500);
         }
 
-    }
+    } */
     
     public function create()
     {
-        return view("company.create");
+        return view("category.create");
     }
-
+/**
     public function show(Request $request, $id)
     {
         $company = Company::where("id", $id)->first();
