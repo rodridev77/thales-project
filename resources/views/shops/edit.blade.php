@@ -3,7 +3,8 @@
 $title = "Atualizacao de Loja"
 @endphp
 @section('card-body')
-<form data-sendrequest="{{url('/lojas/update/'.$data->id)}}" method="POST">
+<form data-sendrequest="{{url('/lojas/'.$data->id)}}" method="POST">
+    @method("PUT")
     @csrf
     <div class="row">
         <div class="col-md-12">

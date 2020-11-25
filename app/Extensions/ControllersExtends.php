@@ -13,6 +13,7 @@ abstract class ControllersExtends extends Controller implements ControllersInter
 {
     private $model = null;
     private $template = null;
+    private $with = [];
 
     public function __construct($model, String $template)
     {
@@ -20,12 +21,9 @@ abstract class ControllersExtends extends Controller implements ControllersInter
         $this->template = $template;
     }
 
-    public function index($with = [])
+    public function index()
     {
         $data = $this->model::all();
-        if (count($with) > 0) {
-            $data = $this->model::with($with)->get();
-        }
         return view("{$this->template}.index", ["data" => $data]);
     }
 
@@ -34,16 +32,13 @@ abstract class ControllersExtends extends Controller implements ControllersInter
         return view("{$this->template}.create");
     }
 
-    public function edit(Request $request, $id, $with = [])
+    public function edit($id)
     {
         $data = $this->model::where("id", $id)->first();
-        if (count($with) > 0) {
-            $data = $this->model::with($with)->where("id", $id)->first();
-        }
         return view("{$this->template}.edit", ["data" => $data]);
     }
 
-    public function details(Request $request, $id, $with = [])
+    public function show(Request $request, $id, $with = [])
     {
         $data = $this->model::where("id", $id)->first();
         if (count($with) > 0) {
@@ -57,7 +52,21 @@ abstract class ControllersExtends extends Controller implements ControllersInter
         try {
             $data = $request->all();
             unset($data["_token"]);
-            $this->model::create($data);
+            unset($data["_method"]);
+            if(count($this->with) > 0){
+                $i = 0;
+                $primary = null;
+                foreach($this->with["data"] as $model=>$fields){
+                    if($i == 0 ){
+                      $primary = $model::create($fields);
+                      $i++;
+                      continue;
+                    }
+                    $i++;
+                    $fields[$this->with["changes"]->key] = $primary->id;
+                    $model::create($fields);
+                }
+            }
             return response()->json(["Cadastrado com Sucesso!"]);
         } catch (Exception $error) {
             return response()->json(["message" => "Problema ao Cadastrar. ".$error->getMessage()], 500);
@@ -69,10 +78,17 @@ abstract class ControllersExtends extends Controller implements ControllersInter
         try {
             $data = $request->all();
             unset($data["_token"]);
-            $this->model::where("id", $id)->update($data);
+            unset($data["_method"]);
+            if(count($this->with) > 0){
+                $i = 0;
+                foreach($this->with["data"] as $model=>$fields){
+                    $model::where($i == 0 ? 'id' : $this->with["changes"]->key, $id)->update($fields);
+                    $i++;
+                }
+            }
             return response()->json(["Atualizado com Sucesso!"]);
         } catch (Exception $error) {
-            return response()->json(["message" => "Problema ao Atualizar."], 500);
+            return response()->json(["message" => "Problema ao Atualizar.". $error->getMessage()], 500);
         }
     }
 
@@ -84,5 +100,9 @@ abstract class ControllersExtends extends Controller implements ControllersInter
         } catch (Exception $error) {
             return response()->json(["message" => "Problema ao Atualziar."], 500);
         }
+    }
+
+    public function withAndChange($modules = [],$changes = ["permiss" => false, "key" => ""]){
+        $this->with = ["data" => $modules, "changes" => (Object) $changes];
     }
 }

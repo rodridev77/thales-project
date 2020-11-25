@@ -32,16 +32,7 @@ Route::get("/lte",function(){
 });
 
 // EMPLOYEE
-Route::get("funcionarios","EmployeeController@index")->name("employees");
-Route::get("/funcionarios/add","EmployeeController@create")->name("employees.create");
-Route::post("/funcionarios/add","EmployeeController@store")->name("employees.store");
-Route::get("/funcionarios/edit/{id}","EmployeeController@edit")->name("employees.edit");
-Route::post("/funcionarios/edit/{id}","EmployeeController@update")->name("employees.update");
-Route::get("funcionarios/{id}","EmployeeController@show")->name("employees.show");
-
-Route::get("funcionarios/edit/{id}","EmployeeController@edit")->name("employees.edit");
-Route::post("funcionarios/edit/{id}","EmployeeController@update")->name("employees.update");
-Route::delete("funcionarios/{id}","EmployeeController@destroy")->name("employees.delete");
+Route::name("employees")->resource('funcionarios', 'EmployeeController');
 
 // CUSTOMER
 Route::get('customer', "CustomerController@index")->name('customer.home');
@@ -100,3 +91,4 @@ Route::get('category/delete', "CategoryController@delete")->name("category.delet
 Route::delete('category/destroy/{id}', "CategoryController@destroy")->name("category.destroy");
 Route::get('category/show', "CategoryController@show")->name("category.show");
 Route::post('category/search', "CategoryController@search")->name("category.search");
+
