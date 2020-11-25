@@ -54,12 +54,19 @@ abstract class ControllersExtends extends Controller implements ControllersInter
             unset($data["_token"]);
             unset($data["_method"]);
             if(count($this->with) > 0){
+                $i = 0;
+                $primary = null;
                 foreach($this->with["data"] as $model=>$fields){
+                    if($i == 0 ){
+                      $primary = $model::create($fields);
+                      $i++;
+                      continue;
+                    }
+                    $i++;
+                    $fields[$this->with["changes"]->key] = $primary->id;
                     $model::create($fields);
                 }
             }
-
-            $this->model::create($data);
             return response()->json(["Cadastrado com Sucesso!"]);
         } catch (Exception $error) {
             return response()->json(["message" => "Problema ao Cadastrar. ".$error->getMessage()], 500);
@@ -76,6 +83,7 @@ abstract class ControllersExtends extends Controller implements ControllersInter
                 $i = 0;
                 foreach($this->with["data"] as $model=>$fields){
                     $model::where($i == 0 ? 'id' : $this->with["changes"]->key, $id)->update($fields);
+                    $i++;
                 }
             }
             return response()->json(["Atualizado com Sucesso!"]);
