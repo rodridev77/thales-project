@@ -104,7 +104,7 @@ $title = "Perfil do Funcionario"
                             <b>Salario : </b>{{$employee->contract->salary}}
                             </li>
                             <li class="nav-item">
-                            <b>Registro : </b>{{$employee->contract->admission_date->format('d/m/Y')}}
+                            <b>Registro : </b>{{$employee->contract->admission_date}}
                             </li>
                             <li class="nav-item">
                             <b>Dispensa : </b>{{$employee->contract->dismission_date}}
