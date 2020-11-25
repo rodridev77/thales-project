@@ -1,12 +1,12 @@
 @extends('content_container_card')
 @php
-$title = "Funcionarios";
+$title = "Lojas";
 @endphp
 @section('card-tools')
-<button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('employees.create')}}')"><i class="fas fa-plus"></i>Adicionar Funcionario</button>
+<button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('shops.create')}}')"><i class="fas fa-plus"></i>Adicionar Loja</button>
 @endsection
 @section('card-body')
-@if (count($employees) > 0)
+@if (count($data) > 0)
 <table id="example1" class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -18,7 +18,7 @@ $title = "Funcionarios";
         </tr>
     </thead>
     <tbody>
-        @foreach ($item as $data)
+        @foreach ($data as $item)
         <tr>
             <td>{{$item->fantasyname}}</td>
             <td>{{$item->companyname}}</td>

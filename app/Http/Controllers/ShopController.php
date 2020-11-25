@@ -10,12 +10,8 @@ use App\Models\Shop;
 
 class ShopController extends ControllersExtends
 {
-    public function __construct(){
+    public function __construct($model = null, $template = null){
         $model = new Shop;
-        parent::__construct($model,"Shop");
-    }
-    public function index(){
-        return parent::index();
-
+        parent::__construct(Shop::class,"shops");
     }
 }
