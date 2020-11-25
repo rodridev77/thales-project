@@ -3,7 +3,7 @@
 $title = "Lojas";
 @endphp
 @section('card-tools')
-<button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('shops.create')}}')"><i class="fas fa-plus"></i>Adicionar Loja</button>
+<button type="button" class="btn btn-success" onclick="loadViewInHome('{{url('lojas/create')}}')"><i class="fas fa-plus"></i>Adicionar Loja</button>
 @endsection
 @section('card-body')
 @if (count($data) > 0)
@@ -25,8 +25,8 @@ $title = "Lojas";
             <td>{{$item->cnpj}}</td>
             <td>{{$item->ie}}</td>
             <td>
-                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('lojas/edit/'.$item->id)}}')"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-employeeid="{{$item->id}}"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('lojas/'.$item->id.'/edit')}}')"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-shopid="{{$item->id}}"><i class="fa fa-trash"></i></button>
                 <button class="btn btn-xs btn-success" onclick="loadViewInHome('{{url('lojas/'.$item->id)}}')"><i class="fa fa-eye"></i></button>
             </td>
         </tr>
@@ -47,7 +47,7 @@ $title = "Lojas";
                 <p>Você Realmente deseja excluir essa loja ?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <form id="delete" data-destroyloja="{{url('/lojas/'.$item->id)}}" method="DELETE">
+                <form id="delete" data-sendrequest="{{url('/lojas/'.$item->id)}}" method="DELETE">
                     @method("DELETE")
                     <button class="btn btn-outline-light" data-dismiss="modal">Não</button>
                     <button class="btn btn-outline-light" id="confirm-delete">Sim</button>

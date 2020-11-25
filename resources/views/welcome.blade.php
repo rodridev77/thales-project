@@ -95,7 +95,7 @@
                             </a>
                         </li>
                         <li class="nav-item border-bottom">
-                            <a href="#" class="nav-link" onclick="loadViewInHome('{{route('shops')}}')">
+                            <a href="#" class="nav-link" onclick="loadViewInHome('{{url('lojas')}}')">
                                 <i class="nav-icon fas fa-store-alt"></i>
                                 <p>
                                     Lojas

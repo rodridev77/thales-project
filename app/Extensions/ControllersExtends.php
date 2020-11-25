@@ -20,12 +20,9 @@ abstract class ControllersExtends extends Controller implements ControllersInter
         $this->template = $template;
     }
 
-    public function index($with = [])
+    public function index()
     {
         $data = $this->model::all();
-        if (count($with) > 0) {
-            $data = $this->model::with($with)->get();
-        }
         return view("{$this->template}.index", ["data" => $data]);
     }
 
@@ -34,16 +31,13 @@ abstract class ControllersExtends extends Controller implements ControllersInter
         return view("{$this->template}.create");
     }
 
-    public function edit(Request $request, $id, $with = [])
+    public function edit($id)
     {
         $data = $this->model::where("id", $id)->first();
-        if (count($with) > 0) {
-            $data = $this->model::with($with)->where("id", $id)->first();
-        }
         return view("{$this->template}.edit", ["data" => $data]);
     }
 
-    public function details(Request $request, $id, $with = [])
+    public function show(Request $request, $id, $with = [])
     {
         $data = $this->model::where("id", $id)->first();
         if (count($with) > 0) {
@@ -69,6 +63,7 @@ abstract class ControllersExtends extends Controller implements ControllersInter
         try {
             $data = $request->all();
             unset($data["_token"]);
+            unset($data["_method"]);
             $this->model::where("id", $id)->update($data);
             return response()->json(["Atualizado com Sucesso!"]);
         } catch (Exception $error) {

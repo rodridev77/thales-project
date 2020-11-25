@@ -83,8 +83,11 @@ Route::get('sku/show', "SkuController@show")->name("sku.show");
 Route::post('sku/search', "SkuController@search")->name("sku.search");
 
 // EMPLOYEE
-Route::get('lojas', "ShopController@index")->name("shops");
+Route::name("shops")->resource('lojas', 'ShopController');
+//Route::post("lojas/{id}/update","ShopController@update")->name("shops.update");
+/*Route::get('lojas', "ShopController@index")->name("shops");
 Route::get('lojas/create', "ShopController@create")->name("shops.create");
 Route::get('lojas/edit/{id}', "ShopController@edit")->name("shops.edit");
 Route::post("lojas/store","ShopController@store")->name("shops.store");
 Route::post("lojas/update/{id}","ShopController@update")->name("shops.update");
+Route::delete("lojas/{id}","ShopController@destroy")->name("shops.destroy"); */
