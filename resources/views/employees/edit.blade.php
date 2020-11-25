@@ -3,7 +3,8 @@
 $title = "Atualização de Funcionario"
 @endphp
 @section('card-body')
-<form data-saveemployee="{{url('/funcionarios/edit/'.$employee->id)}}" method="POST">
+<form data-saveemployee="{{url('/funcionarios/'.$data->id)}}" method="POST">
+    @method('PUT')
     @csrf
     <div class="row">
         <div class="col-md-12">
@@ -21,38 +22,38 @@ $title = "Atualização de Funcionario"
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Foto</label><br />
-                            <img width="65" src="{{ URL::to($employee->image) }}" height="65" id="avatar" />
-                            <input type="file" value="{{$employee->image}}" name="image" class="form-control" id="frmavatar" placeholder="avatar" style="height: 65px; margin-top: -65px; opacity: 0">
+                            <img width="65" src="{{ URL::to($data->image) }}" height="65" id="avatar" />
+                            <input type="file" value="{{$data->image}}" name="image" class="form-control" id="frmavatar" placeholder="avatar" style="height: 65px; margin-top: -65px; opacity: 0">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-8">
                             <label for="exampleInputEmail1">Nome Completo</label>
-                            <input type="text" name="name" value="{{$employee->name}}" class="form-control" id="exampleInputEmail1" placeholder="Nome completo">
+                            <input type="text" name="name" value="{{$data->name}}" class="form-control" id="exampleInputEmail1" placeholder="Nome completo">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Data de Nascimento</label>
-                            <input type="date" name="birthday" value="{{$employee->birthday}}" class="form-control" id="exampleInputEmail1">
+                            <input type="date" name="birthday" value="{{$data->birthday}}" class="form-control" id="exampleInputEmail1">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">CPF</label>
-                            <input type="text" name="cpf" value="{{$employee->cpf}}" class="form-control" id="exampleInputtext1" placeholder="CPF">
+                            <input type="text" name="cpf" value="{{$data->cpf}}" class="form-control" id="exampleInputtext1" placeholder="CPF">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">RG</label>
-                            <input type="text" name='rg' value="{{$employee->rg}}" class="form-control" id="exampleInputtext1" placeholder="RG">
+                            <input type="text" name='rg' value="{{$data->rg}}" class="form-control" id="exampleInputtext1" placeholder="RG">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">Telefone</label>
-                            <input type="text" name="phone" value="{{$employee->phone}}" class="form-control" id="exampleInputtext1" placeholder="text">
+                            <input type="text" name="phone" value="{{$data->phone}}" class="form-control" id="exampleInputtext1" placeholder="text">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleInputtext1">Nome da Mãe</label>
-                            <input type="text" name="mother_name" value="{{$employee->mother_name}}" class="form-control" id="exampleInputtext1" placeholder="Nome da mãe">
+                            <input type="text" name="mother_name" value="{{$data->mother_name}}" class="form-control" id="exampleInputtext1" placeholder="Nome da mãe">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleInputtext1">Nome do Pai</label>
-                            <input type="text" name="father_name" value="{{$employee->father_name}}" class="form-control" id="exampleInputtext1" placeholder="Nome do pai">
+                            <input type="text" name="father_name" value="{{$data->father_name}}" class="form-control" id="exampleInputtext1" placeholder="Nome do pai">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">Gênero</label>
@@ -76,7 +77,7 @@ $title = "Atualização de Funcionario"
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">Email</label>
-                            <input type="email" name="email" value="{{$employee->email}}" class="form-control" id="exampleInputtext1" placeholder="Email">
+                            <input type="email" name="email" value="{{$data->email}}" class="form-control" id="exampleInputtext1" placeholder="Email">
                         </div>
                     </div>
                 </div>
@@ -97,33 +98,33 @@ $title = "Atualização de Funcionario"
                             {{-- <select class="form-control" name="uf" id="estados" onchange="setCities(event)">
                                     <option selected disabled>Selecione seu estado</option>
                                 </select> --}}
-                            <input type="text" name="uf" value="{{$employee->address->uf}}" placeholder="Estado" class="form-control">
+                            <input type="text" name="uf" value="{{$data->address->uf}}" placeholder="Estado" class="form-control">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Cidade</label>
-                            {{-- <select class="form-control" name="city" value="{{$employee->address->city}}" id="cidades" data-code="" onclick="setDistricts(event)">
+                            {{-- <select class="form-control" name="city" value="{{$data->address->city}}" id="cidades" data-code="" onclick="setDistricts(event)">
                             <option selected disabled>Selecione sua cidade</option>
                             </select> --}}
-                            <input type="text" name="city" value="{{$employee->address->city}}" placeholder="Cidade" class="form-control">
+                            <input type="text" name="city" value="{{$data->address->city}}" placeholder="Cidade" class="form-control">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Bairro</label>
                             {{-- <select class="form-control" id="bairros" name="district">
                                     <option selected disabled>Selecione seu Bairro</option>
                                 </select> --}}
-                            <input type="text" name="district" value="{{$employee->address->district}}" placeholder="Bairro" class="form-control">
+                            <input type="text" name="district" value="{{$data->address->district}}" placeholder="Bairro" class="form-control">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputFile">Rua</label>
-                            <input type="text" class="form-control" name="street" value="{{$employee->address->street}}" id="exampleInputFile" placeholder="nome da rua">
+                            <input type="text" class="form-control" name="street" value="{{$data->address->street}}" id="exampleInputFile" placeholder="nome da rua">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputFile">CEP</label>
-                            <input type="text" class="form-control" name="zipcode" value="{{$employee->address->zipcode}}" id="exampleInputFile" placeholder="CEP">
+                            <input type="text" class="form-control" name="zipcode" value="{{$data->address->zipcode}}" id="exampleInputFile" placeholder="CEP">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputFile">Numero</label>
-                            <input type="text" class="form-control" name="number" value="{{$employee->address->number}}" id="exampleInputFile" placeholder="numero da casa">
+                            <input type="text" class="form-control" name="number" value="{{$data->address->number}}" id="exampleInputFile" placeholder="numero da casa">
                         </div>
                     </div>
                 </div>
@@ -140,15 +141,15 @@ $title = "Atualização de Funcionario"
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Banco</label>
-                        <input type="text" class="form-control" name="bank" value="{{$employee->bankData->bank}}" id="exampleInputEmail1" placeholder="Enter email">
+                        <input type="text" class="form-control" name="bank" value="{{$data->bankData->bank}}" id="exampleInputEmail1" placeholder="Enter email">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Numero da conta</label>
-                        <input type="text" class="form-control" name="account_number" value="{{$employee->bankData->account_number}}" id="exampleInputtext1" placeholder="text">
+                        <input type="text" class="form-control" name="account_number" value="{{$data->bankData->account_number}}" id="exampleInputtext1" placeholder="text">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Agencia</label>
-                        <input type="text" class="form-control" name="agency" value="{{$employee->bankData->agency}}" id="exampleInputtext1" placeholder="text">
+                        <input type="text" class="form-control" name="agency" value="{{$data->bankData->agency}}" id="exampleInputtext1" placeholder="text">
                     </div>
                 </div>
             </div>
@@ -164,19 +165,19 @@ $title = "Atualização de Funcionario"
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Cargo</label>
-                        <input type="text" name="cargo" value="{{$employee->contract->cargo}}" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        <input type="text" name="cargo" value="{{$data->contract->cargo}}" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Salario</label>
-                        <input type="text" name="salary" value="{{$employee->contract->salary}}" class="form-control" id="exampleInputtext1" placeholder="text">
+                        <input type="text" name="salary" value="{{$data->contract->salary}}" class="form-control" id="exampleInputtext1" placeholder="text">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Data de Admisão</label>
-                        <input type="date" name="admission_date" value="{{$employee->contract->admission_date}}" class="form-control" id="exampleInputtext1" placeholder="text">
+                        <input type="date" name="admission_date" value="{{$data->contract->admission_date}}" class="form-control" id="exampleInputtext1" placeholder="text">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Data da Dispensa</label>
-                        <input type="date" name="dismission_date" value="{{$employee->contract->dismission_date}}" class="form-control" id="exampleInputtext1" placeholder="text">
+                        <input type="date" name="dismission_date" value="{{$data->contract->dismission_date}}" class="form-control" id="exampleInputtext1" placeholder="text">
                     </div>
                 </div>
             </div>

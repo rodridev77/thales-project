@@ -13,6 +13,7 @@ abstract class ControllersExtends extends Controller implements ControllersInter
 {
     private $model = null;
     private $template = null;
+    private $with = [];
 
     public function __construct($model, String $template)
     {
@@ -51,6 +52,13 @@ abstract class ControllersExtends extends Controller implements ControllersInter
         try {
             $data = $request->all();
             unset($data["_token"]);
+            unset($data["_method"]);
+            if(count($this->with) > 0){
+                foreach($this->with["data"] as $model=>$fields){
+                    $model::create($fields);
+                }
+            }
+
             $this->model::create($data);
             return response()->json(["Cadastrado com Sucesso!"]);
         } catch (Exception $error) {
@@ -64,10 +72,15 @@ abstract class ControllersExtends extends Controller implements ControllersInter
             $data = $request->all();
             unset($data["_token"]);
             unset($data["_method"]);
-            $this->model::where("id", $id)->update($data);
+            if(count($this->with) > 0){
+                $i = 0;
+                foreach($this->with["data"] as $model=>$fields){
+                    $model::where($i == 0 ? 'id' : $this->with["changes"]->key, $id)->update($fields);
+                }
+            }
             return response()->json(["Atualizado com Sucesso!"]);
         } catch (Exception $error) {
-            return response()->json(["message" => "Problema ao Atualizar."], 500);
+            return response()->json(["message" => "Problema ao Atualizar.". $error->getMessage()], 500);
         }
     }
 
@@ -79,5 +92,9 @@ abstract class ControllersExtends extends Controller implements ControllersInter
         } catch (Exception $error) {
             return response()->json(["message" => "Problema ao Atualziar."], 500);
         }
+    }
+
+    public function withAndChange($modules = [],$changes = ["permiss" => false, "key" => ""]){
+        $this->with = ["data" => $modules, "changes" => (Object) $changes];
     }
 }

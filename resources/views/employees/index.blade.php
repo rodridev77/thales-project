@@ -3,10 +3,10 @@
 $title = "Funcionarios";
 @endphp
 @section('card-tools')
-<button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('employees.create')}}')"><i class="fas fa-plus"></i>Adicionar Funcionario</button>
+<button type="button" class="btn btn-success" onclick="loadViewInHome('{{url('funcionarios/create')}}')"><i class="fas fa-plus"></i>Adicionar Funcionario</button>
 @endsection
 @section('card-body')
-@if (count($employees) > 0)
+@if (count($data) > 0)
 <table id="example1" class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -18,16 +18,16 @@ $title = "Funcionarios";
         </tr>
     </thead>
     <tbody>
-        @foreach ($employees as $employee)
+        @foreach ($data as $item)
         <tr>
-            <td>{{$employee->name}}</td>
-            <td>{{$employee->contract->cargo ?? "gerente"}}</td>
-            <td>{{$employee->cpf}}</td>
-            <td>{{$employee->phone}}</td>
+            <td>{{$item->name}}</td>
+            <td>{{$item->contract->cargo ?? "gerente"}}</td>
+            <td>{{$item->cpf}}</td>
+            <td>{{$item->phone}}</td>
             <td>
-                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('funcionarios/edit/'.$employee->id)}}')"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-employeeid="{{$employee->id}}"><i class="fa fa-trash"></i></button>
-                <button class="btn btn-xs btn-success" onclick="loadViewInHome('{{url('funcionarios/'.$employee->id)}}')"><i class="fa fa-eye"></i></button>
+                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('funcionarios/'.$item->id.'/edit')}}')"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-employeeid="{{$item->id}}"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-xs btn-success" onclick="loadViewInHome('{{url('funcionarios/'.$item->id)}}')"><i class="fa fa-eye"></i></button>
             </td>
         </tr>
         @endforeach
@@ -47,7 +47,7 @@ $title = "Funcionarios";
                 <p>Você Realmente deseja excluir esse funcionario ?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <form id="delete" data-destroyemployee="{{url('/funcionarios/'.$employee->id)}}" method="DELETE">
+                <form id="delete" data-destroyemployee="{{url('/funcionarios/'.$item->id)}}" method="DELETE">
                     @method("DELETE")
                     <button class="btn btn-outline-light" data-dismiss="modal">Não</button>
                     <button class="btn btn-outline-light" id="confirm-delete">Sim</button>

@@ -111,7 +111,7 @@
                             </a>
                         </li>
                         <li class="nav-item border-bottom">
-                            <a href="#" class="nav-link" onclick="loadViewInHome('{{route('employees')}}')">
+                            <a href="#" class="nav-link" onclick="loadViewInHome('{{url('funcionarios')}}')">
                                 <i class="nav-icon fas fa-people-carry"></i>
                                 <p>
                                     Funcionarios
