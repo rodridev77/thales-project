@@ -1,9 +1,9 @@
 @extends('content_container_card')
 @php
-$title = "Atualizacao de Loja"
+$title = "Cadastro de Loja"
 @endphp
 @section('card-body')
-<form data-sendrequest="{{url('/lojas/update/'.$data->id)}}" method="POST">
+<form data-saveemployee="{{url('/lojas/add')}}" method="POST">
     @csrf
     <div class="row">
         <div class="col-md-12">
@@ -11,7 +11,7 @@ $title = "Atualizacao de Loja"
                 <div class="card-header">
                     <h3 class="card-title">Informacoes basicas</h3>
                     <div class="card-tools">
-                        <button class="btn btn-success" type="submit"> <i class="fa fa-plus"></i> Atualizar</button>
+                        <button class="btn btn-success" type="submit"> <i class="fa fa-plus"></i> Cadastrar</button>
                     </div>
                 </div>
                 <!-- /.card-header -->
@@ -21,23 +21,19 @@ $title = "Atualizacao de Loja"
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="exampleInputEmail1">Nome Fantasia</label>
-                            <input type="text" name="fantasyname" class="form-control" id="exampleInputEmail1" placeholder="Nome Fantasia"
-                            value="{{$data->fantasyname}}">
+                            <input type="text" name="fantasyname" class="form-control" id="exampleInputEmail1" placeholder="Nome Fantasia">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleInputEmail1">Razao Social</label>
-                            <input type="text" name="companyname" class="form-control" id="exampleInputEmail1" placeholder="Razao Social"
-                            value="{{$data->companyname}}">
+                            <input type="text" name="companyname" class="form-control" id="exampleInputEmail1" placeholder="Razao Social">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleInputtext1">CPF</label>
-                            <input type="text" name="cnpj" class="form-control" id="exampleInputtext1" placeholder="CNPJ"
-                            value="{{$data->cnpj}}">
+                            <input type="text" name="cnpj" class="form-control" id="exampleInputtext1" placeholder="CNPJ">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="exampleInputtext1">IE</label>
-                            <input type="text" name='ie' class="form-control" id="exampleInputtext1" placeholder="IE"
-                            value="{{$data->ie}}">
+                            <label for="exampleInputtext1">RG</label>
+                            <input type="text" name='ie' class="form-control" id="exampleInputtext1" placeholder="IE">
                         </div>
                     </div>
                 </div>

@@ -19,6 +19,7 @@ abstract class ControllersExtends extends Controller implements ControllersInter
         $this->model = $model;
         $this->template = $template;
     }
+
     public function index($with = [])
     {
         $data = $this->model::all();
@@ -27,10 +28,12 @@ abstract class ControllersExtends extends Controller implements ControllersInter
         }
         return view("{$this->template}.index", ["data" => $data]);
     }
+
     public function create()
     {
         return view("{$this->template}.create");
     }
+
     public function edit(Request $request, $id, $with = [])
     {
         $data = $this->model::where("id", $id)->first();
@@ -39,6 +42,16 @@ abstract class ControllersExtends extends Controller implements ControllersInter
         }
         return view("{$this->template}.edit", ["data" => $data]);
     }
+
+    public function details(Request $request, $id, $with = [])
+    {
+        $data = $this->model::where("id", $id)->first();
+        if (count($with) > 0) {
+            $data = $this->model::with($with)->where("id", $id)->first();
+        }
+        return view("{$this->template}.details", ["data" => $data]);
+    }
+
     public function store(Request $request)
     {
         try {
@@ -50,6 +63,7 @@ abstract class ControllersExtends extends Controller implements ControllersInter
             return response()->json(["message" => "Problema ao Cadastrar. ".$error->getMessage()], 500);
         }
     }
+
     public function update(Request $request, $id)
     {
         try {
@@ -61,6 +75,7 @@ abstract class ControllersExtends extends Controller implements ControllersInter
             return response()->json(["message" => "Problema ao Atualizar."], 500);
         }
     }
+
     public function destroy(Request $request, $id)
     {
         try {

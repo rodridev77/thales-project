@@ -365,6 +365,25 @@
             });
         }
     });
+    // Send request Dinamically
+    request.makeRequest("data-sendrequest", (response) =>
+        {
+            console.log(response);
+            if (response.status === 500)
+            {
+                Toast.fire({
+                    icon: 'error',
+                    title: response.data[0]
+                });
+            }
+            if (response.status === 200)
+            {
+                Toast.fire({
+                    icon: 'success',
+                    title: response.data[0]
+                });
+            }
+        });
 
     </script>
 </body>
