@@ -8,7 +8,7 @@ use App\Models\Contract;
 use App\Models\Employee;
 use Illuminate\Database\Seeder;
 
-class Funcionario extends Seeder
+class EmployeeSeeder extends Seeder
 {
     /**
      * Run the database seeds.

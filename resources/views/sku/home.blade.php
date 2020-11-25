@@ -18,10 +18,10 @@ $title = "Tabela de Código SKU";
     <tbody>
     @foreach ($skuList as $sku)
         <tr>
-            <td>{{$sku->cod}}</td>
-            <td>{{$sku->description}}</td>
+            <td class="sku-cod">{{$sku->cod}}</td>
+            <td class="sku-description">{{$sku->description}}</td>
             <td>
-                <button class="btn btn-xs btn-info"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('sku/edit/'.$sku->id)}}')"><i class="fa fa-edit"></i></button>
                 <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#sku-delete" data-sku-id="{{$sku->id}}"><i
                         class="fa fa-trash"></i></button>
                 <button class="btn btn-xs btn-success"><i class="fa fa-eye"></i></button>
@@ -139,5 +139,6 @@ $('#sku-delete').on('show.bs.modal', function(event) {
 function loadSkuForm() {
     $('#create-sku-form').modal('show');
 }
+
 </script>
 @endsection

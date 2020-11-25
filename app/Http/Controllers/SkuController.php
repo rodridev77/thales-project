@@ -63,6 +63,12 @@ class SkuController extends Controller
         return response()->json(["Sku removido"]);
     }
 
+    public function edit($id)
+    {
+        $sku = Sku::where("id", $id)->first();
+        return view("sku.edit", ["sku" => $sku]);
+    }
+
     public function update($id, Request $request)
     {
         try {
