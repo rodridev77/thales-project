@@ -3,7 +3,7 @@
 $title = "Cadastro de Funcionario"
 @endphp
 @section('card-body')
-<form data-saveemployee="{{url('/funcionarios/store')}}" method="POST">
+<form data-saveemployee="{{url('/funcionarios')}}" method="POST">
     @csrf
     <div class="row">
         <div class="col-md-12">
