@@ -101,13 +101,13 @@ $title = "Perfil do Funcionario"
                                 <b>Cargo : </b>{{$employee->contract->cargo}}
                             </li>
                             <li class="nav-item">
-                            <b>Salario : </b>{{$employee->contract->salary}}
+                            <b>Salario : </b> R$ @money($employee->contract->salary)
                             </li>
                             <li class="nav-item">
-                            <b>Registro : </b>{{$employee->contract->admission_date}}
+                            <b>Registro : </b>@date($employee->contract->admission_date)
                             </li>
                             <li class="nav-item">
-                            <b>Dispensa : </b>{{$employee->contract->dismission_date}}
+                            <b>Dispensa : </b>@datetime($employee->contract->dismission_date)
                             </li>
                         </ul>
                     </div>
