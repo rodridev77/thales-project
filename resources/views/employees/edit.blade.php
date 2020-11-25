@@ -3,7 +3,7 @@
 $title = "Atualização de Funcionario"
 @endphp
 @section('card-body')
-<form data-saveemployee="{{url('/funcionarios/'.$data->id)}}" method="POST">
+<form data-sendrequest="{{url('/funcionarios/'.$data->id)}}" method="POST">
     @method('PUT')
     @csrf
     <div class="row">
