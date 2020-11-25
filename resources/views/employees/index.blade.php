@@ -47,7 +47,7 @@ $title = "Funcionarios";
                 <p>Você Realmente deseja excluir esse funcionario ?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <form id="delete" data-destroyemployee="{{url('/funcionarios/'.$item->id)}}" method="DELETE">
+                <form id="delete" data-sendrequest="{{url('/funcionarios/'.$item->id)}}" method="DELETE">
                     @method("DELETE")
                     <button class="btn btn-outline-light" data-dismiss="modal">Não</button>
                     <button class="btn btn-outline-light" id="confirm-delete">Sim</button>

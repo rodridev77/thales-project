@@ -66,6 +66,8 @@ abstract class ControllersExtends extends Controller implements ControllersInter
                     $fields[$this->with["changes"]->key] = $primary->id;
                     $model::create($fields);
                 }
+            }else{
+                $this->model::create($data);
             }
             return response()->json(["Cadastrado com Sucesso!"]);
         } catch (Exception $error) {
@@ -85,6 +87,8 @@ abstract class ControllersExtends extends Controller implements ControllersInter
                     $model::where($i == 0 ? 'id' : $this->with["changes"]->key, $id)->update($fields);
                     $i++;
                 }
+            }else{
+                $this->model::where('id', $id)->update($data);
             }
             return response()->json(["Atualizado com Sucesso!"]);
         } catch (Exception $error) {
