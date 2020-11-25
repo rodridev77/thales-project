@@ -88,3 +88,15 @@ Route::get('lojas/create', "ShopController@create")->name("shops.create");
 Route::get('lojas/edit/{id}', "ShopController@edit")->name("shops.edit");
 Route::post("lojas/store","ShopController@store")->name("shops.store");
 Route::post("lojas/update/{id}","ShopController@update")->name("shops.update");
+
+// CATEGORY
+Route::get('category', "CategoryController@index")->name('category.home');
+Route::get('/category/list', "CategoryController@showAll")->name("category.list");
+Route::get('category/create', "CategoryController@create")->name("category.create");
+Route::post('category/store', "CategoryController@store")->name("category.store");
+Route::get('category/edit/{id}', "CategoryController@edit")->name("category.edit");
+Route::put('category/update/{id}', "CategoryController@update")->name("category.update");
+Route::get('category/delete', "CategoryController@delete")->name("category.delete");
+Route::delete('category/destroy/{id}', "CategoryController@destroy")->name("category.destroy");
+Route::get('category/show', "CategoryController@show")->name("category.show");
+Route::post('category/search', "CategoryController@search")->name("category.search");
