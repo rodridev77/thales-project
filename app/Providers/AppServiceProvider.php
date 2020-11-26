@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Category;
 use App\Models\Employee;
+use App\Models\Product;
 use App\Models\Provider;
 use App\Models\Shop;
 use Faker\Generator as FakerGenerator;
@@ -37,6 +38,7 @@ class AppServiceProvider extends ServiceProvider
         View::share('globalCategories',Category::all());
         View::share('globalProviders',Provider::all());
         View::share('globalShops',Shop::all());
+        View::share('globalProducts',Product::all());
         View::share('globalEmployees',Employee::all());
         //
         Blade::directive('money', function ($amount) {

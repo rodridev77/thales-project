@@ -122,12 +122,12 @@
                             <a href="#" class="nav-link" onclick="loadViewInHome('{{route('products')}}')">
                                 <i class="nav-icon fas fa-barcode"></i>
                                 <p>
-                                    Produtos
+                                    Produtos <span data-toggle="tooltip" title="{{count($globalProducts)}} Produtos Cadastrados" class="badge bg-success">{{count($globalProducts)}}</span>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item border-bottom">
-                            <a href="#" class="nav-link" onclick="loadViewInHome('{{url('fornecedores')}}')">
+                            <a href="#" class="nav-link" onclick="loadViewInHome('{{route('fornecedores.index')}}')">
                                 <i class="nav-icon fas fa-truck"></i>
                                 <p>
                                     Fornecedores  <span data-toggle="tooltip" title="{{count($globalProviders)}} Fornecedores Cadastrados" class="badge bg-success">{{count($globalProviders)}}</span>
@@ -223,7 +223,7 @@
                             <!-- small box -->
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3>0</h3>
+                                    <h3>{{count($globalProducts)}}</h3>
 
                                     <p>Produtos</p>
                                 </div>
