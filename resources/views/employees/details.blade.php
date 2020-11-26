@@ -1,6 +1,7 @@
 @extends('content_container_card')
 @php
-$title = "Perfil do Funcionario"
+$title = "Perfil do Funcionario";
+$route = route("funcionarios.index");
 @endphp
 @section('card-body')
 <div class="row">

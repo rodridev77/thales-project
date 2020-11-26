@@ -1,6 +1,7 @@
 @extends('content_container_card')
 @php
 $title = "Atualização de Funcionario"
+$route = route("funcionarios.index");
 @endphp
 @section('card-body')
 <form data-sendrequest="{{url('/funcionarios/'.$data->id)}}" method="POST">

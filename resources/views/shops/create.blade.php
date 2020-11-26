@@ -1,6 +1,7 @@
 @extends('content_container_card')
 @php
-$title = "Cadastro de Loja"
+$title = "Cadastro de Loja";
+$route = route("lojas.index");
 @endphp
 @section('card-body')
 <form data-sendrequest="{{url('/lojas')}}" method="POST">
