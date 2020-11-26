@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Providers;
+
+use App\Models\Category;
 use Faker\Generator as FakerGenerator;
 use Faker\Factory as FakerFactory;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,6 +30,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //
+        View::share('categories',Category::all());
         //
         Blade::directive('money', function ($amount) {
             return "<?php echo number_format($amount, 2,',','.'); ?>";

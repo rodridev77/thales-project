@@ -77,15 +77,8 @@ Route::post('sku/search', "SkuController@search")->name("sku.search");
 Route::resource('lojas', 'ShopController');
 
 // CATEGORY
-Route::get('category', "CategoryController@index")->name('category.home');
+Route::resource('categorias', 'CategoryController');
 Route::get('/category/list', "CategoryController@showAll")->name("category.list");
-Route::get('category/create', "CategoryController@create")->name("category.create");
-Route::post('category/store', "CategoryController@store")->name("category.store");
-Route::get('category/edit/{id}', "CategoryController@edit")->name("category.edit");
-Route::put('category/update/{id}', "CategoryController@update")->name("category.update");
-Route::get('category/delete', "CategoryController@delete")->name("category.delete");
-Route::delete('category/destroy/{id}', "CategoryController@destroy")->name("category.destroy");
-Route::get('category/show', "CategoryController@show")->name("category.show");
 Route::post('category/search', "CategoryController@search")->name("category.search");
 
 // BRANDS

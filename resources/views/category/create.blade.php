@@ -1,13 +1,14 @@
 @extends('content_container_card')
 @php
-$title = "Cadastro de Categoria"
+$title = "Cadastro de Categoria";
+$route = route('categorias.index');
 @endphp
 @section('card-body')
 
 <div class="container" id="">
     <div class="row justify-content-center">
         <div class="col-sm-12 mb-3">
-            <form data-savecategory='{{route('category.store')}}' method="POST">
+            <form data-sendrequest="{{route('categorias.store')}}" method="POST">
                 @csrf
                 <div class="form-row">
                     <div class="form-group col-sm-12">
@@ -20,11 +21,13 @@ $title = "Cadastro de Categoria"
                 <div class="form-row">
                     <div class="form-group col-sm-12">
                         <label for="fathercat">Categoria Pai</label>
-                        <select class="form-control" id="fathercat" name="">
-                            <option selected disabled>Categoria</option>
-                            <option value="">Eketronicos</option>
-                            <option value="">Cel</option>
-                            <option value="">TV</option>
+                        <select class="form-control" id="fathercat" name="parent">
+                            <options disabled> Selecione uma categoria pai </option>
+                            @foreach($categories as $category)
+                                @if($category->parent === null)
+                                    <option value="{{$category->id}}"> {{$category->name}} </option>
+                                @endif
+                            @endforeach
                         </select>
                     </div>
                 </div>
