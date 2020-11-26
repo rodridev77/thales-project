@@ -36,7 +36,7 @@ $title = "Lojas";
 
 <div class="modal " id="exampleModal">
     <div class="modal-dialog">
-        <div class="modal-content bg-danger">
+        <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Deletar Loja</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -49,8 +49,8 @@ $title = "Lojas";
             <div class="modal-footer justify-content-between">
                 <form id="delete" data-sendrequest="{{url('/lojas/'.$item->id)}}" method="DELETE">
                     @method("DELETE")
-                    <button class="btn btn-outline-light" data-dismiss="modal">Não</button>
-                    <button class="btn btn-outline-light" id="confirm-delete">Sim</button>
+                    <button class="btn btn-priimary" data-dismiss="modal">Não</button>
+                    <button class="btn btn-danger" id="confirm-delete">Sim</button>
                 </form>
             </div>
         </div>
