@@ -100,9 +100,9 @@ abstract class ControllersExtends extends Controller implements ControllersInter
     {
         try {
             $this->model::destroy($id);
-            return response()->json(["Atualizado com Sucesso!"]);
+            return response()->json(["Deletado com Sucesso!"]);
         } catch (Exception $error) {
-            return response()->json(["message" => "Problema ao Atualziar."], 500);
+            return response()->json(["message" => "Problema ao Deletar."], 500);
         }
     }
 

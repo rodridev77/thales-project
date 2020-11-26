@@ -97,3 +97,5 @@ Route::delete('category/destroy/{id}', "CategoryController@destroy")->name("cate
 Route::get('category/show', "CategoryController@show")->name("category.show");
 Route::post('category/search', "CategoryController@search")->name("category.search");
 
+// BRANDS
+Route::name("brands")->resource('marcas', 'BrandsController');
