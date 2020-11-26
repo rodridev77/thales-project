@@ -55,7 +55,7 @@
                 </form>
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item ml-3">
-                    <button class="btn btn-md btn-danger">Sair</button>
+                    <a class="btn btn-md btn-danger" href="{{route('admin.logout')}}">Sair</a>
                 </li>
             </ul>
         </nav>

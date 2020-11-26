@@ -99,3 +99,12 @@ Route::post('category/search', "CategoryController@search")->name("category.sear
 
 // BRANDS
 Route::name("brands")->resource('marcas', 'BrandsController');
+
+// Auth
+Route::redirect('/admin', '/auth/admin');
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::get('/admin', "LoginController@loginForm")->name("auth.form")->middleware(["auth", "revalidate"]);
+    Route::post('login', "LoginController@login")->name("admin.login");
+    Route::get('logout', "LoginController@logout")->name("admin.logout");
+});
