@@ -8,7 +8,7 @@ $route = route('categorias.index');
 <div class="container" id="">
     <div class="row justify-content-center">
         <div class="col-sm-12 mb-3">
-            <form data-sendrequest="{{route('categorias.store')}}" method="POST">
+            <form data-sendrequest="{{url('/categorias')}}" method="POST">
                 @csrf
                 <div class="form-row">
                     <div class="form-group col-sm-12">
@@ -31,7 +31,6 @@ $route = route('categorias.index');
                         </select>
                     </div>
                 </div>
-
                 <button type="submit" class="btn btn-primary" name="enviar">Salvar</button>
             </form>
         </div>
