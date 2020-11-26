@@ -75,3 +75,5 @@ Route::post('sku/search', "SkuController@search")->name("sku.search");
 
 // SHOPS
 Route::name("shops")->resource('lojas', 'ShopController');
+// BRANDS
+Route::name("brands")->resource('marcas', 'BrandsController');

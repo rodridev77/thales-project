@@ -12,8 +12,7 @@
                     <i class="ion ion-bag"></i>
                     <ion-icon name="storefront-outline"></ion-icon>
                 </div>
-                <a href="#" class="small-box-footer" onclick="loadViewInHome('{{route('company.home')}}')">Ir <i
-                        class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" onclick="loadViewInHome('{{route('company.home')}}')" id="btnBrand" class="small-box-footer" data-toggle="modal" data-target="#myModal">Ir <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -43,7 +42,7 @@
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
                 </div>
-                <a href="#" class="small-box-footer">Ir <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" onclick="loadViewInHome('{{url('/marcas')}}')" title="Marcas" id="btnModal" class="small-box-footer" data-toggle="modal" data-target="#myModal">Ir <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -73,9 +72,38 @@
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="#" class="small-box-footer" onclick="loadViewInHome('{{route('sku.home')}}')">Ir <i
-                        class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer" onclick="loadViewInHome('{{route('sku.home')}}')">Ir <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+                <h4 class="modal-title">Modal</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Carregando ... &hellip;</p>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script>
+    $(document).ready(function(e) {
+        $('#btnModal').on('click', function(e){
+            e.preventDefault();
+            $("h4.modal-title").html($(this).attr("title"))
+            $("div.modal-body").load($(this).attr("href"));
+        });
+
+        $('btnBrand').on('click', () => {
+            $("div.modal-body").load("ajax/test.html");
+        });
+    });
+</script>
