@@ -19,7 +19,7 @@ $.fn.extend({
         //Valida o formato do CEP.
         if (validacep.test(cep)) {
           //Preenche os campos com "..." enquanto consulta webservice.
-          $("input[name='stree']").val("...");
+          $("input[name='street']").val("...");
           $("input[name='district']").val("...");
           $("input[name='city']").val("...");
           $("input[name='uf']").val("...");
