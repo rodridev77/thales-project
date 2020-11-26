@@ -1,6 +1,7 @@
 @extends('content_container_card')
 @php
-$title = "Detalhes da MArca"
+$title = "Detalhes da Marca";
+$route = route("marcas.index");
 @endphp
 @section('card-body')
 <div class="row">

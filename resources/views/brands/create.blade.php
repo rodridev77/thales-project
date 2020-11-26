@@ -1,6 +1,7 @@
 @extends('content_container_card')
 @php
-$title = "Cadastro de Marca"
+$title = "Cadastro de Marca";
+$route = route("marcas.index");
 @endphp
 @section('card-body')
 <form data-sendrequest="{{url('/marcas')}}" method="POST">
