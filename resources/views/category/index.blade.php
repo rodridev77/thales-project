@@ -1,6 +1,7 @@
 @extends('content_container_card')
 @php
 $title = "Lista de Categorias";
+$route = route('settings.home');
 @endphp
 @section('card-tools')
 <button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('categorias.create')}}')"><i class="fas fa-plus"></i>Cadastrar Categoria</button>

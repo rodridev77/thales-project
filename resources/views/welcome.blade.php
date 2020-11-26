@@ -98,7 +98,7 @@
                             <a href="#" class="nav-link" onclick="loadViewInHome('{{url('lojas')}}')">
                                 <i class="nav-icon fas fa-store-alt"></i>
                                 <p>
-                                    Lojas
+                                    Lojas <span data-toggle="tooltip" title="{{count($globalShops)}} Lojas Cadastradas" class="badge bg-success">{{count($globalShops)}}</span>
                                 </p>
                             </a>
                         </li>
@@ -114,7 +114,7 @@
                             <a href="#" class="nav-link" onclick="loadViewInHome('{{url('funcionarios')}}')">
                                 <i class="nav-icon fas fa-people-carry"></i>
                                 <p>
-                                    Funcionarios
+                                    Funcionarios  <span data-toggle="tooltip" title="{{count($globalEmployees)}} Funcionarios Cadastrados" class="badge bg-success">{{count($globalEmployees)}}</span>
                                 </p>
                             </a>
                         </li>
@@ -130,7 +130,7 @@
                             <a href="#" class="nav-link" onclick="loadViewInHome('{{url('fornecedores')}}')">
                                 <i class="nav-icon fas fa-truck"></i>
                                 <p>
-                                    Fornecedores
+                                    Fornecedores  <span data-toggle="tooltip" title="{{count($globalProviders)}} Fornecedores Cadastrados" class="badge bg-success">{{count($globalProviders)}}</span>
                                 </p>
                             </a>
                         </li>
@@ -175,14 +175,14 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>150</h3>
+                                    <h3>{{count($globalEmployees)}}</h3>
 
-                                    <p>New Orders</p>
+                                    <p>Funcionarios</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-bag"></i>
+                                    <i class="fa fa-truck"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i
+                                <a href="#" onclick="loadViewInHome('{{route('funcionarios.index')}}')" class="small-box-footer">Mais Detalhes <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
@@ -191,14 +191,14 @@
                             <!-- small box -->
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                    <h3>{{count($globalShops)}}</h3>
 
-                                    <p>Bounce Rate</p>
+                                    <p>Lojas</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
+                                    <i class="fas fa-store-alt"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i
+                                <a href="#" onclick="loadViewInHome('{{route('lojas.index')}}')" class="small-box-footer">Mais Detalhes <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
@@ -207,14 +207,14 @@
                             <!-- small box -->
                             <div class="small-box bg-warning">
                                 <div class="inner">
-                                    <h3>44</h3>
+                                    <h3>{{count($globalProviders)}}</h3>
 
-                                    <p>User Registrations</p>
+                                    <p>Fornecedores</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-truck"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i
+                                <a href="#" onclick="loadViewInHome('{{route('fornecedores.index')}}')" class="small-box-footer">Mais Detalhes <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
@@ -223,14 +223,14 @@
                             <!-- small box -->
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3>65</h3>
+                                    <h3>0</h3>
 
-                                    <p>Unique Visitors</p>
+                                    <p>Produtos</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
+                                    <i class="fas fa-barcode"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i
+                                <a href="#" onclick="loadViewInHome('{{url('products')}}')" class="small-box-footer">Mais Detalhes <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>

@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use App\Models\Category;
+use App\Models\Employee;
+use App\Models\Provider;
+use App\Models\Shop;
 use Faker\Generator as FakerGenerator;
 use Faker\Factory as FakerFactory;
 use Illuminate\Support\ServiceProvider;
@@ -30,8 +33,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-        View::share('categories',Category::all());
+        // Globals
+        View::share('globalCategories',Category::all());
+        View::share('globalProviders',Provider::all());
+        View::share('globalShops',Shop::all());
+        View::share('globalEmployees',Employee::all());
         //
         Blade::directive('money', function ($amount) {
             return "<?php echo number_format($amount, 2,',','.'); ?>";
