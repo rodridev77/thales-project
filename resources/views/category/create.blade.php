@@ -22,7 +22,7 @@ $route = route('categorias.index');
                     <div class="form-group col-sm-12">
                         <label for="fathercat">Categoria Pai</label>
                         <select class="form-control" id="fathercat" name="parent">
-                            <options disabled> Selecione uma categoria pai </option>
+                            <options> Nenhum </option>
                             @foreach($categories as $category)
                                 @if($category->parent === null)
                                     <option value="{{$category->id}}"> {{$category->name}} </option>
