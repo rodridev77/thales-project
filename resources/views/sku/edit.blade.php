@@ -1,4 +1,16 @@
 @extends('content_container_card')
+
+<div class="container-fluid" style="margin-top: 10px; margin-bottom:10px;">
+    <div class="row">
+        <div class="col-sm-12">
+            <a href="#" onclick="loadViewInHome('{{route('sku.home')}}')">
+                <i class='fas fa-arrow-left' style='font-size:16px;color: rgba(0, 123, 255, .7);'></i><span
+                    style="margin-left:5px">voltar</span>
+            </a>
+        </div>
+    </div>
+</div>
+
 @php
 $title = "Tabela de Código SKU";
 @endphp

@@ -1,4 +1,16 @@
 @extends('content_container_card')
+
+<div class="container-fluid" style="margin-top: 10px; margin-bottom:10px;">
+    <div class="row">
+        <div class="col-sm-12">
+            <a href="#" onclick="loadViewInHome('{{route('settings.home')}}')">
+                <i class='fas fa-arrow-left' style='font-size:16px;color: rgba(0, 123, 255, .7);'></i><span
+                    style="margin-left:5px">voltar</span>
+            </a>
+        </div>
+    </div>
+</div>
+
 @php
 $title = "Tabela de Código SKU";
 @endphp
@@ -49,7 +61,7 @@ $title = "Tabela de Código SKU";
                 <div class="container" id="">
                     <div class="row justify-content-center">
                         <div class="col-sm-12 mb-3">
-                            <form data-savesku='{{route('sku.store')}}' method="POST">
+                            <form data-submitajax='{{route('sku.store')}}' method="POST">
                                 @csrf
                                 <div class="form-row">
                                     <div class="form-group col-sm-12">
@@ -76,9 +88,9 @@ $title = "Tabela de Código SKU";
     </div>
 </div>
 
-<div class="modal " id="sku-delete">
-    <div class="modal-dialog">
-        <div class="modal-content bg-danger">
+<div class="modal" id="sku-delete">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Deletar SKU</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -88,9 +100,9 @@ $title = "Tabela de Código SKU";
             <div class="modal-body">
                 <p>Você Realmente deseja excluir este sku?</p>
             </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-outline-light" data-dismiss="modal">Não</button>
-                <button type="button" class="btn btn-outline-light" id="confirm-delete">Sim</button>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                <button type="button" class="btn btn-success" id="confirm-delete">Sim</button>
             </div>
         </div>
         <!-- /.modal-content -->

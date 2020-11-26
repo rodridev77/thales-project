@@ -37,7 +37,7 @@ class SkuController extends Controller
                  ]);
             });
 
-            return response()->json(["Código SKU criado"]);
+            return response()->json(["message"=>"Código SKU criado"]);
         } 
         catch(Exception $error)
         {

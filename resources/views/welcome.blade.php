@@ -151,8 +151,8 @@
                             </a>
                         </li>
                     </ul>
-                </nav>
-                <!-- /.sidebar-menu -->
+                    </nav>
+                    <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->
         </aside>
@@ -277,81 +277,73 @@
     <script src="{{asset('js/ajaxRequests.js')}}"></script>
 
     <script>
-        $(function () {
-            $("#example1").DataTable({
-                "responsive": true,
-                "autoWidth": false,
-            });
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
-            });
+    $(function() {
+        $("#example1").DataTable({
+            "responsive": true,
+            "autoWidth": false,
         });
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
         });
+    });
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+    });
     </script>
     <script>
-        function loadViewInHome(url)
-        {
-            $("#home_menu_container").html("");
+    function loadViewInHome(url) {
+        $("#home_menu_container").html("");
 
-            $("#spinner").removeClass("d-none");
+        $("#spinner").removeClass("d-none");
 
-            axios.get(url).then((response) =>
-            {
-                $("#spinner").addClass("d-none");
-                $("#home_menu_container").html(response.data);
+        axios.get(url).then((response) => {
+            $("#spinner").addClass("d-none");
+            $("#home_menu_container").html(response.data);
+        });
+    }
+    // Save Employee from request
+    request.makeRequest("data-saveemployee", (response) => {
+        if (response.status === 500) {
+            Toast.fire({
+                icon: 'error',
+                title: 'Houve um erro tente novamente , ou contacte o suporte'
             });
         }
-        // Save Employee from request
-        request.makeRequest("data-saveemployee", (response) =>
-        {
-            if (response.status === 500)
-            {
-                Toast.fire({
-                    icon: 'error',
-                    title: 'Houve um erro tente novamente , ou contacte o suporte'
-                });
-            }
-            if (response.status === 200)
-            {
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Funcionario Cadastrado'
-                });
-            }
-        });
-        // Delete Employee form request
-        request.makeRequest("data-deleteemployee", (response) =>
-        {
-            if (response.status === 500)
-            {
-                Toast.fire({
-                    icon: 'error',
-                    title: 'Houve um erro tente novamente , ou contacte o suporte'
-                });
-            }
-            if (response.status === 200)
-            {
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Funcionario Deletado'
-                });
-                loadViewInHome("{{url('/funcionarios/')}}")
-            }
-        });
+        if (response.status === 200) {
+            Toast.fire({
+                icon: 'success',
+                title: 'Funcionario Cadastrado'
+            });
+        }
+    });
+    // Delete Employee form request
+    request.makeRequest("data-deleteemployee", (response) => {
+        if (response.status === 500) {
+            Toast.fire({
+                icon: 'error',
+                title: 'Houve um erro tente novamente , ou contacte o suporte'
+            });
+        }
+        if (response.status === 200) {
+            Toast.fire({
+                icon: 'success',
+                title: 'Funcionario Deletado'
+            });
+            loadViewInHome("{{url('/funcionarios/')}}")
+        }
+    });
 
-        // Save SKU from request
-        request.makeRequest("data-savesku", (response) => {
+    // Save SKU from request
+    request.makeRequest("data-savesku", (response) => {
         if (response.status === 500) {
             Toast.fire({
                 icon: 'error',
@@ -366,24 +358,37 @@
         }
     });
     // Send request Dinamically
-    request.makeRequest("data-sendrequest", (response) =>
-        {
-            console.log(response);
-            if (response.status === 500)
-            {
-                Toast.fire({
-                    icon: 'error',
-                    title: response.data[0]
-                });
-            }
-            if (response.status === 200)
-            {
-                Toast.fire({
-                    icon: 'success',
-                    title: response.data[0]
-                });
-            }
-        });
+    request.makeRequest("data-sendrequest", (response) => {
+        console.log(response);
+        if (response.status === 500) {
+            Toast.fire({
+                icon: 'error',
+                title: response.data[0]
+            });
+        }
+        if (response.status === 200) {
+            Toast.fire({
+                icon: 'success',
+                title: response.data[0]
+            });
+        }
+    });
+
+// Save SKU from request TESTE
+request.makeRequest("data-submitajax", (response) => {
+        if (response.status === 500) {
+            Toast.fire({
+                icon: 'error',
+                title: response.data.message
+            });
+        }
+        if (response.status === 200) {
+            Toast.fire({
+                icon: 'success',
+                title: response.data.message
+            });
+        }
+    });
 
     </script>
 </body>
