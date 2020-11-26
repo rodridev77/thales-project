@@ -18,9 +18,9 @@ class Authenticate
     public function handle(Request $request, Closure $next)
     {   
         if (Auth::check()) :
-            return redirect("/home");
+            return redirect("/");
         endif;
-        
+
         return $next($request);
     }
 }

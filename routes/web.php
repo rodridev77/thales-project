@@ -15,9 +15,8 @@ use Symfony\Component\HttpKernel\Event\ViewEvent;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name("home");
+// HOME
+Route::get('/', "HomeController@index")->name('home');
 
 Route::get("/products",function(){
     return view("products.index");
@@ -26,10 +25,6 @@ Route::get("/products",function(){
 Route::get("/products/cadastro",function(){
     return view("products.cadastro");
 })->name("products.cadastro");
-
-Route::get("/lte",function(){
-    return view('AdminLTE.index');
-});
 
 // EMPLOYEE
 Route::resource('funcionarios', 'EmployeeController');
@@ -90,6 +85,7 @@ Route::resource('fornecedores', 'ProviderController');
 
 // Auth
 Route::redirect('/admin', '/auth/admin');
+Route::redirect('/auth', '/auth/admin');
 
 Route::group(['prefix' => 'auth'], function () {
     Route::get('/admin', "LoginController@loginForm")->name("auth.form")->middleware(["auth", "revalidate"]);
