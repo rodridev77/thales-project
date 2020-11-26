@@ -49,4 +49,8 @@ class Employee extends Model
     public function contract(){
         return $this->hasOne(Contract::class,"employee_id","id");
     }
+
+    public function shops(){
+        return $this->belongsToMany(Shop::class);
+    }
 }

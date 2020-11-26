@@ -127,7 +127,7 @@
                             </a>
                         </li>
                         <li class="nav-item border-bottom">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link" onclick="loadViewInHome('{{url('fornecedores')}}')">
                                 <i class="nav-icon fas fa-truck"></i>
                                 <p>
                                     Fornecedores
@@ -275,6 +275,8 @@
     <script src="../../dist/js/demo.js"></script>
     <script src="{{asset('js/app.js')}}"></script>
     <script src="{{asset('js/ajaxRequests.js')}}"></script>
+    <script src="{{asset('js/commonmethods.js')}}"></script>
+
 
     <script>
     $(function() {

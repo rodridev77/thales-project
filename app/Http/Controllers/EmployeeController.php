@@ -6,6 +6,7 @@ use App\Models\Address;
 use App\Models\BankData;
 use App\Models\Contract;
 use App\Models\Employee;
+use App\Models\Shop;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,8 +14,23 @@ use App\Extensions\ControllersExtends;
 
 class EmployeeController extends ControllersExtends
 {
+    private $model = Employee::class;
+    private $template = "employees";
     public function __construct($model = null, $template = null){
-        parent::__construct(Employee::class,"employees");
+        parent::__construct($this->model,$this->template);
+    }
+
+    public function edit($id)
+    {
+        $data = $this->model::where("id", $id)->first();
+        $shop = Shop::all();
+        return view("{$this->template}.edit", ["data" => $data, "shops" => $shop]);
+    }
+
+    public function create()
+    {
+        $data = Shop::all();
+        return view("{$this->template}.create", ["shops" => $data]);
     }
 
     public function update(Request $request, $id){

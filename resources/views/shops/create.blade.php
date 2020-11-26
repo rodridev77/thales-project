@@ -1,6 +1,7 @@
 @extends('content_container_card')
 @php
-$title = "Cadastro de Loja"
+$title = "Cadastro de Loja";
+$route = route("lojas.index");
 @endphp
 @section('card-body')
 <form data-sendrequest="{{url('/lojas')}}" method="POST">
@@ -28,11 +29,11 @@ $title = "Cadastro de Loja"
                             <input type="text" name="companyname" class="form-control" id="exampleInputEmail1" placeholder="Razao Social">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="exampleInputtext1">CPF</label>
+                            <label for="exampleInputtext1">CNPJ</label>
                             <input type="text" name="cnpj" class="form-control" id="exampleInputtext1" placeholder="CNPJ">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="exampleInputtext1">RG</label>
+                            <label for="exampleInputtext1">IE</label>
                             <input type="text" name='ie' class="form-control" id="exampleInputtext1" placeholder="IE">
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 @extends('content_container_card')
 @php
-$title = "Atualizacao de Loja"
+$title = "Atualizacao de Loja";
+$route = route("lojas.index");
 @endphp
 @section('card-body')
 <form data-sendrequest="{{url('/lojas/'.$data->id)}}" method="POST">
@@ -31,7 +32,7 @@ $title = "Atualizacao de Loja"
                             value="{{$data->companyname}}">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="exampleInputtext1">CPF</label>
+                            <label for="exampleInputtext1">CNPJ</label>
                             <input type="text" name="cnpj" class="form-control" id="exampleInputtext1" placeholder="CNPJ"
                             value="{{$data->cnpj}}">
                         </div>

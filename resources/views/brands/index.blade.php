@@ -1,6 +1,7 @@
 @extends('content_container_card')
 @php
 $title = "Marcas";
+$route = route("settings.home");
 @endphp
 @section('card-tools')
 <button type="button" class="btn btn-success" onclick="loadViewInHome('{{url('marcas/create')}}')"><i class="fas fa-plus"></i>Adicionar Marca</button>
@@ -30,9 +31,9 @@ $title = "Marcas";
 
 <div class="modal " id="exampleModal">
     <div class="modal-dialog">
-        <div class="modal-content bg-danger">
+        <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Deletar Loja</h4>
+                <h4 class="modal-title">Deletar Marca</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -43,8 +44,8 @@ $title = "Marcas";
             <div class="modal-footer justify-content-between">
                 <form id="delete" data-sendrequest="{{url('/marcas/'.$item->id)}}" method="DELETE">
                     @method("DELETE")
-                    <button class="btn btn-outline-light" data-dismiss="modal">Não</button>
-                    <button class="btn btn-outline-light" id="confirm-delete">Sim</button>
+                    <button class="btn btn-primary" data-dismiss="modal">Não</button>
+                    <button class="btn btn-danger pull-right" id="confirm-delete">Sim</button>
                 </form>
             </div>
         </div>

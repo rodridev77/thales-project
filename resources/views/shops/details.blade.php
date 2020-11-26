@@ -1,6 +1,7 @@
 @extends('content_container_card')
 @php
-$title = "Detalhes da Loja"
+$title = "Detalhes da Loja";
+$route = route("lojas.index");
 @endphp
 @section('card-body')
 <form data-sendrequest="{{url('/lojas/'.$data->id)}}" method="POST">
@@ -27,7 +28,7 @@ $title = "Detalhes da Loja"
                         <b>Razao Social : </b><span>{{$data->razaosocial}}</span>
                         </div>
                         <div class="form-group col-md-6">
-                        <b>CPF : </b><span>{{$data->cnpj}}</span>
+                        <b>CNPJ : </b><span>{{$data->cnpj}}</span>
                         </div>
                         <div class="form-group col-md-6">
                         <b>IE </b><span>{{$data->ie}}</span>

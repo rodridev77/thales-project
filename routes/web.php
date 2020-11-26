@@ -32,7 +32,7 @@ Route::get("/lte",function(){
 });
 
 // EMPLOYEE
-Route::name("employees")->resource('funcionarios', 'EmployeeController');
+Route::resource('funcionarios', 'EmployeeController');
 
 // CUSTOMER
 Route::get('customer', "CustomerController@index")->name('customer.home');
@@ -73,32 +73,20 @@ Route::delete('sku/destroy/{id}', "SkuController@destroy")->name("sku.destroy");
 Route::get('sku/show', "SkuController@show")->name("sku.show");
 Route::post('sku/search', "SkuController@search")->name("sku.search");
 
-// EMPLOYEE
-/** 
-Route::get('lojas', "ShopController@index")->name("shops");
-Route::get('lojas/create', "ShopController@create")->name("shops.create");
-Route::get('lojas/edit/{id}', "ShopController@edit")->name("shops.edit");
-Route::post("lojas/store","ShopController@store")->name("shops.store");
-Route::post("lojas/update/{id}","ShopController@update")->name("shops.update");
-*/
-
 // SHOPS
-Route::name("shops")->resource('lojas', 'ShopController');
+Route::resource('lojas', 'ShopController');
 
 // CATEGORY
-Route::get('category', "CategoryController@index")->name('category.home');
+Route::resource('categorias', 'CategoryController');
 Route::get('/category/list', "CategoryController@showAll")->name("category.list");
-Route::get('category/create', "CategoryController@create")->name("category.create");
-Route::post('category/store', "CategoryController@store")->name("category.store");
-Route::get('category/edit/{id}', "CategoryController@edit")->name("category.edit");
-Route::put('category/update/{id}', "CategoryController@update")->name("category.update");
-Route::get('category/delete', "CategoryController@delete")->name("category.delete");
-Route::delete('category/destroy/{id}', "CategoryController@destroy")->name("category.destroy");
-Route::get('category/show', "CategoryController@show")->name("category.show");
 Route::post('category/search', "CategoryController@search")->name("category.search");
 
 // BRANDS
 Route::name("brands")->resource('marcas', 'BrandsController');
+Route::resource('marcas', 'BrandsController');
+
+// PROVIDERS
+Route::resource('fornecedores', 'ProviderController');
 
 // Auth
 Route::redirect('/admin', '/auth/admin');
