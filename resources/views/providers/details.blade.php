@@ -1,12 +1,9 @@
 @extends('content_container_card')
 @php
-$title = "Detalhes da Loja";
-$route = route("lojas.index");
+$title = "Detalhes do Fornecedor";
+$route = route("fornecedores.index");
 @endphp
 @section('card-body')
-<form data-sendrequest="{{url('/lojas/'.$data->id)}}" method="POST">
-    @method("PUT")
-    @csrf
     <div class="row">
         <div class="col-md-12">
             <div class="card card-primary">
@@ -38,5 +35,4 @@ $route = route("lojas.index");
             </div>
         </div>
     </div>
-</form>
 @endsection

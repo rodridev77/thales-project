@@ -90,3 +90,6 @@ Route::post('category/search', "CategoryController@search")->name("category.sear
 
 // BRANDS
 Route::resource('marcas', 'BrandsController');
+
+// PROVIDERS
+Route::resource('fornecedores', 'ProviderController');

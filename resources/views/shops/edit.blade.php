@@ -32,7 +32,7 @@ $route = route("lojas.index");
                             value="{{$data->companyname}}">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="exampleInputtext1">CPF</label>
+                            <label for="exampleInputtext1">CNPJ</label>
                             <input type="text" name="cnpj" class="form-control" id="exampleInputtext1" placeholder="CNPJ"
                             value="{{$data->cnpj}}">
                         </div>
