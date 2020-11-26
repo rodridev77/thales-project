@@ -32,7 +32,7 @@ Route::get("/lte",function(){
 });
 
 // EMPLOYEE
-Route::name("employees")->resource('funcionarios', 'EmployeeController');
+Route::resource('funcionarios', 'EmployeeController');
 
 // CUSTOMER
 Route::get('customer', "CustomerController@index")->name('customer.home');
@@ -74,7 +74,7 @@ Route::get('sku/show', "SkuController@show")->name("sku.show");
 Route::post('sku/search', "SkuController@search")->name("sku.search");
 
 // EMPLOYEE
-/** 
+/**
 Route::get('lojas', "ShopController@index")->name("shops");
 Route::get('lojas/create', "ShopController@create")->name("shops.create");
 Route::get('lojas/edit/{id}', "ShopController@edit")->name("shops.edit");
@@ -98,4 +98,4 @@ Route::get('category/show', "CategoryController@show")->name("category.show");
 Route::post('category/search', "CategoryController@search")->name("category.search");
 
 // BRANDS
-Route::name("brands")->resource('marcas', 'BrandsController');
+Route::resource('marcas', 'BrandsController');

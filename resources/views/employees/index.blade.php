@@ -1,6 +1,7 @@
 @extends('content_container_card')
 @php
 $title = "Funcionarios";
+$route = route("funcionarios.index");
 @endphp
 @section('card-tools')
 <button type="button" class="btn btn-success" onclick="loadViewInHome('{{url('funcionarios/create')}}')"><i class="fas fa-plus"></i>Adicionar Funcionario</button>
