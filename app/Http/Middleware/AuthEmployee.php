@@ -16,11 +16,11 @@ class AuthEmployee
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
-    {   
+    {
         if(Auth::check()) :
             return $next($request);
         endif;
 
-        return redirect()->route("login.form");
+        return redirect()->route("auth.form");
     }
 }
