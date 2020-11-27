@@ -31,7 +31,7 @@ Route::group(['prefix' => 'auth'], function () {
 Route::group(['prefix' => '/', 'middleware' => ['employeeauth']], function () {
     // HOME
     Route::get('/', "HomeController@index")->name('home');
-
+/*
     Route::get("/products", function () {
         return view("products.index");
     })->name("products");
@@ -39,7 +39,7 @@ Route::group(['prefix' => '/', 'middleware' => ['employeeauth']], function () {
     Route::get("/products/cadastro", function () {
         return view("products.cadastro");
     })->name("products.cadastro");
-
+*/
     // CUSTOMER
     Route::get('customer', "CustomerController@index")->name('customer.home');
     Route::get('/customer/list', "CustomerController@showAll")->name("customer.list");
@@ -93,5 +93,8 @@ Route::group(['prefix' => '/', 'middleware' => ['employeeauth']], function () {
 
     // PROVIDERS
     Route::resource('fornecedores', 'ProviderController');
+
+    // PROVIDERS
+    Route::resource('produtos', 'ProductController');
 });
 

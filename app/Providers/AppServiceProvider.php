@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Company;
 use App\Models\Employee;
 use App\Models\Product;
 use App\Models\Provider;
@@ -36,6 +38,8 @@ class AppServiceProvider extends ServiceProvider
     {
         // Globals
         View::share('globalCategories',Category::all());
+        View::share('globalBrands',Brand::all());
+        View::share('globalCompanies',Company::all());
         View::share('globalProviders',Provider::all());
         View::share('globalShops',Shop::all());
         View::share('globalProducts',Product::all());
