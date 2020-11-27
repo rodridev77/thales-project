@@ -79,6 +79,18 @@ Route::group(['prefix' => '/', 'middleware' => ['employeeauth']], function () {
     Route::get('sku/show', "SkuController@show")->name("sku.show");
     Route::post('sku/search', "SkuController@search")->name("sku.search");
 
+    // USERS
+    Route::get('user', "UserController@index")->name('user.home');
+    Route::get('/user/list', "UserController@showAll")->name("user.list");
+    Route::get('user/create', "UserController@create")->name("user.create");
+    Route::post('user/store', "UserController@store")->name("user.store");
+    Route::get('user/edit/{id}', "UserController@edit")->name("user.edit");
+    Route::put('user/update/{id}', "UserController@update")->name("user.update");
+    Route::get('user/delete', "UserController@delete")->name("user.delete");
+    Route::delete('user/destroy/{id}', "UserController@destroy")->name("user.destroy");
+    Route::get('user/show', "UserController@show")->name("user.show");
+    Route::post('user/search', "UserController@search")->name("user.search");
+
     // SHOPS
     Route::resource('lojas', 'ShopController');
     // EMPLOYEE
