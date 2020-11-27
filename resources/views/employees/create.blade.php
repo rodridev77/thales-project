@@ -28,7 +28,7 @@ $route = route("funcionarios.index");
                         <div class="form-group col-md-8">
                             <label for="exampleInputEmail1">Loja</label>
                             <select class="form-control" id="exampleInputtext1" name="shop_id">
-                                @foreach ($shops as $shop)
+                                @foreach ($globalShops as $shop)
                                     <option value="{{ $shop->id }}">{{ $shop->fantasyname }}</option>
                                 @endforeach
                             </select>
@@ -194,8 +194,6 @@ $route = route("funcionarios.index");
 </form>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script>
-    $(document).getAddress();
-
     $("#frmavatar").on("change", function() {
         var input = document.getElementById("frmavatar");
         var fReader = new FileReader();
@@ -205,5 +203,6 @@ $route = route("funcionarios.index");
             img.src = event.target.result;
         }
     });
+    $(document).getAddress();
 </script>
 @endsection

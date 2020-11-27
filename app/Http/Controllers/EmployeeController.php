@@ -20,19 +20,6 @@ class EmployeeController extends ControllersExtends
         parent::__construct($this->model,$this->template);
     }
 
-    public function edit($id)
-    {
-        $data = $this->model::where("id", $id)->first();
-        $shop = Shop::all();
-        return view("{$this->template}.edit", ["data" => $data, "shops" => $shop]);
-    }
-
-    public function create()
-    {
-        $data = Shop::all();
-        return view("{$this->template}.create", ["shops" => $data]);
-    }
-
     public function update(Request $request, $id){
         $imagePath = null;
         if ($request->hasFile('image')) {
@@ -44,7 +31,6 @@ class EmployeeController extends ControllersExtends
         }
 
         $employee = [
-            "image" => $imagePath,
             "name"=> $request->name,
             "birthday"=>$request->birthday,
             "mother_name" => $request->mother_name,
@@ -54,8 +40,12 @@ class EmployeeController extends ControllersExtends
             "phone"=> $request->phone,
             "gender" => $request->gender,
             "email" => $request->email,
+            "shop_id" => $request->shop_id,
             "level_of_schooling" => $request->level_of_schooling
         ];
+        if($request->image !== null)
+            $employee["image"] = $imagePath;
+
         $address = [
             "uf" => $request->uf,
             "city" => $request->city,
@@ -110,6 +100,7 @@ class EmployeeController extends ControllersExtends
             "phone"=> $request->phone,
             "gender" => $request->gender,
             "email" => $request->email,
+            "shop_id" => $request->shop_id,
             "level_of_schooling" => $request->level_of_schooling
         ];
         $address = [

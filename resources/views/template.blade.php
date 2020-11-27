@@ -119,7 +119,7 @@
                             </a>
                         </li>
                         <li class="nav-item border-bottom">
-                            <a href="#" class="nav-link" onclick="loadViewInHome('{{route('products')}}')">
+                            <a href="#" class="nav-link" onclick="loadViewInHome('{{route('produtos.index')}}')">
                                 <i class="nav-icon fas fa-barcode"></i>
                                 <p>
                                     Produtos <span data-toggle="tooltip" title="{{count($globalProducts)}} Produtos Cadastrados" class="badge bg-success">{{count($globalProducts)}}</span>
@@ -230,7 +230,7 @@
                                 <div class="icon">
                                     <i class="fas fa-barcode"></i>
                                 </div>
-                                <a href="#" onclick="loadViewInHome('{{url('products')}}')" class="small-box-footer">Mais Detalhes <i
+                                <a href="#" onclick="loadViewInHome('{{route('produtos.index')}}')" class="small-box-footer">Mais Detalhes <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
