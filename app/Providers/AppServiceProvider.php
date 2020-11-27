@@ -9,6 +9,7 @@ use App\Models\Employee;
 use App\Models\Product;
 use App\Models\Provider;
 use App\Models\Shop;
+use Illuminate\Support\Facades\Schema;
 use Faker\Generator as FakerGenerator;
 use Faker\Factory as FakerFactory;
 use Illuminate\Support\ServiceProvider;
@@ -36,6 +37,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Schema::defaultStringLength(191);
         // Globals
         View::share('globalCategories',Category::all());
         View::share('globalBrands',Brand::all());
