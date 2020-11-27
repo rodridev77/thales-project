@@ -18,7 +18,7 @@ class LoginController extends Controller
         if (Auth::attempt($validatedData)) {
 
             $employee = $request->user()->employee();
-            session()->put("shop_id", $employee->shop_id);
+            if(isset($employee->shop_id))session()->put("shop_id", $employee->shop_id);
 
             // historico de login
            // $log = new LogsController();
@@ -41,13 +41,13 @@ class LoginController extends Controller
         session()->flush();
 
         return redirect()->route("auth.form");
-    } 
+    }
 
     public function loginForm()
     {
         return view("auth.form");
     }
-/** 
+/**
     public function recuperacaoDeSenhaForm()
     {
         return view("auth.recovery");
