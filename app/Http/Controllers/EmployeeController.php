@@ -100,6 +100,7 @@ class EmployeeController extends ControllersExtends
             "phone"=> $request->phone,
             "gender" => $request->gender,
             "email" => $request->email,
+            "shop_id" => $request->shop_id,
             "level_of_schooling" => $request->level_of_schooling
         ];
         $address = [
