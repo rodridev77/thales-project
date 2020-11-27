@@ -103,6 +103,7 @@ class EmployeeController extends ControllersExtends
             "shop_id" => $request->shop_id,
             "level_of_schooling" => $request->level_of_schooling
         ];
+
         $address = [
             "uf" => $request->uf,
             "city" => $request->city,
