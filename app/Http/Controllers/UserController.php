@@ -11,22 +11,29 @@ use Throwable;
 class UserController extends Controller
 {
 
+    public function index()
+    {
+        $data = User::all();
+        return view("user.home", ["data" => $data]);
+    }
+
     public function create()
     {
         $employeesList = Employee::all();
         return view("user.create", ["employeesList" => $employeesList]);
     }
 
-    public function store(CreateUser $request, $id)
+    public function store(CreateUser $request)
     {
         
         try {
-            DB::transaction(function () use ($request, $id) {
+            DB::transaction(function () use ($request) {
     
                $user = User::create([
+                    'name' => $request->name,
                     'email' => $request->email,
                      'password' => Hash::make($request->password),
-                     "employee_id" => $id
+                     "employee_id" => $request->employee_id
                 ]);
 
                 $user->save();

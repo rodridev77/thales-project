@@ -17,11 +17,14 @@ class LoginController extends Controller
 
         if (Auth::attempt($validatedData)) {
 
-            $role = $request->user();
+            $employee = $request->user()->employee();
 
-           //var_dump($role);die;
+            //echo "<pre>";
+            //print_r($role);
+            //echo "</pre>";die;
 
-            //session()->put("role", $role->name);
+            session()->put("employee", $employee->name);
+            session()->put("shop_id", $employee->shop_id);
 
             // historico de login
            // $log = new LogsController();
