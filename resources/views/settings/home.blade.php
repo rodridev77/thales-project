@@ -55,7 +55,7 @@
                     <p>Criar novo fornecedor</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-pie-graph"></i>
+                    <i class="fas fa-truck"></i>
                 </div>
                 <a href="#" class="small-box-footer">Ir <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -70,7 +70,7 @@
                     <p>Criar novo código SKU</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-pie-graph"></i>
+                    <i class="fas fa-barcode"></i>
                 </div>
                 <a href="#" class="small-box-footer" onclick="loadViewInHome('{{route('sku.home')}}')">Ir <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -84,7 +84,7 @@
                     <p>Criar novo usuário</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-pie-graph"></i>
+                    <i class="ion ion-person-add"></i>
                 </div>
                 <a href="#" class="small-box-footer" onclick="loadViewInHome('{{route('user.home')}}')">Ir <i class="fas fa-arrow-circle-right"></i></a>
             </div>
