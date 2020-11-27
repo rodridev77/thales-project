@@ -24,14 +24,14 @@ $route = route("funcionarios.index");
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Foto</label><br />
                             <img width="65" src="{{ URL::to($data->image) }}" height="65" id="avatar" />
-                            <input type="file" value="{{$data->image}}" name="image" class="form-control" id="frmavatar" placeholder="avatar" style="height: 65px; margin-top: -65px; opacity: 0">
+                            <input type="file" name="image" class="form-control" id="frmavatar" placeholder="avatar" style="height: 65px; margin-top: -65px; opacity: 0">
                         </div>
 
                         <div class="form-group col-md-8">
                             <label for="exampleInputEmail1">Loja</label>
                             <select class="form-control" id="exampleInputtext1" name="shop_id">
-                                @foreach ($shops as $shop)
-                                <option @if($shop->id == $data->shop_id) selected @endif value="{{ $shop->id }}">{{ $shop->fantasyname }}</option>
+                                @foreach ($globalShops as $shop)
+                                <option @if($shop->id === $data->shop_id) selected @endif value="{{ $shop->id }}">{{ $shop->fantasyname }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -194,8 +194,6 @@ $route = route("funcionarios.index");
     </div>
 </form>
 <script>
-    $(document).getAddress();
-
     $("#frmavatar").on("change", function() {
         var input = document.getElementById("frmavatar");
         var fReader = new FileReader();
@@ -205,5 +203,6 @@ $route = route("funcionarios.index");
             img.src = event.target.result;
         }
     });
+    $(document).getAddress();
 </script>
 @endsection
