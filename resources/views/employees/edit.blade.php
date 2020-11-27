@@ -43,7 +43,8 @@ $route = route("funcionarios.index");
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Data de Nascimento</label>
-                            <input type="date" name="birthday" value="{{$data->birthday}}" class="form-control" id="exampleInputtext1" placeholder="data de Nascimento"> </div>
+                            <input type="date" name="birthday" value="{{$data->birthday}}" class="form-control" placeholder="data de Nascimento">
+                        </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">CPF</label>
                             <input type="text" name="cpf" value="{{$data->cpf}}" class="form-control" id="exampleInputtext1" placeholder="CPF">
