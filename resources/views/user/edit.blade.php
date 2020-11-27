@@ -1,7 +1,7 @@
 @extends('content_container_card')
 
 @php
-$title = "Cadastro de Usuário";
+$title = "Edição de Usuário";
 $route = route("user.home");
 @endphp
 @section('card-tools')
@@ -9,8 +9,9 @@ $route = route("user.home");
 @endsection
 @section('card-body')
 
-<form autocomplete="off" data-submitajax='{{route('user.store')}}' id="create_user" method="POST">
+<form autocomplete="off" data-submitajax="{{url('/user/update/'.$user->id)}}" id="create_user" method="POST">
     @csrf
+    @method('PUT')
     <div class="form-row">
         <div class="form-group col-md-12">
             <label for="name">Nome</label>
@@ -25,21 +26,7 @@ $route = route("user.home");
             <input type="password" class="form-control" name="password" id="password" placeholder="Senha">
         </div>
     </div>
-    <div class="form-row">
-        <div class="form-group col-sm-12">
-            <label for="employee_id">Funcionário</label>
-            <select class="form-control" id="employee_id" name="employee_id">
-                <option> Nenhum </option>
-                @if (!empty($employeesList)) :
-                @foreach ($employeesList as $emp)
-                <option value="{{$emp->id}}">
-                    {{$emp->name}}
-                </option>
-                @endforeach
-                @endif;
-            </select>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    
+    <button type="submit" class="btn btn-primary">Salvar</button>
 </form>
 @endsection

@@ -18,12 +18,6 @@ class LoginController extends Controller
         if (Auth::attempt($validatedData)) {
 
             $employee = $request->user()->employee();
-
-            //echo "<pre>";
-            //print_r($role);
-            //echo "</pre>";die;
-
-            session()->put("employee", $employee->name);
             session()->put("shop_id", $employee->shop_id);
 
             // historico de login

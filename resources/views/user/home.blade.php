@@ -4,14 +4,16 @@ $title = "Usuários";
 $route = route("settings.home");
 @endphp
 @section('card-tools')
-<button type="button" class="btn btn-success" onclick="loadViewInHome('{{url('user/create')}}')"><i class="fas fa-plus"></i>Adicionar Usuário</button>
+<button type="button" class="btn btn-success" onclick="loadViewInHome('{{url('user/create')}}')"><i
+        class="fas fa-plus"></i>Adicionar Usuário</button>
 @endsection
 @section('card-body')
 @if (count($data) > 0)
-<table id="example1" class="table table-bordered table-striped">
+<table id="layout-um" class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th class="col-md-10">Nome</th>
+            <th class="col-md-5">Nome</th>
+            <th class="col-md-5">Email</th>
             <th class="col-md-2">Ações</th>
         </tr>
     </thead>
@@ -19,17 +21,19 @@ $route = route("settings.home");
         @foreach ($data as $item)
         <tr>
             <td>{{$item->name}}</td>
+            <td>{{$item->email}}</td>
             <td>
-                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('user/'.$item->id.'/edit')}}')"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-userid="{{$item->id}}"><i class="fa fa-trash"></i></button>
-                <button class="btn btn-xs btn-success" onclick="loadViewInHome('{{url('user/'.$item->id)}}')"><i class="fa fa-eye"></i></button>
+                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('user/edit/'.$item->id)}}')"><i
+                        class="fa fa-edit"></i></button>
+                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#user-delete"
+                    data-userid="{{$item->id}}"><i class="fa fa-trash"></i></button>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
 
-<div class="modal " id="exampleModal">
+<div class="modal " id="user-delete">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -57,30 +61,42 @@ $route = route("settings.home");
 <p>Nenhum Registro cadastrado</p>
 @endif
 <script>
-    $(function() {
-        $("button#confirm-delete").on("click", function(e) {
-            $('#exampleModal').modal('hide');
+$(function() {
+    $("#layout-um").DataTable({
+        "responsive": true,
+        "autoWidth": false,
+    });
+});
 
-        })
+$('#user-delete').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var id = button.data('userid') // Extract info from data-* attributes
+    let modalButton = $("#confirm-delete");
 
-        $("#example1").DataTable({
-            "responsive": true,
-            "autoWidth": false,
-        });
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
+    modalButton.on("click", function() {
+
+        axios.delete(`${'{{url("user/destroy")}}'}/${id}`)
+            .then((response) => {
+                if (response.status === 200) {
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Usuário Exclúido'
+                    });
+                    $('#user-delete').modal("hide");
+                    loadViewInHome('{{route('user.home')}}');
+                }
+            })
+            .catch((err) => {
+                if (err.response.status === 500) {
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Houve um erro tente novamente , ou contacte o suporte'
+                    });
+                }
+            });
     });
 
-    $('#exampleModal').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-
-    });
+});
 </script>
 @endsection
