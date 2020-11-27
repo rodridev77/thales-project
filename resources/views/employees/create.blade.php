@@ -27,7 +27,7 @@ $route = route("funcionarios.index");
                         </div>
                         <div class="form-group col-md-8">
                             <label for="exampleInputEmail1">Loja</label>
-                            <select class="form-control" id="exampleInputtext1" name="shop_id">
+                            <select class="form-control" name="shop_id">
                                 @foreach ($globalShops as $shop)
                                     <option value="{{ $shop->id }}">{{ $shop->fantasyname }}</option>
                                 @endforeach

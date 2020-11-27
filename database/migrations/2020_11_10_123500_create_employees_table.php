@@ -27,7 +27,7 @@ class CreateEmployeesTable extends Migration
             $table->string("father_name");
             $table->string("level_of_schooling");
             $table->string("gender");
-            $table->foreignId("shop_id")->constrained("shops","id")->onDelete('cascade');
+            $table->foreignId("shop_id")->constrained("shops","id")->onDelete('cascade')->default("1");
             $table->timestamps();
         });
     }

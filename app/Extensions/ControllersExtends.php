@@ -58,7 +58,7 @@ abstract class ControllersExtends extends Controller implements ControllersInter
                 $primary = null;
                 foreach($this->with["data"] as $model=>$fields){
                     if($i == 0 ){
-                      $primary = $model::create($fields);
+                      $primary = $this->model::create($fields);
                       $i++;
                       continue;
                     }
