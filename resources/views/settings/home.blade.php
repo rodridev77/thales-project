@@ -12,7 +12,7 @@
                     <i class="ion ion-bag"></i>
                     <ion-icon name="storefront-outline"></ion-icon>
                 </div>
-                <a href="#" onclick="loadViewInHome('{{route('company.home')}}')" id="btnBrand" class="small-box-footer" data-toggle="modal" data-target="#myModal">Ir <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" onclick="loadViewInHome('{{route('lojas.index')}}')" id="btnBrand" class="small-box-footer" data-toggle="modal" data-target="#myModal">Ir <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -57,7 +57,7 @@
                 <div class="icon">
                     <i class="fas fa-truck"></i>
                 </div>
-                <a href="#" class="small-box-footer">Ir <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" onclick="loadViewInHome('{{route('fornecedores.index')}}')" class="small-box-footer">Ir <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->

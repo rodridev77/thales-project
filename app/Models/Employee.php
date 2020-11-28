@@ -23,7 +23,8 @@ class Employee extends Model
                             "birthday",
                             "gender",
                             "level_of_schooling",
-                            "email"
+                            "email",
+                            "shop_id"
                         ];
 
     public function user(){
