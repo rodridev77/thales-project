@@ -16,6 +16,7 @@ class CreateProvidersTable extends Migration
         Schema::create('providers', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
+            $table->string('documento', 30);
             $table->string('phone', 16);
             $table->string('phone1', 16);
             $table->string('email', 100);
