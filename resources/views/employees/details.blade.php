@@ -14,19 +14,19 @@ $route = route("funcionarios.index");
                     <img class="profile-user-img img-fluid img-circle" src="{{$data->image}}" alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">{{$data->name}}</h3>
+                <h3 class="profile-username text-center">{{$data->name ?? ''}}</h3>
 
-                <p class="text-muted text-center">{{$data->contract->cargo}}</p>
+                <p class="text-muted text-center">{{$data->contract->cargo ?? ''}}</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                     <li class="list-group-item">
-                        <b>Data de Admisão</b> <a class="float-right">{{$data->contract->admission_date}}</a>
+                        <b>Data de Admisão</b> <a class="float-right">{{$data->contract->admission_date ?? ''}}</a>
                     </li>
                     <li class="list-group-item">
                         <b>Data da Dispensa</b> <a class="float-right">{{$data->contract->dismission_date ?? "00/00/00"}}</a>
                     </li>
                     <li class="list-group-item">
-                        <b>Salario</b> <a class="float-right">{{$data->contract->salary}}</a>
+                        <b>Salario</b> <a class="float-right">{{$data->contract->salary ?? ''}}</a>
                     </li>
                 </ul>
 
@@ -115,13 +115,13 @@ $route = route("funcionarios.index");
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <ul class="nav flex-column">
                             <li class="nav-item">
-                                <b>Banco : </b>{{$data->bankData->bank}}
+                                <b>Banco : </b>{{$data->bankData ? $data->bankData->bank : ''}}
                             </li>
                             <li class="nav-item">
-                                <b>Agencia : </b> {{$data->bankData->agency}}
+                                <b>Agencia : </b> {{$data->bankData ? $data->bankData->agency : ''}}
                             </li>
                             <li class="nav-item">
-                                <b>Conta : </b> {{$data->bankData->account_number}}
+                                <b>Conta : </b> {{$data->bankData ? $data->bankData->account_number : ''}}
                             </li>
                         </ul>
                     </div>

@@ -28,7 +28,7 @@ class Employee extends Model
                         ];
 
     public function user(){
-        return $this->hasOne(User::class,"employee_id","id");
+        return $this->hasOne(User::class,"employee_id","id") ?? [];
     }
 
     public function getBirthdayAttribute($value){
@@ -40,18 +40,18 @@ class Employee extends Model
     }
 
     public function bankData(){
-        return $this->hasOne(BankData::class,"employee_id","id");
+        return $this->hasOne(BankData::class,"employee_id","id") ?? [];
     }
 
     public function address(){
-        return $this->hasOne(Address::class,"employee_id","id");
+        return $this->hasOne(Address::class,"employee_id","id") ?? [];
     }
 
     public function contract(){
-        return $this->hasOne(Contract::class,"employee_id","id");
+        return $this->hasOne(Contract::class,"employee_id","id") ?? [];
     }
 
     public function shops(){
-        return $this->belongsToMany(Shop::class);
+        return $this->belongsToMany(Shop::class) ?? [];
     }
 }

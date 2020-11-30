@@ -105,36 +105,36 @@ $route = route("funcionarios.index");
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="exampleInputFile">CEP</label>
-                            <input type="text" class="form-control" name="zipcode" value="{{$data->address->zipcode}}" id="exampleInputFile" placeholder="CEP">
+                            <input type="text" class="form-control" name="zipcode" value="{{$data->address ? $data->address->zipcode : ''}}" id="exampleInputFile" placeholder="CEP">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Estado</label>
                             {{-- <select class="form-control" name="uf" id="estados" onchange="setCities(event)">
                                     <option selected disabled>Selecione seu estado</option>
                                 </select> --}}
-                            <input type="text" name="uf" value="{{$data->address->uf}}" placeholder="Estado" class="form-control">
+                            <input type="text" name="uf" value="{{$data->address ? $data->address->uf : ''}}" placeholder="Estado" class="form-control">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Cidade</label>
-                            {{-- <select class="form-control" name="city" value="{{$data->address->city}}" id="cidades" data-code="" onclick="setDistricts(event)">
+                            {{-- <select class="form-control" name="city" value="{{$data->address ? $data->address->city : ''}}" id="cidades" data-code="" onclick="setDistricts(event)">
                             <option selected disabled>Selecione sua cidade</option>
                             </select> --}}
-                            <input type="text" name="city" value="{{$data->address->city}}" placeholder="Cidade" class="form-control">
+                            <input type="text" name="city" value="{{$data->address ? $data->address->city : ''}}" placeholder="Cidade" class="form-control">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Bairro</label>
                             {{-- <select class="form-control" id="bairros" name="district">
                                     <option selected disabled>Selecione seu Bairro</option>
                                 </select> --}}
-                            <input type="text" name="district" value="{{$data->address->district}}" placeholder="Bairro" class="form-control">
+                            <input type="text" name="district" value="{{$data->address ? $data->address->district : ''}}" placeholder="Bairro" class="form-control">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputFile">Rua</label>
-                            <input type="text" class="form-control" name="street" value="{{$data->address->street}}" id="exampleInputFile" placeholder="nome da rua">
+                            <input type="text" class="form-control" name="street" value="{{$data->address ? $data->address->street : ''}}" id="exampleInputFile" placeholder="nome da rua">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputFile">Numero</label>
-                            <input type="text" class="form-control" name="number" value="{{$data->address->number}}" id="exampleInputFile" placeholder="numero da casa">
+                            <input type="text" class="form-control" name="number" value="{{$data->address ? $data->address->number : ''}}" id="exampleInputFile" placeholder="numero da casa">
                         </div>
                     </div>
                 </div>
@@ -151,15 +151,15 @@ $route = route("funcionarios.index");
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Banco</label>
-                        <input type="text" class="form-control" name="bank" value="{{$data->bankData->bank}}" id="exampleInputEmail1" placeholder="Banco">
+                        <input type="text" class="form-control" name="bank" value="{{$data->bankData ? $data->bankData->bank : ''}}" id="exampleInputEmail1" placeholder="Banco">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Numero da conta</label>
-                        <input type="text" class="form-control" name="account_number" value="{{$data->bankData->account_number}}" id="exampleInputtext1" placeholder="Conta">
+                        <input type="text" class="form-control" name="account_number" value="{{$data->bankData ? $data->bankData->account_number : ''}}" id="exampleInputtext1" placeholder="Conta">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Agencia</label>
-                        <input type="text" class="form-control" name="agency" value="{{$data->bankData->agency}}" id="exampleInputtext1" placeholder="Agencia">
+                        <input type="text" class="form-control" name="agency" value="{{$data->bankData ? $data->bankData->agency : ''}}" id="exampleInputtext1" placeholder="Agencia">
                     </div>
                 </div>
             </div>
@@ -175,19 +175,19 @@ $route = route("funcionarios.index");
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Cargo</label>
-                        <input type="text" name="cargo" value="{{$data->contract->cargo}}" class="form-control" id="exampleInputEmail1" placeholder="Cargo">
+                        <input type="text" name="cargo" value="{{$data->contract->cargo ?? ''}}" class="form-control" id="exampleInputEmail1" placeholder="Cargo">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Salario</label>
-                        <input type="text" name="salary" value="{{$data->contract->salary}}" class="form-control" id="exampleInputtext1" placeholder="Salario">
+                        <input type="text" name="salary" value="{{$data->contract->salary ?? ''}}" class="form-control" id="exampleInputtext1" placeholder="Salario">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Data de Admisão</label>
-                        <input type="date" name="admission_date" value="{{$data->contract->admission_date}}" class="form-control" id="exampleInputtext1" placeholder="Data de Admissao">
+                        <input type="date" name="admission_date" value="{{$data->contract->admission_date ?? ''}}" class="form-control" id="exampleInputtext1" placeholder="Data de Admissao">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Data da Dispensa</label>
-                        <input type="date" name="dismission_date" value="{{$data->contract->dismission_date}}" class="form-control" id="exampleInputtext1" placeholder="Data de demissao">
+                        <input type="date" name="dismission_date" value="{{$data->contract->dismission_date ?? ''}}" class="form-control" id="exampleInputtext1" placeholder="Data de demissao">
                     </div>
                 </div>
             </div>
