@@ -10,7 +10,7 @@ class Provider extends Model
     use HasFactory;
 
     public $timestamps = false;
-    protected $fillable = ["name"];
+    protected $fillable = ["name", "documento", "email", "phone", "phone1", "zipcode", "street", "number", "district", "complement", "city", "uf"];
 
     public function products()
     {
