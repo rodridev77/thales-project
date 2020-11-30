@@ -4,7 +4,7 @@ $title = "Clientes";
 @endphp
 @section('card-tools')
 <button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('customer.create')}}')"><i
-        class="fas fa-plus"></i>Adicionar Funcionario</button>
+        class="fas fa-plus"></i>Adicionar Cliente</button>
 @endsection
 @section('card-body')
 <table id="example1" class="table table-bordered table-striped">
@@ -17,7 +17,7 @@ $title = "Clientes";
         </tr>
     </thead>
     <tbody>
-        
+
         <tr>
             <td>Cliente 1</td>
             <td>0000000</td>
@@ -32,7 +32,7 @@ $title = "Clientes";
                         class="fa fa-eye"></i></button>
             </td>
         </tr>
-        
+
     </tbody>
 </table>
 

@@ -9,9 +9,7 @@
                 <div class="card card-primary">
                     <div class="card-header">
                         <h3 class="card-title">Dados Pessoais</h3>
-                        <div class="card-tools">
-                            <input type="submit" value="cadastrar" class="btn btn-success">
-                        </div>
+
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
@@ -29,32 +27,32 @@
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Nome do Conjugue</label>
                                 <input type="text" name="cpf" class="form-control" id="exampleInputtext1"
-                                       placeholder="CPF">
+                                       placeholder="Nome do Conjugue">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Telefone do Conjugue</label>
                                 <input type="text" name='rg' class="form-control" id="exampleInputtext1"
-                                       placeholder="RG">
+                                       placeholder="Telefone do Conjugue">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Estado Civíl</label>
                                 <input type="text" name="phone" class="form-control" id="exampleInputtext1"
-                                       placeholder="text">
+                                       placeholder="Estado Civíl">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Nome da Empresa</label>
                                 <input type="text" name="cpf" class="form-control" id="exampleInputtext1"
-                                       placeholder="CPF">
+                                       placeholder="Estado Civíl">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Renda Mensal</label>
                                 <input type="text" name='rg' class="form-control" id="exampleInputtext1"
-                                       placeholder="RG">
+                                       placeholder="Renda Mensal">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Numero de Dependentes</label>
                                 <input type="text" name="phone" class="form-control" id="exampleInputtext1"
-                                       placeholder="text">
+                                       placeholder="Numero de Dependentes">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">CPF</label>
@@ -69,22 +67,22 @@
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Telefone</label>
                                 <input type="text" name="phone" class="form-control" id="exampleInputtext1"
-                                       placeholder="text">
+                                       placeholder="Telefone">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Telefone Residencial</label>
                                 <input type="text" name="cpf" class="form-control" id="exampleInputtext1"
-                                       placeholder="CPF">
+                                       placeholder="Telefone Residencial">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Telefone Comercial</label>
                                 <input type="text" name='rg' class="form-control" id="exampleInputtext1"
-                                       placeholder="RG">
+                                       placeholder="Telefone Comercial">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Telefone Complementar</label>
                                 <input type="text" name="phone" class="form-control" id="exampleInputtext1"
-                                       placeholder="text">
+                                       placeholder="Telefone Complementar">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="exampleInputtext1">Nome da Mãe</label>
@@ -121,11 +119,7 @@
                                 <input type="email" name="email" class="form-control" id="exampleInputtext1"
                                        placeholder="Email">
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="exampleInputtext1">Informações Complementares</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputtext1"
-                                       placeholder="Email">
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -163,7 +157,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputFile">Rua</label>
-                                <input type="text" class="form-control" name="street" id="exampleInputFile" placeholder="nome da rua">
+                                <input type="text" class="form-control" name="street" id="exampleInputFile" placeholder="Nome da rua">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputFile">CEP</label>
@@ -171,15 +165,19 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputFile">Numero</label>
-                                <input type="text" class="form-control" name="number" id="exampleInputFile" placeholder="numero da casa">
+                                <input type="text" class="form-control" name="number" id="exampleInputFile" placeholder="Número da Residência">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputFile">Informações Complementares</label>
-                                <input type="text" class="form-control" name="number" id="exampleInputFile" placeholder="numero da casa">
+                                <input type="text" class="form-control" name="number" id="exampleInputFile" placeholder="Dados Complementares">
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="card-tools ml-1">
+                <input type="submit" value="cadastrar" class="btn btn-success btn-lg">
             </div>
 
             </div>
