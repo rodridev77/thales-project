@@ -42,8 +42,10 @@ Route::group(['prefix' => '/', 'middleware' => ['employeeauth']], function () {
 */
     // CUSTOMER
     Route::get('customer', "CustomerController@index")->name('customer.home');
-    Route::get('/customer/list', "CustomerController@showAll")->name("customer.list");
     Route::get('customer/create', "CustomerController@create")->name("customer.create");
+
+    Route::get('/customer/list', "CustomerController@showAll")->name("customer.list");
+
     Route::post('customer/store', "CustomerController@store")->name("customer.store");
     Route::get('customer/edit', "CustomerController@edit")->name("customer.edit");
     Route::put('customer/update', "CustomerController@update")->name("customer.update");
