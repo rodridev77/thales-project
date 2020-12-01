@@ -17,74 +17,9 @@ class CustomerController extends Controller
         $customer = ""; //Sku::where('id', $id)->first();
         return view("customer.home", ["sku" => $customer]);
     }
-/**
-    public function showAll()
-    {
-        $skus = Sku::all();
-        return view("skus.list", ["skus" => $skus]);
-    }
 
-    public function store(Request $request) 
-    {
-        //dd($request->all());
-        try
-        {
-            DB::transaction(function() use ($request)
-            {
-                $sku = Sku::create([
-                     "cod" => $request->cod,
-                     "description" => $request->description
-                 ]);
-            });
-
-            return response()->json(["Código SKU criado"]);
-        } 
-        catch(Exception $error)
-        {
-            return response()->json(["Não foi possível criar o código SKU"], 500);
-        }
-
-    } */
-    
     public function create()
     {
         return view("customer.create");
     }
-/**
-    public function show(Request $request, $id)
-    {
-        $sku = Sku::where("id", $id)->first();
-        return view("sku.show", ["sku" => $sku]);
-    }
-
-    public function destroy($id)
-    {
-        Sku::destroy($id);
-        return response()->json(["Sku removido"]);
-    }
-
-    public function update($id, Request $request)
-    {
-        try {
-            Sku::where("id", $id)->update([
-                "cod"=>$request->cod,
-                "description"=>$request->description,
-            ]);
-            return response()->json(['success' => "Sku atualizado"], 200);
-        }catch (Throwable $error){
-            return response()->json(["error"=>$error->getMessage()], 500);
-        }
-    }
-
-    public function search(Request $request)
-    {
-        $cod = $request->codSku;
-        $sku = Sku::where('cod', $cod)->first();
-
-        if (!$sku):
-            return response()->json(['sku' => $sku, 'success' => 'not found'], 404);
-        endif;
-
-        return response()->json(['client' => $sku, 'success' => 'ok'], 200);
-    } */
 }

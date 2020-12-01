@@ -38,10 +38,6 @@ $route = route('settings.home');
     @endforeach
     </tbody>
 </table>
-@else
-<p>Nenhuma categoria cadastrada</p>
-@endif
-
 <div class="modal " id="exampleModal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -66,6 +62,9 @@ $route = route('settings.home');
     </div>
     <!-- /.modal-dialog -->
 </div>
+@else
+<p>Nenhuma categoria cadastrada</p>
+@endif
 <script>
 $(function() {
     $("#layout-um").DataTable({
