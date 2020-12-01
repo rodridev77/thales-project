@@ -44,7 +44,7 @@
                 <!-- Messages Dropdown Menu -->
                 <form class="form-inline ml-3">
                     <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar" type="search" placeholder="Search"
+                        <input class="form-control form-control-navbar" type="search" placeholder="Busca"
                             aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn btn-navbar" type="submit">
@@ -98,7 +98,8 @@
                             <a href="#" class="nav-link" onclick="loadViewInHome('{{url('lojas')}}')">
                                 <i class="nav-icon fas fa-store-alt"></i>
                                 <p>
-                                    Lojas <span data-toggle="tooltip" title="{{count($globalShops)}} Lojas Cadastradas" class="badge bg-success">{{count($globalShops)}}</span>
+                                    Lojas <span data-toggle="tooltip" title="{{count($globalShops)}} Lojas Cadastradas"
+                                        class="badge bg-success">{{count($globalShops)}}</span>
                                 </p>
                             </a>
                         </li>
@@ -114,7 +115,9 @@
                             <a href="#" class="nav-link" onclick="loadViewInHome('{{url('funcionarios')}}')">
                                 <i class="nav-icon fas fa-people-carry"></i>
                                 <p>
-                                    Funcionarios  <span data-toggle="tooltip" title="{{count($globalEmployees)}} Funcionarios Cadastrados" class="badge bg-success">{{count($globalEmployees)}}</span>
+                                    Funcionarios <span data-toggle="tooltip"
+                                        title="{{count($globalEmployees)}} Funcionarios Cadastrados"
+                                        class="badge bg-success">{{count($globalEmployees)}}</span>
                                 </p>
                             </a>
                         </li>
@@ -122,7 +125,9 @@
                             <a href="#" class="nav-link" onclick="loadViewInHome('{{route('produtos.index')}}')">
                                 <i class="nav-icon fas fa-barcode"></i>
                                 <p>
-                                    Produtos <span data-toggle="tooltip" title="{{count($globalProducts)}} Produtos Cadastrados" class="badge bg-success">{{count($globalProducts)}}</span>
+                                    Produtos <span data-toggle="tooltip"
+                                        title="{{count($globalProducts)}} Produtos Cadastrados"
+                                        class="badge bg-success">{{count($globalProducts)}}</span>
                                 </p>
                             </a>
                         </li>
@@ -130,7 +135,9 @@
                             <a href="#" class="nav-link" onclick="loadViewInHome('{{route('fornecedores.index')}}')">
                                 <i class="nav-icon fas fa-truck"></i>
                                 <p>
-                                    Fornecedores  <span data-toggle="tooltip" title="{{count($globalProviders)}} Fornecedores Cadastrados" class="badge bg-success">{{count($globalProviders)}}</span>
+                                    Fornecedores <span data-toggle="tooltip"
+                                        title="{{count($globalProviders)}} Fornecedores Cadastrados"
+                                        class="badge bg-success">{{count($globalProviders)}}</span>
                                 </p>
                             </a>
                         </li>
@@ -163,7 +170,7 @@
                 <div class="d-flex justify-content-center align-items-center  h-100">
                     <div class="text-center">
                         <div class="spinner-border" style="width: 5rem; height: 5rem;" role="status">
-                            <span class="sr-only">Loading...</span>
+                            <span class="sr-only">Carregando...</span>
                         </div>
                     </div>
                 </div>
@@ -182,8 +189,8 @@
                                 <div class="icon">
                                     <i class="fa fa-truck"></i>
                                 </div>
-                                <a href="#" onclick="loadViewInHome('{{route('funcionarios.index')}}')" class="small-box-footer">Mais Detalhes <i
-                                        class="fas fa-arrow-circle-right"></i></a>
+                                <a href="#" onclick="loadViewInHome('{{route('funcionarios.index')}}')"
+                                    class="small-box-footer">Mais Detalhes <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -198,8 +205,8 @@
                                 <div class="icon">
                                     <i class="fas fa-store-alt"></i>
                                 </div>
-                                <a href="#" onclick="loadViewInHome('{{route('lojas.index')}}')" class="small-box-footer">Mais Detalhes <i
-                                        class="fas fa-arrow-circle-right"></i></a>
+                                <a href="#" onclick="loadViewInHome('{{route('lojas.index')}}')"
+                                    class="small-box-footer">Mais Detalhes <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -214,8 +221,8 @@
                                 <div class="icon">
                                     <i class="fas fa-truck"></i>
                                 </div>
-                                <a href="#" onclick="loadViewInHome('{{route('fornecedores.index')}}')" class="small-box-footer">Mais Detalhes <i
-                                        class="fas fa-arrow-circle-right"></i></a>
+                                <a href="#" onclick="loadViewInHome('{{route('fornecedores.index')}}')"
+                                    class="small-box-footer">Mais Detalhes <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -230,8 +237,8 @@
                                 <div class="icon">
                                     <i class="fas fa-barcode"></i>
                                 </div>
-                                <a href="#" onclick="loadViewInHome('{{route('produtos.index')}}')" class="small-box-footer">Mais Detalhes <i
-                                        class="fas fa-arrow-circle-right"></i></a>
+                                <a href="#" onclick="loadViewInHome('{{route('produtos.index')}}')"
+                                    class="small-box-footer">Mais Detalhes <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -265,6 +272,7 @@
 
     <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../plugins/datatables/pt-translate.js"></script>
 
     <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
@@ -282,7 +290,7 @@
     $(function() {
         $("#example1").DataTable({
             "responsive": true,
-            "autoWidth": false,
+            "autoWidth": false
         });
         $('#example2').DataTable({
             "paging": true,
@@ -376,8 +384,8 @@
         }
     });
 
-// Save SKU from request TESTE
-request.makeRequest("data-submitajax", (response) => {
+    // Save SKU from request TESTE
+    request.makeRequest("data-submitajax", (response) => {
         if (response.status === 500) {
             Toast.fire({
                 icon: 'error',
@@ -391,7 +399,6 @@ request.makeRequest("data-submitajax", (response) => {
             });
         }
     });
-
     </script>
 </body>
 

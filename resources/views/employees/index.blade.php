@@ -4,7 +4,8 @@ $title = "Funcionarios";
 $route = route("funcionarios.index");
 @endphp
 @section('card-tools')
-<button type="button" class="btn btn-success" onclick="loadViewInHome('{{url('funcionarios/create')}}')"><i class="fas fa-plus"></i>Adicionar Funcionario</button>
+<button type="button" class="btn btn-success" onclick="loadViewInHome('{{url('funcionarios/create')}}')"><i
+        class="fas fa-plus"></i>Adicionar Funcionario</button>
 @endsection
 @section('card-body')
 @if (count($data) > 0)
@@ -26,9 +27,13 @@ $route = route("funcionarios.index");
             <td>{{$item->cpf}}</td>
             <td>{{$item->phone}}</td>
             <td>
-                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('funcionarios/'.$item->id.'/edit')}}')"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-employeeid="{{$item->id}}"><i class="fa fa-trash"></i></button>
-                <button class="btn btn-xs btn-success" onclick="loadViewInHome('{{url('funcionarios/'.$item->id)}}')"><i class="fa fa-eye"></i></button>
+                <button class="btn btn-xs btn-info"
+                    onclick="loadViewInHome('{{url('funcionarios/'.$item->id.'/edit')}}')"><i
+                        class="fa fa-edit"></i></button>
+                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal"
+                    data-employeeid="{{$item->id}}"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-xs btn-success" onclick="loadViewInHome('{{url('funcionarios/'.$item->id)}}')"><i
+                        class="fa fa-eye"></i></button>
             </td>
         </tr>
         @endforeach
@@ -63,30 +68,33 @@ $route = route("funcionarios.index");
 <p>Nenhum Registro cadastrado</p>
 @endif
 <script>
-    $(function() {
-        $("button#confirm-delete").on("click", function(e) {
-            $('#exampleModal').modal('hide');
+$(function() {
+    $("button#confirm-delete").on("click", function(e) {
+        $('#exampleModal').modal('hide');
 
-        })
+    })
 
-        $("#example1").DataTable({
-            "responsive": true,
-            "autoWidth": false,
-        });
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
+    $("#example1").DataTable({
+        "responsive": true,
+        "autoWidth": false,
+        "oLanguage": {
+            "sUrl": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Portuguese-Brasil.json"
+        }
     });
-
-    $('#exampleModal').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-
+    $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
     });
+});
+
+$('#exampleModal').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+
+});
 </script>
 @endsection
