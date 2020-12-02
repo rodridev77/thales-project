@@ -4,7 +4,7 @@ $title = "Clientes";
 @endphp
 @section('card-tools')
 <button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('customer.create')}}')"><i
-        class="fas fa-plus"></i>Adicionar Cliente</button>
+        class="fas fa-plus"></i> Adicionar Cliente</button>
 @endsection
 @section('card-body')
 <table id="example1" class="table table-bordered table-striped">

@@ -21,12 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="3261d099-2818-4a69-b8ae-eafe47b00773" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Customer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/content_container_card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content_container_card.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_01_093825_create_customer_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_01_093825_create_customer_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/customer/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/index_custumer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/index_custumer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employees/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employees/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employees/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employees/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/products/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/products/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -190,6 +190,8 @@
       <workItem from="1606844868220" duration="399000" />
       <workItem from="1606845843621" duration="6441000" />
       <workItem from="1606853908307" duration="1156000" />
+      <workItem from="1606901333050" duration="346000" />
+      <workItem from="1606903821154" duration="7011000" />
     </task>
     <servers />
   </component>
@@ -209,17 +211,21 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="415" y="315" width="1456" height="768" key="dock-window-1" timestamp="1606854305172">
+    <state x="680" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606904473916">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="415" y="315" width="1456" height="768" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1606854305172" />
+    <state x="680" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606904473916" />
+    <state x="382" y="500" width="1456" height="768" key="dock-window-1" timestamp="1606904482085">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="382" y="500" width="1456" height="768" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1606904482085" />
     <state x="705" y="83" width="1110" height="557" key="dock-window-2" timestamp="1606833692172">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="705" y="83" width="1110" height="557" key="dock-window-2/0.0.1920.1040@0.0.1920.1040" timestamp="1606833692172" />
-    <state x="662" y="221" width="672" height="678" key="search.everywhere.popup" timestamp="1606851380918">
+    <state x="662" y="221" width="672" height="678" key="search.everywhere.popup" timestamp="1606918291271">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="662" y="221" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606851380918" />
+    <state x="662" y="221" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606918291271" />
   </component>
 </project>

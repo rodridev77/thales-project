@@ -18,92 +18,92 @@
                         <div class="form-row">
                             <div class="form-group col-md-8">
                                 <label for="exampleInputEmail1">Nome Completo</label>
-                                <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Nome completo">
+                                <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Nome completo" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputEmail1">Data de Nascimento</label>
-                                <input type="date" name="birthday" class="form-control" id="exampleInputEmail1">
+                                <input type="date" name="birthday" class="form-control" id="exampleInputEmail1" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Nome do Conjugue</label>
                                 <input type="text" name="conjugate" class="form-control" id="exampleInputtext1"
-                                       placeholder="Nome do Conjugue">
+                                       placeholder="Nome do Conjugue" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Telefone do Conjugue</label>
                                 <input type="text" name='phone_conjugate' class="form-control" id="exampleInputtext1"
-                                       placeholder="Telefone do Conjugue">
+                                       placeholder="Telefone do Conjugue" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Estado Civíl</label>
                                 <input type="text" name="state_civil" class="form-control" id="exampleInputtext1"
-                                       placeholder="Estado Civíl">
+                                       placeholder="Estado Civíl" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Nome da Empresa</label>
                                 <input type="text" name="company" class="form-control" id="exampleInputtext1"
-                                       placeholder="Estado Civíl">
+                                       placeholder="Estado Civíl" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Renda Mensal</label>
                                 <input type="text" name='income' class="form-control" id="exampleInputtext1"
-                                       placeholder="Renda Mensal">
+                                       placeholder="Renda Mensal" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Numero de Dependentes</label>
                                 <input type="text" name="conjugate" class="form-control" id="exampleInputtext1"
-                                       placeholder="Numero de Dependentes">
+                                       placeholder="Numero de Dependentes" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">CPF</label>
                                 <input type="text" name="dependents" class="form-control" id="exampleInputtext1"
-                                       placeholder="CPF">
+                                       placeholder="CPF" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">RG</label>
                                 <input type="text" name='rg' class="form-control" id="exampleInputtext1"
-                                       placeholder="RG">
+                                       placeholder="RG" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Telefone</label>
                                 <input type="text" name="phone" class="form-control" id="exampleInputtext1"
-                                       placeholder="Telefone">
+                                       placeholder="Telefone" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Telefone Residencial</label>
                                 <input type="text" name="phone_residential" class="form-control" id="exampleInputtext1"
-                                       placeholder="Telefone Residencial">
+                                       placeholder="Telefone Residencial" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Telefone Comercial</label>
                                 <input type="text" name='phone_commercial' class="form-control" id="exampleInputtext1"
-                                       placeholder="Telefone Comercial">
+                                       placeholder="Telefone Comercial" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Telefone Complementar</label>
                                 <input type="text" name="phone_complementary" class="form-control" id="exampleInputtext1"
-                                       placeholder="Telefone Complementar">
+                                       placeholder="Telefone Complementar" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="exampleInputtext1">Nome da Mãe</label>
                                 <input type="text" name="mother_name" class="form-control" id="exampleInputtext1"
-                                       placeholder="Nome da mãe">
+                                       placeholder="Nome da mãe" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="exampleInputtext1">Nome do Pai</label>
                                 <input type="text" name="father_name" class="form-control" id="exampleInputtext1"
-                                       placeholder="Nome do pai">
+                                       placeholder="Nome do pai" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Gênero</label>
-                                <select class="form-control" id="exampleInputtext1" name="gender">
+                                <select class="form-control" id="exampleInputtext1" name="gender" required>
                                     <option value="masculino">Masculino</option>
                                     <option value="Feminino">Feminino</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Escolaridade</label>
-                                <select class="form-control" id="exampleInputtext1" name="level_of_schooling">
+                                <select class="form-control" id="exampleInputtext1" name="level_of_schooling" required>
                                     <option selected disabled>Selecione sua Escolaridade</option>
                                     <option value="Ensino Fundamental">Ensino Fundamental</option>
                                     <option value="Ensino Fundamental incompleto">Ensino Fundamental incompleto</option>
@@ -117,7 +117,7 @@
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Email</label>
                                 <input type="email" name="email" class="form-control" id="exampleInputtext1"
-                                       placeholder="Email">
+                                       placeholder="Email" required>
                             </div>
 
                         </div>
@@ -139,37 +139,37 @@
                                 {{-- <select class="form-control" name="uf" id="estados" onchange="setCities(event)">
                                     <option selected disabled>Selecione seu estado</option>
                                 </select> --}}
-                                <input type="text" name="uf" placeholder="Estado" class="form-control">
+                                <input type="text" name="uf" placeholder="Estado" class="form-control" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputEmail1" >Cidade</label>
                                 {{-- <select class="form-control" name="city" id="cidades" data-code="" onclick="setDistricts(event)">
                                     <option selected disabled>Selecione sua cidade</option>
                                 </select> --}}
-                                <input type="text" name="city" placeholder="Cidade" class="form-control">
+                                <input type="text" name="city" placeholder="Cidade" class="form-control" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputEmail1" >Bairro</label>
                                 {{-- <select class="form-control" id="bairros" name="district">
                                     <option selected disabled>Selecione seu Bairro</option>
                                 </select> --}}
-                                <input type="text" name="district" placeholder="Bairro" class="form-control">
+                                <input type="text" name="district" placeholder="Bairro" class="form-control" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputFile">Rua</label>
-                                <input type="text" class="form-control" name="street" id="exampleInputFile" placeholder="Nome da rua">
+                                <input type="text" class="form-control" name="street" id="exampleInputFile" placeholder="Nome da rua" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputFile">CEP</label>
-                                <input type="text" class="form-control" name="zipcode" id="exampleInputFile" placeholder="CEP">
+                                <input type="text" class="form-control" name="zipcode" id="exampleInputFile" placeholder="CEP" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputFile">Numero</label>
-                                <input type="text" class="form-control" name="number" id="exampleInputFile" placeholder="Número da Residência">
+                                <input type="text" class="form-control" name="number" id="exampleInputFile" placeholder="Número da Residência" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputFile">Informações Complementares</label>
-                                <input type="text" class="form-control" name="number" id="exampleInputFile" placeholder="Dados Complementares">
+                                <input type="text" class="form-control" name="number" id="exampleInputFile" placeholder="Dados Complementares" required>
                             </div>
                         </div>
                     </div>

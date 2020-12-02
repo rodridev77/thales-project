@@ -36,7 +36,6 @@ class CreateCustomerTable extends Migration
             $table->string("email")->unique();
             $table->string("state");
             $table->string("cit");
-            $table->string("phone");
             $table->string("neighborhood");
             $table->string("street");
             $table->string("zipcode");
