@@ -15,15 +15,15 @@ $route = route("user.home");
     <div class="form-row">
         <div class="form-group col-md-12">
             <label for="name">Nome</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="Nome" value="{{$user->name}}">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Nome" value="{{$user->name}}" required="required">
         </div>
         <div class="form-group col-md-6">
             <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email" value="{{$user->email}}">
+            <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email" value="{{$user->email}}" required="required">
         </div>
         <div class="form-group col-md-6">
             <label for="password">Senha</label>
-            <input type="password" class="form-control" name="password" id="password" value="{{$user->password}}" placeholder="Senha">
+            <input type="password" class="form-control" name="password" id="password" value="{{$user->password}}" placeholder="Senha" required="required">
         </div>
     </div>
     

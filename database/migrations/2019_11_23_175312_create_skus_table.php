@@ -15,7 +15,7 @@ class CreateSkusTable extends Migration
     {
         Schema::create('skus', function (Blueprint $table) {
             $table->id();
-            $table->string("cod", 100);
+            $table->string("cod", 100)->unique();
             $table->string("description");
         });
     }
