@@ -10,7 +10,7 @@ class Product extends Model
     use HasFactory;
 
     public $timestamps = false;
-    protected $fillable = ["name","cost_price","sale_price","sku","description", "company_id", "category_id", "brand_id", "privider_id"];
+    protected $fillable = ["name","cost_price","sale_price","sku","description", "category_id", "brand_id", "provider_id", "shop_id"];
 
     public function stocks()
     {
@@ -36,5 +36,5 @@ class Product extends Model
     {
         return $this->belongsTo(Provider::class, "provider_id", "id");
     }
-    
+
 }
