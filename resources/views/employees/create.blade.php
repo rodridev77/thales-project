@@ -128,11 +128,11 @@ $route = route("funcionarios.index");
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputFile">Rua</label>
-                            <input type="text" class="form-control" name="street" id="exampleInputFile" placeholder="nome da rua">
+                            <input type="text" class="form-control" name="street" id="exampleInputFile" placeholder="Nome da rua">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="exampleInputFile">Numero</label>
-                            <input type="text" class="form-control" name="number" id="exampleInputFile" placeholder="numero da casa">
+                            <label for="exampleInputFile">Número</label>
+                            <input type="text" class="form-control" name="number" id="exampleInputFile" placeholder="Número da casa">
                         </div>
                     </div>
                 </div>
@@ -149,15 +149,15 @@ $route = route("funcionarios.index");
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Banco</label>
-                        <input type="text" class="form-control" name="bank" id="exampleInputEmail1" placeholder="Enter email">
+                        <input type="text" class="form-control" name="bank" id="exampleInputEmail1" placeholder="Banco">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputtext1">Numero da conta</label>
-                        <input type="text" class="form-control" name="account_number" id="exampleInputtext1" placeholder="text">
+                        <label for="exampleInputtext1">Número da conta</label>
+                        <input type="text" class="form-control" name="account_number" id="exampleInputtext1" placeholder="Número da Conta">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputtext1">Agencia</label>
-                        <input type="text" class="form-control" name="agency" id="exampleInputtext1" placeholder="text">
+                        <label for="exampleInputtext1">Agência</label>
+                        <input type="text" class="form-control" name="agency" id="exampleInputtext1" placeholder="Agência">
                     </div>
                 </div>
             </div>
@@ -173,11 +173,11 @@ $route = route("funcionarios.index");
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Cargo</label>
-                        <input type="text" name="cargo" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        <input type="text" name="cargo" class="form-control" id="exampleInputEmail1" placeholder="Cargo">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputtext1">Salario</label>
-                        <input type="text" name="salary" class="form-control" id="exampleInputtext1" placeholder="text">
+                        <label for="exampleInputtext1">Salário</label>
+                        <input type="text" name="salary" class="form-control" id="exampleInputtext1" placeholder="Sálario">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Data de Admisão</label>

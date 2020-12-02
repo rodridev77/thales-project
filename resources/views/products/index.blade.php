@@ -3,7 +3,7 @@
 $title = "Produtos";
 @endphp
 @section('card-tools')
-<button type="button" class="btn btn-success" onclick="loadViewInHome('{{url('produtos/create')}}')"><i class="fas fa-plus"></i>Adicionar Produto</button>
+<button type="button" class="btn btn-success" onclick="loadViewInHome('{{url('produtos/create')}}')"><i class="fas fa-plus"></i> Adicionar Produto</button>
 @endsection
 @section('card-body')
 @if (count($data) > 0)
