@@ -30,7 +30,8 @@ Route::group(['prefix' => 'auth'], function () {
 // TODAS AS ROTAS DENTRO DESTE GRUPO EXIGEM SESSAO INICIADA
 Route::group(['prefix' => '/', 'middleware' => ['employeeauth']], function () {
     // HOME
-    Route::get('/', "HomeController@index")->name('home');
+    Route::get('/', "HomeController@home")->name('index');
+    Route::get('/home', "HomeController@index")->name('home');
 /*
     Route::get("/products", function () {
         return view("products.index");

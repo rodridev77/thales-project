@@ -21,7 +21,7 @@ $title = "Fornecedor";
         @foreach ($data as $item)
         <tr>
             <td>{{$item->name}}</td>
-            <td>{{$item->document}}</td>
+            <td>{{$item->documento}}</td>
             <td>{{$item->email}}</td>
             <td>{{$item->phone}}</td>
             <td>

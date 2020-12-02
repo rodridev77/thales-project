@@ -4,7 +4,7 @@ $title = "Marcas";
 $route = route("settings.home");
 @endphp
 @section('card-tools')
-<button type="button" class="btn btn-success" onclick="loadViewInHome('{{url('marcas/create')}}')"><i class="fas fa-plus"></i>Adicionar Marca</button>
+<button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('marcas.create')}}')"><i class="fas fa-plus"></i>Adicionar Marca</button>
 @endsection
 @section('card-body')
 @if (count($data) > 0)
@@ -20,9 +20,8 @@ $route = route("settings.home");
         <tr>
             <td>{{$item->name}}</td>
             <td>
-                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('marcas/'.$item->id.'/edit')}}')"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{route('marcas.edit',$item->id)}}')"><i class="fa fa-edit"></i></button>
                 <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-shopid="{{$item->id}}"><i class="fa fa-trash"></i></button>
-                <button class="btn btn-xs btn-success" onclick="loadViewInHome('{{url('marcas/'.$item->id)}}')"><i class="fa fa-eye"></i></button>
             </td>
         </tr>
         @endforeach

@@ -4,7 +4,7 @@ $title = "Cadastro de Marca";
 $route = route("marcas.index");
 @endphp
 @section('card-body')
-<form data-sendrequest="{{url('/marcas')}}" method="POST">
+<form data-sendrequest="{{route('marcas.store')}}" method="POST">
     @csrf
     <div class="row">
         <div class="col-md-12">
