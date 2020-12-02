@@ -22,15 +22,15 @@ $route = route("produtos.index");
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Nome</label>
-                            <input type="text" name="nome" class="form-control" id="exampleInputEmail1" placeholder="Nome do produto">
+                            <input type="text" name="nome" class="form-control" id="exampleInputEmail1" placeholder="Nome do produto" require="require">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Codigo SKU</label>
-                            <input type="text" name="sku" class="form-control" id="exampleInputEmail1" placeholder="Codigo SKU">
+                            <input type="text" name="sku" class="form-control" id="exampleInputEmail1" placeholder="Codigo SKU" require="require">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Marca</label>
-                            <select name="brand_id" class="form-control">
+                            <select name="brand_id" class="form-control" require="require">
                                 <option disabled>Selecione uma marca</option>
                                 @foreach($globalBrands as $brand)
                                 <option value="{{$brand->id}}">{{$brand->name}}</option>
@@ -39,32 +39,32 @@ $route = route("produtos.index");
                         </div>
                         <div class="form-group col-md-12">
                             <label for="exampleInputtext1">Descricao</label>
-                            <textarea name="description" class="form-control" placeholder="descricao do produto" />
-                            </div>
+                            <textarea name="description" class="form-control" placeholder="descricao do produto" require="require" />
+                        </div>
 
                         <div class="form-group col-md-4">
-                        <label for="exampleInputEmail1">Empresa</label>
-                            <select name="brand_id" class="form-control">
-                            <option disabled>Selecione uma Empresa</option>
-                                @foreach($globalCompanies as $company)
-                                <option value="{{$company->id}}">{{$company->name}}</option>
+                        <label for="exampleInputEmail1">Loja</label>
+                            <select name="brand_id" class="form-control" require="require" placeholder="Selecione uma Loja">
+                            <option disabled>Selecione uma Loja</option>
+                                @foreach($globalShops as $shop)
+                                <option value="{{$shop->id}}">{{$shop->fantasyname}}</option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="form-group col-md-4">
                         <label for="exampleInputEmail1">Fornecedor</label>
-                            <select name="brand_id" class="form-control">
+                            <select name="brand_id" class="form-control" require="require" placeholder="Selecione uma marca">
                             <option disabled>Selecione um Fornecedor</option>
                                 @foreach($globalProviders as $provider)
-                                <option value="{{$provider->id}}">{{$provider->fanpasyname}}</option>
+                                <option value="{{$provider->id}}">{{$provider->fantasyname}}</option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="form-group col-md-4">
                         <label for="exampleInputEmail1">Categoria</label>
-                            <select name="brand_id" class="form-control">
+                            <select name="brand_id" class="form-control" require="require">
                             <option disabled>Selecione uma categoria</option>
                                 @foreach($globalCategories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>

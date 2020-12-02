@@ -44,10 +44,10 @@ $route = route("produtos.index");
                             </div>
 
                         <div class="form-group col-md-4">
-                        <label for="exampleInputEmail1">Empresa</label>
-                            <select name="brand_id" class="form-control">
-                            <option disabled>Selecione uma Empresa</option>
-                                @foreach($globalCompanies as $company)
+                        <label for="exampleInputEmail1">Loja</label>
+                            <select name="brand_id" class="form-control" require="require">
+                            <option disabled>Selecione uma Loja</option>
+                                @foreach($globalShops as $shop)
                                 <option @if($data->company_id == $company->id) selected @endif value="{{$company->id}}">{{$company->name}}</option>
                                 @endforeach
                             </select>
