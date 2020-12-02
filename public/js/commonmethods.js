@@ -1,6 +1,6 @@
 function limpa_formulário() {
   // Limpa valores do formulário de cep.
-  $("input[name='stree']").val("");
+  $("input[name='street']").val("");
   $("input[name='district']").val("");
   $("input[name='city']").val("");
   $("input[name='uf']").val("");
