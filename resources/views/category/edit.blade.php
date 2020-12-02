@@ -20,12 +20,10 @@ $route = route('categorias.index');
                 <div class="form-row">
                     <div class="form-group col-sm-12">
                         <label for="fathercat">Categoria Pai</label>
-                        <select class="form-control" id="fathercat" name="parent">
-                            <option> Nenhuma </option>
+                        <select class="form-control" id="fathercat" name="subcategory" require="require">
+                            <option value={{null}}> Nenhuma </option>
                                 @foreach($globalCategories as $category)
-                                    @if($category->parent === null)
-                                        <option @if($category->parent == $data->id) selected  @endif value="{{$category->id}}"> {{$category->name}} </option>
-                                    @endif
+                                    <option @if($category->subcategory == $data->id) selected  @endif value="{{$category->id}}"> {{$category->name}} </option>
                                 @endforeach
                         </select>
                     </div>

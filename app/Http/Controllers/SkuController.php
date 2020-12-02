@@ -26,7 +26,13 @@ class SkuController extends Controller
 
     public function store(Request $request) 
     {
-        //dd($request->all());
+        $cod = DB::table('skus')->where('cod', $request->cod)->first();
+
+        if (!empty($cod)) :
+            return response()->json(['message' => 'código SKU já exite no sistema'], 500);
+            exit;
+        endif;
+        
         try
         {
             DB::transaction(function() use ($request)
@@ -41,7 +47,7 @@ class SkuController extends Controller
         } 
         catch(Exception $error)
         {
-            return response()->json(["Não foi possível criar o código SKU"], 500);
+            return response()->json(['message' => 'Não foi possível criar o código SKU'], 500);
         }
 
     }

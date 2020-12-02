@@ -12,8 +12,11 @@ use App\Models\Shop;
 use Illuminate\Support\Facades\Schema;
 use Faker\Generator as FakerGenerator;
 use Faker\Factory as FakerFactory;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
@@ -39,7 +42,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         // Globals
+        $request = new URL();
+        //echo $request->current();
         View::share('globalCategories',Category::all());
+        //View::share('breadcrumb',explode("/",str_replace(['https','http','://'],'',$request->fullUrl())));
         View::share('globalBrands',Brand::all());
         View::share('globalCompanies',Company::all());
         View::share('globalProviders',Provider::all());

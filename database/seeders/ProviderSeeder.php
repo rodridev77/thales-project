@@ -16,9 +16,9 @@ class ProviderSeeder extends Seeder
     public function run()
     {
         DB::table('providers')->insert([
-            ["name"=> "Fornecedor 1"],
-            ["name"=> "Fornecedor 2"],
-            ["name"=> "Fornecedor 3"],
+            ["name"=> "Fornecedor 1", "documento" => "1", "phone" => "31"],
+            ["name"=> "Fornecedor 2", "documento" => "2", "phone" => "31"],
+            ["name"=> "Fornecedor 3", "documento" => "3", "phone" => "31"],
         ]);
     }
 }

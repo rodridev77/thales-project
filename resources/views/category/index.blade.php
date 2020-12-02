@@ -21,11 +21,11 @@ $route = route('settings.home');
         <tr>
             <td>{{$category->name}}</td>
             <td>
-                @if($category->parent === null)
+                @if($category->subcategory === null)
                     Nenhum
                 @endif
                 @foreach($data as $item)
-                    @if($item->id == $category->parent)
+                    @if($item->id == $category->subcategory)
                         {{$item->name}}
                     @endif
                 @endforeach

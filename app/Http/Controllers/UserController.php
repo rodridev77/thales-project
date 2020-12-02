@@ -25,6 +25,12 @@ class UserController extends Controller
 
     public function store(CreateUser $request)
     {
+        $email = DB::table('users')->where('email', $request->email)->first();
+
+        if (!empty($email)) :
+            return response()->json(['message' => 'Usuário já exite no sistema'], 500);
+            exit;
+        endif;
 
         try {
             DB::transaction(function () use ($request) {

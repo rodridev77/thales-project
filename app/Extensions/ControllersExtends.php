@@ -71,7 +71,7 @@ abstract class ControllersExtends extends Controller implements ControllersInter
             }
             return response()->json(["Cadastrado com Sucesso!"]);
         } catch (Exception $error) {
-            return response()->json(["message" => "Problema ao Cadastrar. ".$error->getMessage()], 500);
+            return response()->json(["message" => "Problema ao Cadastrar. ", "error" => $error->getMessage()], 500);
         }
     }
 
@@ -92,7 +92,7 @@ abstract class ControllersExtends extends Controller implements ControllersInter
             }
             return response()->json(["Atualizado com Sucesso!"]);
         } catch (Exception $error) {
-            return response()->json(["message" => "Problema ao Atualizar.". $error->getMessage()], 500);
+            return response()->json(["message" => "Problema ao Atualizar.", "error" => $error->getMessage()], 500);
         }
     }
 

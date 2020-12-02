@@ -71,6 +71,9 @@ $title = "Fornecedor";
         $("#example1").DataTable({
             "responsive": true,
             "autoWidth": false,
+            "oLanguage": {
+            "sUrl": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Portuguese-Brasil.json"
+            }
         });
         $('#example2').DataTable({
             "paging": true,

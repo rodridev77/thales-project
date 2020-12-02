@@ -18,7 +18,7 @@ $route = route("funcionarios.index");
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-
+//@php var_dump(date_format(new DateTime($data->birthday),'d/m/Y')) @endphp
                 <div class="card-body">
                     <div class="form-row">
                         <div class="form-group col-md-4">
@@ -43,7 +43,7 @@ $route = route("funcionarios.index");
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Data de Nascimento</label>
-                            <input type="date" name="birthday" value="{{$data->birthday}}" class="form-control" placeholder="data de Nascimento">
+                            <input type="date" name="birthday" value="{{date_format(new DateTime($data->birthday),'Y-m-d')}}" class="form-control" placeholder="data de Nascimento">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">CPF</label>
