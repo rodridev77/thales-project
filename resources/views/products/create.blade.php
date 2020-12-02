@@ -57,7 +57,7 @@ $route = route("produtos.index");
                             <select name="brand_id" class="form-control" require="require" placeholder="Selecione uma marca">
                             <option disabled>Selecione um Fornecedor</option>
                                 @foreach($globalProviders as $provider)
-                                <option value="{{$provider->id}}">{{$provider->fantasyname}}</option>
+                                <option value="{{$provider->id}}">{{$provider->name}}</option>
                                 @endforeach
                             </select>
                         </div>
