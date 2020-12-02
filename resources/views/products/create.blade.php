@@ -22,11 +22,11 @@ $route = route("produtos.index");
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Nome</label>
-                            <input type="text" name="nome" class="form-control" id="exampleInputEmail1" placeholder="Nome do produto">
+                            <input type="text" name="nome" class="form-control" id="exampleInputEmail1" placeholder="Nome do produto" require="require">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Codigo SKU</label>
-                            <input type="text" name="sku" class="form-control" id="exampleInputEmail1" placeholder="Codigo SKU">
+                            <input type="text" name="sku" class="form-control" id="exampleInputEmail1" placeholder="Codigo SKU" require="require">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Marca</label>
@@ -39,8 +39,8 @@ $route = route("produtos.index");
                         </div>
                         <div class="form-group col-md-12">
                             <label for="exampleInputtext1">Descricao</label>
-                            <textarea name="description" class="form-control" placeholder="descricao do produto" />
-                            </div>
+                            <textarea name="description" class="form-control" placeholder="descricao do produto" require="require" />
+                        </div>
 
                         <div class="form-group col-md-4">
                         <label for="exampleInputEmail1">Empresa</label>
@@ -57,7 +57,7 @@ $route = route("produtos.index");
                             <select name="brand_id" class="form-control">
                             <option>Selecione um Fornecedor</option>
                                 @foreach($globalProviders as $provider)
-                                <option value="{{$provider->id}}">{{$provider->fanpasyname}}</option>
+                                <option value="{{$provider->id}}">{{$provider->name}}</option>
                                 @endforeach
                             </select>
                         </div>

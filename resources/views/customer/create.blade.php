@@ -26,37 +26,37 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Nome do Conjugue</label>
-                                <input type="text" name="cpf" class="form-control" id="exampleInputtext1"
+                                <input type="text" name="conjugate" class="form-control" id="exampleInputtext1"
                                        placeholder="Nome do Conjugue">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Telefone do Conjugue</label>
-                                <input type="text" name='rg' class="form-control" id="exampleInputtext1"
+                                <input type="text" name='phone_conjugate' class="form-control" id="exampleInputtext1"
                                        placeholder="Telefone do Conjugue">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Estado Civíl</label>
-                                <input type="text" name="phone" class="form-control" id="exampleInputtext1"
+                                <input type="text" name="state_civil" class="form-control" id="exampleInputtext1"
                                        placeholder="Estado Civíl">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Nome da Empresa</label>
-                                <input type="text" name="cpf" class="form-control" id="exampleInputtext1"
+                                <input type="text" name="company" class="form-control" id="exampleInputtext1"
                                        placeholder="Estado Civíl">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Renda Mensal</label>
-                                <input type="text" name='rg' class="form-control" id="exampleInputtext1"
+                                <input type="text" name='income' class="form-control" id="exampleInputtext1"
                                        placeholder="Renda Mensal">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Numero de Dependentes</label>
-                                <input type="text" name="phone" class="form-control" id="exampleInputtext1"
+                                <input type="text" name="conjugate" class="form-control" id="exampleInputtext1"
                                        placeholder="Numero de Dependentes">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">CPF</label>
-                                <input type="text" name="cpf" class="form-control" id="exampleInputtext1"
+                                <input type="text" name="dependents" class="form-control" id="exampleInputtext1"
                                        placeholder="CPF">
                             </div>
                             <div class="form-group col-md-4">
@@ -71,17 +71,17 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Telefone Residencial</label>
-                                <input type="text" name="cpf" class="form-control" id="exampleInputtext1"
+                                <input type="text" name="phone_residential" class="form-control" id="exampleInputtext1"
                                        placeholder="Telefone Residencial">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Telefone Comercial</label>
-                                <input type="text" name='rg' class="form-control" id="exampleInputtext1"
+                                <input type="text" name='phone_commercial' class="form-control" id="exampleInputtext1"
                                        placeholder="Telefone Comercial">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputtext1">Telefone Complementar</label>
-                                <input type="text" name="phone" class="form-control" id="exampleInputtext1"
+                                <input type="text" name="phone_complementary" class="form-control" id="exampleInputtext1"
                                        placeholder="Telefone Complementar">
                             </div>
                             <div class="form-group col-md-6">

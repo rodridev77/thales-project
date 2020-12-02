@@ -175,6 +175,7 @@
                     </div>
                 </div>
             </div>
+
             <div id="home_menu_container" class="py-2">
                 <div class="container-fluid">
                     <div class="row">
@@ -292,15 +293,6 @@
             "responsive": true,
             "autoWidth": false
         });
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
     });
     const Toast = Swal.mixin({
         toast: true,
@@ -349,38 +341,6 @@
                 title: 'Funcionario Deletado'
             });
             loadViewInHome("{{url('/funcionarios/')}}")
-        }
-    });
-
-    // Save SKU from request
-    request.makeRequest("data-savesku", (response) => {
-        if (response.status === 500) {
-            Toast.fire({
-                icon: 'error',
-                title: 'Houve um erro tente novamente , ou contacte o suporte'
-            });
-        }
-        if (response.status === 200) {
-            Toast.fire({
-                icon: 'success',
-                title: 'SKU Cadastrado'
-            });
-        }
-    });
-    // Send request Dinamically
-    request.makeRequest("data-sendrequest", (response) => {
-        console.log(response);
-        if (response.status === 500) {
-            Toast.fire({
-                icon: 'error',
-                title: response.data[0]
-            });
-        }
-        if (response.status === 200) {
-            Toast.fire({
-                icon: 'success',
-                title: response.data[0]
-            });
         }
     });
 

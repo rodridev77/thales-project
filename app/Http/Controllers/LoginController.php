@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\VarDumper\VarDumper;
 
-class LoginController extends Controller
+class  LoginController extends Controller
 {
     public function login(Request $request)
     {
