@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->decimal('sale_price', 8, 2);
             $table->string('sku', 50);
             $table->text('description', 300)->nullable();
-            $table->foreignId("company_id")->constrained("companies","id")->onDelete('cascade');
+            $table->foreignId("shop_id")->constrained("shop","id")->onDelete('cascade');
             $table->foreignId("category_id")->constrained("categories","id")->onDelete('cascade');
             $table->foreignId("brand_id")->constrained("brands","id")->onDelete('cascade');
             $table->foreignId("provider_id")->constrained("providers","id")->onDelete('cascade');

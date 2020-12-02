@@ -22,7 +22,7 @@ $route = route("produtos.index");
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Nome</label>
-                            <input type="text" name="nome" class="form-control" id="exampleInputEmail1" placeholder="Nome do produto" require="require">
+                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Nome do produto" require="require">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Codigo SKU</label>
@@ -37,6 +37,14 @@ $route = route("produtos.index");
                                 @endforeach
                             </select>
                         </div>
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputEmail1">Valor de Custo</label>
+                            <input type="text" name="cost_price" class="form-control" id="exampleInputEmail1" placeholder="valor de Custo" require="require">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputEmail1">Valor de Venda</label>
+                            <input type="text" name="sale_price" class="form-control" id="exampleInputEmail1" placeholder="Valor de Venda" require="require">
+                        </div>
                         <div class="form-group col-md-12">
                             <label for="exampleInputtext1">Descricao</label>
                             <textarea name="description" class="form-control" placeholder="descricao do produto" require="require" />
@@ -44,7 +52,7 @@ $route = route("produtos.index");
 
                         <div class="form-group col-md-4">
                         <label for="exampleInputEmail1">Loja</label>
-                            <select name="brand_id" class="form-control" require="require" placeholder="Selecione uma Loja">
+                            <select name="shop_id" class="form-control" require="require" placeholder="Selecione uma Loja">
                             <option disabled>Selecione uma Loja</option>
                                 @foreach($globalShops as $shop)
                                 <option value="{{$shop->id}}">{{$shop->fantasyname}}</option>
@@ -54,7 +62,7 @@ $route = route("produtos.index");
 
                         <div class="form-group col-md-4">
                         <label for="exampleInputEmail1">Fornecedor</label>
-                            <select name="brand_id" class="form-control" require="require" placeholder="Selecione uma marca">
+                            <select name="provider_id" class="form-control" require="require" placeholder="Selecione um fornecedor">
                             <option disabled>Selecione um Fornecedor</option>
                                 @foreach($globalProviders as $provider)
                                 <option value="{{$provider->id}}">{{$provider->name}}</option>
@@ -64,7 +72,7 @@ $route = route("produtos.index");
 
                         <div class="form-group col-md-4">
                         <label for="exampleInputEmail1">Categoria</label>
-                            <select name="brand_id" class="form-control" require="require">
+                            <select name="category_id" class="form-control" require="require">
                             <option disabled>Selecione uma categoria</option>
                                 @foreach($globalCategories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>

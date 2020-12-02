@@ -21,7 +21,7 @@ $route = route('categorias.index');
                 <div class="form-row">
                     <div class="form-group col-sm-12">
                         <label for="fathercat">Categoria Pai</label>
-                        <select class="form-control" id="fathercat" name="subcategory">
+                        <select class="form-control" id="fathercat" name="subcategory" require="require">
                             <option value={{null}}> Nenhuma </option>
                             @foreach($globalCategories as $category)
                                 @if($category->subcategory === null)
