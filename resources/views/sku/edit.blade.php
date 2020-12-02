@@ -22,7 +22,7 @@ $title = "Tabela de Código SKU";
 <div class="container" id="">
     <div class="row justify-content-center">
         <div class="col-sm-12 mb-3">
-            <form data-savesku="{{url('/sku/update/'.$sku->id)}}" method="POST">
+            <form data-submitajax="{{url('/sku/update/'.$sku->id)}}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="form-row">
