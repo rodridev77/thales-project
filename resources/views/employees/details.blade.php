@@ -99,16 +99,16 @@ $route = route("funcionarios.index");
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <b>Cargo : </b>{{$data->contract->cargo}}
+                                <b>Cargo : </b>{{!$data->contract ? "" : $data->contract->cargo}}
                             </li>
                             <li class="nav-item">
-                            <b>Salario : </b> R$ @money($data->contract->salary)
+                            <b>Salario : </b> R$ @money(!$data->contract ? "0.00" : $data->contract->salary)
                             </li>
                             <li class="nav-item">
-                            <b>Registro : </b>@date($data->contract->admission_date)
+                            <b>Registro : </b>@date(!$data->contract ? "" : $data->contract->admission_date)
                             </li>
                             <li class="nav-item">
-                            <b>Dispensa : </b>@datetime($data->contract->dismission_date)
+                            <b>Dispensa : </b>@datetime(!$data->contract ? "" : $data->contract->dismission_date)
                             </li>
                         </ul>
                     </div>
