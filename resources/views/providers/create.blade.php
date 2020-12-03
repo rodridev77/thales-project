@@ -42,7 +42,7 @@ $route = route("fornecedores.index");
                         </div>
 
                         <div class="form-group col-md-2">
-                            <label for="exampleInputtext1">Cep</label>
+                            <label for="exampleInputtext1">CEP</label>
                             <input type="text" name='zipcode' class="form-control" id="exampleInputtext1" placeholder="cep">
                         </div>
 
@@ -81,6 +81,9 @@ $route = route("fornecedores.index");
     </div>
 </form>
 <script>
-    $('body').getAddress();
+    $(document).ready(function(){
+        $('body').getAddress();
+    });
+
 </script>
 @endsection

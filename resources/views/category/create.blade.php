@@ -8,7 +8,7 @@ $route = route('categorias.index');
 <div class="container" id="">
     <div class="row justify-content-center">
         <div class="col-sm-12 mb-3">
-            <form data-sendrequest="{{url('/categorias')}}" method="POST">
+            <form data-sendrequest="{{route('categorias.store')}}" method="POST">
                 @csrf
                 <div class="form-row">
                     <div class="form-group col-sm-12">
@@ -24,9 +24,7 @@ $route = route('categorias.index');
                         <select class="form-control" id="fathercat" name="subcategory" require="require">
                             <option value={{null}}> Nenhuma </option>
                             @foreach($globalCategories as $category)
-                                @if($category->subcategory === null)
-                                    <option value="{{$category->id}}"> {{$category->name}} </option>
-                                @endif
+                                <option value="{{$category->id}}"> {{$category->name}} </option>
                             @endforeach
                         </select>
                     </div>

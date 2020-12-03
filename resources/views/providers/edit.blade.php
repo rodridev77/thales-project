@@ -94,6 +94,8 @@ $route = route("fornecedores.index");
     </div>
 </form>
 <script>
-    $(document).getAddress();
+     $(document).ready(function(){
+        $('body').getAddress();
+    });
 </script>
 @endsection

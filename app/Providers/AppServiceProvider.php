@@ -9,6 +9,7 @@ use App\Models\Employee;
 use App\Models\Product;
 use App\Models\Provider;
 use App\Models\Shop;
+use Exception;
 use Illuminate\Support\Facades\Schema;
 use Faker\Generator as FakerGenerator;
 use Faker\Factory as FakerFactory;
@@ -43,6 +44,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         // Globals
         $request = new URL();
+        try{
         //echo $request->current();
         View::share('globalCategories',Category::all());
         //View::share('breadcrumb',explode("/",str_replace(['https','http','://'],'',$request->fullUrl())));
@@ -52,6 +54,9 @@ class AppServiceProvider extends ServiceProvider
         View::share('globalShops',Shop::all());
         View::share('globalProducts',Product::all());
         View::share('globalEmployees',Employee::all());
+        }catch(Exception $e){
+
+        }
         //
         Blade::directive('money', function ($amount) {
             return "<?php echo number_format($amount, 2,',','.'); ?>";

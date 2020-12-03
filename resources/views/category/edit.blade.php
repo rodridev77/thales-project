@@ -23,7 +23,7 @@ $route = route('categorias.index');
                         <select class="form-control" id="fathercat" name="subcategory" require="require">
                             <option value={{null}}> Nenhuma </option>
                                 @foreach($globalCategories as $category)
-                                    <option @if($category->subcategory == $data->id) selected  @endif value="{{$category->id}}"> {{$category->name}} </option>
+                                    <option @if($data->subcategory == $category->id) selected  @endif value="{{$category->id}}"> {{$category->name}} </option>
                                 @endforeach
                         </select>
                     </div>

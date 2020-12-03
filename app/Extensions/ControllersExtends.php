@@ -69,7 +69,7 @@ abstract class ControllersExtends extends Controller implements ControllersInter
             }else{
                 $this->model::create($data);
             }
-            return response()->json(["Cadastrado com Sucesso!"]);
+            return response()->json(["message" => "Cadastrado com Sucesso!"]);
         } catch (Exception $error) {
             return response()->json(["message" => "Problema ao Cadastrar. ", "error" => $error->getMessage()], 500);
         }
@@ -90,7 +90,7 @@ abstract class ControllersExtends extends Controller implements ControllersInter
             }else{
                 $this->model::where('id', $id)->update($data);
             }
-            return response()->json(["Atualizado com Sucesso!"]);
+            return response()->json(["message" => "Atualizado com Sucesso!"]);
         } catch (Exception $error) {
             return response()->json(["message" => "Problema ao Atualizar.", "error" => $error->getMessage()], 500);
         }
@@ -100,7 +100,7 @@ abstract class ControllersExtends extends Controller implements ControllersInter
     {
         try {
             $this->model::destroy($id);
-            return response()->json(["Deletado com Sucesso!"]);
+            return response()->json(["message" => "Deletado com Sucesso!"]);
         } catch (Exception $error) {
             return response()->json(["message" => "Problema ao Deletar."], 500);
         }
