@@ -4,8 +4,7 @@ $title = "Lista de Categorias";
 $route = route('settings.home');
 @endphp
 @section('card-tools')
-<button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('categorias.create')}}')"><i
-        class="fas fa-plus"></i>Cadastrar Categoria</button>
+<button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('categorias.create')}}')"><i class="fas fa-plus"></i>Cadastrar Categoria</button>
 @endsection
 @section('card-body')
 @if (count($data) > 0)
@@ -18,28 +17,25 @@ $route = route('settings.home');
         </tr>
     </thead>
     <tbody>
-        @foreach ($data as $category)
+    @foreach ($data as $category)
         <tr>
             <td>{{$category->name}}</td>
             <td>
                 @if($category->subcategory === null)
-                Nenhum
+                    Nenhum
                 @endif
                 @foreach($data as $item)
-                @if($item->id == $category->subcategory)
-                {{$item->name}}
-                @endif
+                    @if($item->id == $category->subcategory)
+                        {{$item->name}}
+                    @endif
                 @endforeach
             </td>
             <td>
-                <button class="btn btn-xs btn-info"
-                    onclick="loadViewInHome('{{url('categorias/'.$category->id.'/edit/')}}')"><i
-                        class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal"
-                    data-shopid="{{$category->id}}"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('categorias/'.$category->id.'/edit/')}}')"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-shopid="{{$category->id}}"><i class="fa fa-trash"></i></button>
             </td>
         </tr>
-        @endforeach
+    @endforeach
     </tbody>
 </table>
 <div class="modal " id="exampleModal">
@@ -74,9 +70,6 @@ $(function() {
     $("#layout-um").DataTable({
         "responsive": true,
         "autoWidth": false,
-        "oLanguage": {
-            "sUrl": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Portuguese-Brasil.json"
-        }
     });
 });
 
@@ -96,8 +89,7 @@ $('#sku-delete').on('show.bs.modal', function(event) {
                         title: 'Categoria Excluída'
                     });
                     $('#category-delete').modal("hide");
-                    loadViewInHome('{{route('
-                        categorias.index ')}}');
+                    loadViewInHome('{{route('categorias.index')}}');
                 }
             })
             .catch((err) => {
@@ -115,5 +107,6 @@ $('#sku-delete').on('show.bs.modal', function(event) {
 function loadSkuForm() {
     $('#create-sku-form').modal('show');
 }
+
 </script>
 @endsection
