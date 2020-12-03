@@ -68,8 +68,8 @@ $route = route("funcionarios.index");
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">Gênero</label>
                             <select class="form-control" id="exampleInputtext1" name="gender">
-                                <option value="masculino">Masculino</option>
-                                <option value="Feminino">Feminino</option>
+                                <option @if($data->gender == "masculino") selected @endif value="masculino">Masculino</option>
+                                <option @if($data->gender == "Feminino") selected @endif value="Feminino">Feminino</option>
                             </select>
                         </div>
                         <div class="form-group col-md-4">
