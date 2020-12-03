@@ -18,7 +18,6 @@ $route = route("funcionarios.index");
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-//@php var_dump(date_format(new DateTime($data->birthday),'d/m/Y')) @endphp
                 <div class="card-body">
                     <div class="form-row">
                         <div class="form-group col-md-4">

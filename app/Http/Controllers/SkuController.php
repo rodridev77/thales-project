@@ -82,8 +82,9 @@ class SkuController extends Controller
                 "cod"=>$request->cod,
                 "description"=>$request->description,
             ]);
+
             return response()->json(['message' => 'Sku atualizado'], 200);
-        }catch (Throwable $error){
+        }catch (Throwable $error) {
             return response()->json(['message'=> 'Sku não atualizado'], 500);
         }
     }

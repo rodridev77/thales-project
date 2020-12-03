@@ -9,7 +9,7 @@ $route = route("user.home");
 @endsection
 @section('card-body')
 
-<form autocomplete="off" data-submitajax="{{url('/user/update/'.$user->id)}}" id="create_user" method="POST">
+<form autocomplete="off" data-submitajax="{{url('/user/update/'.$user->id)}}" id="" method="POST">
     @csrf
     @method('PUT')
     <div class="form-row">
@@ -18,8 +18,8 @@ $route = route("user.home");
             <input type="text" class="form-control" name="name" id="name" placeholder="Nome" value="{{$user->name}}" required="required">
         </div>
         <div class="form-group col-md-6">
-            <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email" value="{{$user->email}}" required="required">
+            <label for="">Email</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="{{$user->email}}" required="required">
         </div>
         <div class="form-group col-md-6">
             <label for="password">Senha</label>

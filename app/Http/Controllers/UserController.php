@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\CreateUser;
 use App\Models\User;
 use App\Models\Employee;
@@ -59,18 +60,15 @@ class UserController extends Controller
         return view("user.edit", ["user" => $user]);
     }
 
-    public function update(CreateUser $request, $id)
+    public function update(Request $request, $id)
     {
 
         try {
-            DB::transaction(function () use($request, $id) {
-
-                User::where("id", $id)->update([
-                    'name' => $request->name,
-                    'email' => $request->email,
-                    'password' => Hash::make($request->password),
-                ]);
-            });
+            User::where("id", $id)->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
 
             return response()->json(['message' => 'Usuario Atualizado']);
 
