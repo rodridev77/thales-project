@@ -203,6 +203,9 @@ $route = route("funcionarios.index");
             img.src = event.target.result;
         }
     });
-    $(document).getAddress();
+    $(document).ready(function(){
+        $(document).getAddress();
+    })
+
 </script>
 @endsection
