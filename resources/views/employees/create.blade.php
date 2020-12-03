@@ -1,208 +1,100 @@
 @extends('content_container_card')
 @php
-$title = "Cadastro de Funcionario";
-$route = route("funcionarios.index");
+    $title = "Funcionarios";
 @endphp
+@section('card-tools')
+    <button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('employees.create')}}')"><i class="fas fa-plus"></i>Adicionar Funcionario</button>
+@endsection
 @section('card-body')
-<form data-sendrequest="{{url('/funcionarios')}}" method="POST">
-    @csrf
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">Dados Pessoais</h3>
-                    <div class="card-tools">
-                        <button class="btn btn-success" type="submit"> <i class="fa fa-plus"></i> Cadastrar</button>
-                    </div>
-                </div>
-                <!-- /.card-header -->
-                <!-- form start -->
+    @if (count($employees) > 0)
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cargo</th>
+                <th>Cpf</th>
+                <th>Telefone</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach ($employees as $employee)
+                <tr>
+                    <td>{{$employee->name}}</td>
+                    <td>{{$employee->contract->cargo ?? "gerente"}}</td>
+                    <td>{{$employee->cpf}}</td>
+                    <td>{{$employee->phone}}</td>
+                    <td>
 
-                <div class="card-body">
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label for="exampleInputEmail1">Foto</label><br />
-                            <img width="65" height="65" id="avatar" />
-                            <input type="file" name="image" class="form-control" id="frmavatar" placeholder="avatar" style="height: 65px; margin-top: -65px; opacity: 0">
-                        </div>
-                        <div class="form-group col-md-8">
-                            <label for="exampleInputEmail1">Loja</label>
-                            <select class="form-control" name="shop_id">
-                                @foreach ($globalShops as $shop)
-                                    <option value="{{ $shop->id }}">{{ $shop->fantasyname }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                        <a class="btn btn-xs btn-info"><i class="fa fa-edit"></i></a>
+                        <a class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-employeeid="{{$employee->id}}"><i class="fa fa-trash"></i></a>
+                        <a class="btn btn-xs btn-success" onclick="loadViewInHome('{{url('funcionarios/'.$employee->id)}}')"><i class="fa fa-eye"></i></a>
+
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+
+        <div class="modal " id="exampleModal">
+            <div class="modal-dialog">
+                <div class="modal-content bg-danger">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Deletar Funcionário</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-8">
-                            <label for="exampleInputEmail1">Nome Completo</label>
-                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Nome completo">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="exampleInputEmail1">Data de Nascimento</label>
-                            <input type="date" name="birthday" class="form-control" id="exampleInputEmail1">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="exampleInputtext1">CPF</label>
-                            <input type="text" name="cpf" class="form-control" id="exampleInputtext1" placeholder="CPF">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="exampleInputtext1">RG</label>
-                            <input type="text" name='rg' class="form-control" id="exampleInputtext1" placeholder="RG">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="exampleInputtext1">Telefone</label>
-                            <input type="text" name="phone" class="form-control" id="exampleInputtext1" placeholder="text">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="exampleInputtext1">Nome da Mãe</label>
-                            <input type="text" name="mother_name" class="form-control" id="exampleInputtext1" placeholder="Nome da mãe">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="exampleInputtext1">Nome do Pai</label>
-                            <input type="text" name="father_name" class="form-control" id="exampleInputtext1" placeholder="Nome do pai">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="exampleInputtext1">Gênero</label>
-                            <select class="form-control" id="exampleInputtext1" name="gender">
-                                <option value="masculino">Masculino</option>
-                                <option value="Feminino">Feminino</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="exampleInputtext1">Escolaridade</label>
-                            <select class="form-control" id="exampleInputtext1" name="level_of_schooling">
-                                <option selected disabled>Selecione sua Escolaridade</option>
-                                <option value="Ensino Fundamental">Ensino Fundamental</option>
-                                <option value="Ensino Fundamental incompleto">Ensino Fundamental incompleto</option>
-                                <option value="Ensino Medio">Ensino Medio</option>
-                                <option value="Ensino Medio incompleto">Ensino Medio incompleto</option>
-                                <option value="Ensino Medio técnico">Ensino Medio técnico</option>
-                                <option value="Ensino Superior">Ensino Superior</option>
-                                <option value="Não Alfabetizado">Não Alfabetizado</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="exampleInputtext1">Email</label>
-                            <input type="email" name="email" class="form-control" id="exampleInputtext1" placeholder="Email">
-                        </div>
+                    <div class="modal-body">
+                        <p>Você Realmente deseja excluir esse funcionario ?</p>
                     </div>
-                </div>
+                    <div class="modal-footer justify-content-between">
+
+                <form id="delete" action="{{url('funcionarios/'.$employee->id))}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" class="btn btn-outline-light" data-dismiss="modal">Não</button>
+                    <button id="delete" type="submit" class="btn btn-outline-light" id="confirm-delete">Sim</button>
+                </form>
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">Endereço</h3>
-                </div>
-                <!-- /.card-header -->
-                <!-- form start -->
+        <!-- /.modal-content -->
 
-                <div class="card-body">
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label for="exampleInputFile">CEP</label>
-                            <input type="text" class="form-control" name="zipcode" id="exampleInputFile" placeholder="CEP">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="exampleInputEmail1">Estado</label>
-                            {{-- <select class="form-control" name="uf" id="estados" onchange="setCities(event)">
-                                    <option selected disabled>Selecione seu estado</option>
-                                </select> --}}
-                            <input type="text" name="uf" placeholder="Estado" class="form-control">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="exampleInputEmail1">Cidade</label>
-                            {{-- <select class="form-control" name="city" id="cidades" data-code="" onclick="setDistricts(event)">
-                                    <option selected disabled>Selecione sua cidade</option>
-                                </select> --}}
-                            <input type="text" name="city" placeholder="Cidade" class="form-control">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="exampleInputEmail1">Bairro</label>
-                            {{-- <select class="form-control" id="bairros" name="district">
-                                    <option selected disabled>Selecione seu Bairro</option>
-                                </select> --}}
-                            <input type="text" name="district" placeholder="Bairro" class="form-control">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="exampleInputFile">Rua</label>
-                            <input type="text" class="form-control" name="street" id="exampleInputFile" placeholder="Nome da rua">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="exampleInputFile">Número</label>
-                            <input type="text" class="form-control" name="number" id="exampleInputFile" placeholder="Número da casa">
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-        <div class="col-md-6">
-            <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">Dados Bancários</h3>
-                </div>
-                <!-- /.card-header -->
-                <!-- form start -->
+        <!-- /.modal-dialog -->
+        </div>
+    @else
+        <p>Nenhum Registro cadastrado</p>
+    @endif
+    <script>
+        $(function() {
 
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Banco</label>
-                        <input type="text" class="form-control" name="bank" id="exampleInputEmail1" placeholder="Banco">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputtext1">Número da conta</label>
-                        <input type="text" class="form-control" name="account_number" id="exampleInputtext1" placeholder="Número da Conta">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputtext1">Agência</label>
-                        <input type="text" class="form-control" name="agency" id="exampleInputtext1" placeholder="Agência">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">Dados do Contrato</h3>
-                </div>
-                <!-- /.card-header -->
-                <!-- form start -->
+                $("form#delete").on("submit", function(e) {
+                    fetch($(this).attr("action"), {
+                        method: 'DELETE',
+                    })
+                        .then(res => {
+                            let response = res.json();
+                            console.log(res)
+                            alert("deletado com sucesso")
+                        }).then(res => console.log(res))
+                })
 
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Cargo</label>
-                        <input type="text" name="cargo" class="form-control" id="exampleInputEmail1" placeholder="Cargo">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputtext1">Salário</label>
-                        <input type="text" name="salary" class="form-control" id="exampleInputtext1" placeholder="Sálario">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputtext1">Data de Admisão</label>
-                        <input type="date" name="admission_date" class="form-control" id="exampleInputtext1" placeholder="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputtext1">Data da Dispensa</label>
-                        <input type="date" name="dismission_date" class="form-control" id="exampleInputtext1" placeholder="text">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script>
-    $("#frmavatar").on("change", function() {
-        var input = document.getElementById("frmavatar");
-        var fReader = new FileReader();
-        fReader.readAsDataURL(input.files[0]);
-        fReader.onloadend = function(event) {
-            var img = document.getElementById("avatar");
-            img.src = event.target.result;
-        }
-    });
-    $(document).getAddress();
-</script>
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+        $('#exampleModal').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+    </script>
 @endsection
