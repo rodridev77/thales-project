@@ -24,7 +24,7 @@ class  LoginController extends Controller
            // $log = new LogsController();
             //$log->create($request);
 
-            return redirect()->route("home");
+            return redirect()->route("index");
         }
 
         return redirect()->back();
