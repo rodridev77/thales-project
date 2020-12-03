@@ -12,7 +12,7 @@ $route = route("funcionarios.index");
                 <div class="card-header">
                     <h3 class="card-title">Dados Pessoais</h3>
                     <div class="card-tools">
-                        <button class="btn btn-success" type="submit"> <i class="fa fa-edit"></i> Editar</button>
+                        <button class="btn btn-success" type="submit"> <i class="fa fa-plus"></i> Cadastrar</button>
                     </div>
                 </div>
                 <!-- /.card-header -->
