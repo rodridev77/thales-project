@@ -10,7 +10,7 @@ class Category extends Model
     use HasFactory;
 
     public $timestamps = false;
-    protected $fillable = ["name","subacategory"];
+    protected $fillable = ["name","subcategory"];
 
     public function products()
     {
