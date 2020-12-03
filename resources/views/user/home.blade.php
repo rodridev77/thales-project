@@ -65,6 +65,9 @@ $(function() {
     $("#layout-um").DataTable({
         "responsive": true,
         "autoWidth": false,
+        "oLanguage": {
+            "sUrl": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Portuguese-Brasil.json"
+        }
     });
 });
 
@@ -84,7 +87,8 @@ $('#user-delete').on('show.bs.modal', function(event) {
                         title: 'Usuário Exclúido'
                     });
                     $('#user-delete').modal("hide");
-                    loadViewInHome('{{route('user.home')}}');
+                    loadViewInHome('{{route('
+                        user.home ')}}');
                 }
             })
             .catch((err) => {

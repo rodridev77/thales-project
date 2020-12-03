@@ -18,18 +18,19 @@ $route = route("settings.home");
         </tr>
     </thead>
     <tbody>
-    @foreach ($skuList as $sku)
+        @foreach ($skuList as $sku)
         <tr>
             <td class="sku-cod">{{$sku->cod}}</td>
             <td class="sku-description">{{$sku->description}}</td>
             <td>
-                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('sku/edit/'.$sku->id)}}')"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#sku-delete" data-sku-id="{{$sku->id}}"><i
-                        class="fa fa-trash"></i></button>
+                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('sku/edit/'.$sku->id)}}')"><i
+                        class="fa fa-edit"></i></button>
+                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#sku-delete"
+                    data-sku-id="{{$sku->id}}"><i class="fa fa-trash"></i></button>
                 <button class="btn btn-xs btn-success"><i class="fa fa-eye"></i></button>
             </td>
         </tr>
-    @endforeach
+        @endforeach
     </tbody>
 </table>
 @else
@@ -56,8 +57,8 @@ $route = route("settings.home");
                                 <div class="form-row">
                                     <div class="form-group col-sm-12">
                                         <label for="cod">Código SKU: </label>
-                                        <input type="text" class="form-control" name="cod" id="cod"
-                                            required="required" value="">
+                                        <input type="text" class="form-control" name="cod" id="cod" required="required"
+                                            value="">
                                     </div>
                                 </div>
 
@@ -104,6 +105,9 @@ $(function() {
     $("#layout-um").DataTable({
         "responsive": true,
         "autoWidth": false,
+        "oLanguage": {
+            "sUrl": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Portuguese-Brasil.json"
+        }
     });
 });
 
@@ -123,7 +127,8 @@ $('#sku-delete').on('show.bs.modal', function(event) {
                         title: 'Sku Exclúido'
                     });
                     $('#sku-delete').modal("hide");
-                    loadViewInHome('{{route('sku.home')}}');
+                    loadViewInHome('{{route('
+                        sku.home ')}}');
                 }
             })
             .catch((err) => {
@@ -141,6 +146,5 @@ $('#sku-delete').on('show.bs.modal', function(event) {
 function loadSkuForm() {
     $('#create-sku-form').modal('show');
 }
-
 </script>
 @endsection
