@@ -20,13 +20,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3261d099-2818-4a69-b8ae-eafe47b00773" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_01_093825_create_customer_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_01_093825_create_customer_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employees/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employees/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Extensions/ControllersExtends.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Extensions/ControllersExtends.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_18_180426_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_18_180426_create_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index_file.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/commonmethods.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/commonmethods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/brands/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/brands/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/brands/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/brands/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/brands/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/brands/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/category/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/category/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/category/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/category/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/employees/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employees/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/products/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/products/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/products/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/products/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/products/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/providers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/providers/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/providers/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/providers/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/providers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/providers/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/template.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/template.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +204,9 @@
       <workItem from="1606845843621" duration="6441000" />
       <workItem from="1606853908307" duration="1156000" />
       <workItem from="1606901333050" duration="346000" />
-      <workItem from="1606903821154" duration="7011000" />
+      <workItem from="1606903821154" duration="9161000" />
+      <workItem from="1606927165045" duration="1102000" />
+      <workItem from="1606990035797" duration="3902000" />
     </task>
     <servers />
   </component>
@@ -211,6 +226,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1606926761991">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606926761991" />
     <state x="680" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606904473916">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -223,9 +242,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="705" y="83" width="1110" height="557" key="dock-window-2/0.0.1920.1040@0.0.1920.1040" timestamp="1606833692172" />
-    <state x="662" y="221" width="672" height="678" key="search.everywhere.popup" timestamp="1606918291271">
+    <state x="662" y="221" width="672" height="678" key="search.everywhere.popup" timestamp="1606920092664">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="662" y="221" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606918291271" />
+    <state x="662" y="221" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606920092664" />
   </component>
 </project>

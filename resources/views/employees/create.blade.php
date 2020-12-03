@@ -4,7 +4,7 @@ $title = "Cadastro de Funcionario";
 $route = route("funcionarios.index");
 @endphp
 @section('card-body')
-<form data-sendrequest="{{url('/funcionarios')}}" method="POST">
+<form data-sendrequest="{{route('funcionarios.store')}}" method="POST">
     @csrf
     <div class="row">
         <div class="col-md-12">
@@ -17,19 +17,19 @@ $route = route("funcionarios.index");
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-
                 <div class="card-body">
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Foto</label><br />
-                            <img width="65" height="65" id="avatar" />
+                            <img width="65" src="" height="65" id="avatar" />
                             <input type="file" name="image" class="form-control" id="frmavatar" placeholder="avatar" style="height: 65px; margin-top: -65px; opacity: 0">
                         </div>
+
                         <div class="form-group col-md-8">
                             <label for="exampleInputEmail1">Loja</label>
-                            <select class="form-control" name="shop_id">
+                            <select class="form-control" id="exampleInputtext1" name="shop_id">
                                 @foreach ($globalShops as $shop)
-                                    <option value="{{ $shop->id }}">{{ $shop->fantasyname }}</option>
+                                <option value="{{ $shop->id }}">{{ $shop->fantasyname }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -37,31 +37,31 @@ $route = route("funcionarios.index");
                     <div class="form-row">
                         <div class="form-group col-md-8">
                             <label for="exampleInputEmail1">Nome Completo</label>
-                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Nome completo">
+                            <input type="text" name="name" value="" class="form-control" id="exampleInputEmail1" placeholder="Nome completo">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Data de Nascimento</label>
-                            <input type="date" name="birthday" class="form-control" id="exampleInputEmail1">
+                            <input type="date" name="birthday" value="" class="form-control" placeholder="data de Nascimento">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">CPF</label>
-                            <input type="text" name="cpf" class="form-control" id="exampleInputtext1" placeholder="CPF">
+                            <input type="text" name="cpf" value="" class="form-control" id="exampleInputtext1" placeholder="CPF">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">RG</label>
-                            <input type="text" name='rg' class="form-control" id="exampleInputtext1" placeholder="RG">
+                            <input type="text" name='rg' value="" class="form-control" id="exampleInputtext1" placeholder="RG">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">Telefone</label>
-                            <input type="text" name="phone" class="form-control" id="exampleInputtext1" placeholder="text">
+                            <input type="text" name="phone" value="" class="form-control" id="exampleInputtext1" placeholder="Numero de telefone">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleInputtext1">Nome da Mãe</label>
-                            <input type="text" name="mother_name" class="form-control" id="exampleInputtext1" placeholder="Nome da mãe">
+                            <input type="text" name="mother_name" value="" class="form-control" id="exampleInputtext1" placeholder="Nome da mãe">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleInputtext1">Nome do Pai</label>
-                            <input type="text" name="father_name" class="form-control" id="exampleInputtext1" placeholder="Nome do pai">
+                            <input type="text" name="father_name" value="" class="form-control" id="exampleInputtext1" placeholder="Nome do pai">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">Gênero</label>
@@ -73,7 +73,7 @@ $route = route("funcionarios.index");
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">Escolaridade</label>
                             <select class="form-control" id="exampleInputtext1" name="level_of_schooling">
-                                <option selected disabled>Selecione sua Escolaridade</option>
+                                <option disabled>Selecione sua Escolaridade</option>
                                 <option value="Ensino Fundamental">Ensino Fundamental</option>
                                 <option value="Ensino Fundamental incompleto">Ensino Fundamental incompleto</option>
                                 <option value="Ensino Medio">Ensino Medio</option>
@@ -85,7 +85,7 @@ $route = route("funcionarios.index");
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">Email</label>
-                            <input type="email" name="email" class="form-control" id="exampleInputtext1" placeholder="Email">
+                            <input type="email" name="email" value="" class="form-control" id="exampleInputtext1" placeholder="Email">
                         </div>
                     </div>
                 </div>
@@ -103,36 +103,36 @@ $route = route("funcionarios.index");
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="exampleInputFile">CEP</label>
-                            <input type="text" class="form-control" name="zipcode" id="exampleInputFile" placeholder="CEP">
+                            <input type="text" class="form-control" name="zipcode" value="" id="exampleInputFile" placeholder="CEP">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Estado</label>
                             {{-- <select class="form-control" name="uf" id="estados" onchange="setCities(event)">
                                     <option selected disabled>Selecione seu estado</option>
                                 </select> --}}
-                            <input type="text" name="uf" placeholder="Estado" class="form-control">
+                            <input type="text" name="uf" value="" placeholder="Estado" class="form-control">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Cidade</label>
-                            {{-- <select class="form-control" name="city" id="cidades" data-code="" onclick="setDistricts(event)">
-                                    <option selected disabled>Selecione sua cidade</option>
-                                </select> --}}
-                            <input type="text" name="city" placeholder="Cidade" class="form-control">
+                            {{-- <select class="form-control" name="city" value="" id="cidades" data-code="" onclick="setDistricts(event)">
+                            <option selected disabled>Selecione sua cidade</option>
+                            </select> --}}
+                            <input type="text" name="city" value="" placeholder="Cidade" class="form-control">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Bairro</label>
                             {{-- <select class="form-control" id="bairros" name="district">
                                     <option selected disabled>Selecione seu Bairro</option>
                                 </select> --}}
-                            <input type="text" name="district" placeholder="Bairro" class="form-control">
+                            <input type="text" name="district" value="" placeholder="Bairro" class="form-control">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputFile">Rua</label>
-                            <input type="text" class="form-control" name="street" id="exampleInputFile" placeholder="Nome da rua">
+                            <input type="text" class="form-control" name="street" value="" id="exampleInputFile" placeholder="nome da rua">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="exampleInputFile">Número</label>
-                            <input type="text" class="form-control" name="number" id="exampleInputFile" placeholder="Número da casa">
+                            <label for="exampleInputFile">Numero</label>
+                            <input type="text" class="form-control" name="number" value="" id="exampleInputFile" placeholder="numero da casa">
                         </div>
                     </div>
                 </div>
@@ -149,15 +149,15 @@ $route = route("funcionarios.index");
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Banco</label>
-                        <input type="text" class="form-control" name="bank" id="exampleInputEmail1" placeholder="Banco">
+                        <input type="text" class="form-control" name="bank" value="" id="exampleInputEmail1" placeholder="Banco">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputtext1">Número da conta</label>
-                        <input type="text" class="form-control" name="account_number" id="exampleInputtext1" placeholder="Número da Conta">
+                        <label for="exampleInputtext1">Numero da conta</label>
+                        <input type="text" class="form-control" name="account_number" value="" id="exampleInputtext1" placeholder="Conta">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputtext1">Agência</label>
-                        <input type="text" class="form-control" name="agency" id="exampleInputtext1" placeholder="Agência">
+                        <label for="exampleInputtext1">Agencia</label>
+                        <input type="text" class="form-control" name="agency" value="" id="exampleInputtext1" placeholder="Agencia">
                     </div>
                 </div>
             </div>
@@ -173,26 +173,25 @@ $route = route("funcionarios.index");
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Cargo</label>
-                        <input type="text" name="cargo" class="form-control" id="exampleInputEmail1" placeholder="Cargo">
+                        <input type="text" name="cargo" value="" class="form-control" id="exampleInputEmail1" placeholder="Cargo">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputtext1">Salário</label>
-                        <input type="text" name="salary" class="form-control" id="exampleInputtext1" placeholder="Sálario">
+                        <label for="exampleInputtext1">Salario</label>
+                        <input type="text" name="salary" value="" class="form-control" id="exampleInputtext1" placeholder="Salario">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Data de Admisão</label>
-                        <input type="date" name="admission_date" class="form-control" id="exampleInputtext1" placeholder="text">
+                        <input type="date" name="admission_date" value="" class="form-control" id="exampleInputtext1" placeholder="Data de Admissao">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Data da Dispensa</label>
-                        <input type="date" name="dismission_date" class="form-control" id="exampleInputtext1" placeholder="text">
+                        <input type="date" name="dismission_date" value="" class="form-control" id="exampleInputtext1" placeholder="Data de demissao">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </form>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script>
     $("#frmavatar").on("change", function() {
         var input = document.getElementById("frmavatar");
