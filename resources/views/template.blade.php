@@ -166,7 +166,7 @@
             </div>
             <div id="home_menu_container" class="py-2">
                 @section('body')
-                 @include('home.index')
+                @include('home.index')
                 @stop
                 @yield('body')
             </div>
@@ -192,6 +192,10 @@
 
     <!-- jQuery -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
+
+
+    <!-- INPUT MASK -->
+    <script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- overlayScrollbars -->
@@ -207,6 +211,7 @@
     <script src="../../dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
+
     <script src="{{asset('js/app.js')}}"></script>
     <script src="{{asset('js/ajaxRequests.js')}}"></script>
     <script src="{{asset('js/commonmethods.js')}}"></script>
@@ -227,6 +232,51 @@
         });
     </script>
     <script>
+        function defaultMasks() {
+            $("input[data-money]").inputmask('decimal', {
+                'alias': 'numeric',
+                'groupSeparator': '.',
+                'autoGroup': true,
+                'digits': 2,
+                'radixPoint': ",",
+                'digitsOptional': false,
+                'allowMinus': false,
+                'prefix': 'R$ ',
+                'placeholder': ''
+            });
+
+            $("input[name='rg']").inputmask({
+                mask: ["99.999.999-9", "99.999.999-*"],
+                keepStatic: true
+            });
+
+            $("input[name='cpf']").inputmask({
+                mask: ['999.999.999-99'],
+                keepStatic: true
+            });
+            $("input[name='cnpj']").inputmask({
+                mask: ['99.999.999/9999-99'],
+                keepStatic: true
+            });
+
+            $("input[name='ie']").inputmask({
+                mask: ['999.999.9999'],
+                keepStatic: true
+            });
+
+            $("input[name^='phone']").inputmask({
+                mask: ['(99)9999-9999', '(99)99999-9999', '+99(099)9999-9999', '+99(099)99999-9999'],
+                keepStatic: true
+            });
+
+            $("input[name='zipcode']").inputmask({
+                mask: ["99999-999"],
+                keepStatic: true
+            });
+
+            $('input[data-mask]').inputmask();
+        }
+
         function loadViewInHome(url) {
             $("#home_menu_container").html("");
 
@@ -235,6 +285,7 @@
             axios.get(url).then((response) => {
                 $("#spinner").addClass("d-none");
                 $("#home_menu_container").html(response.data);
+                defaultMasks();
             });
         }
         // Save Employee from request

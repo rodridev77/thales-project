@@ -133,7 +133,7 @@ $route = route("funcionarios.index");
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputFile">Numero</label>
-                            <input type="text" class="form-control" name="number" value="{{$data->address ? $data->address->number : ''}}" id="exampleInputFile" placeholder="numero da casa">
+                            <input type="number" class="form-control" name="number" value="{{$data->address ? $data->address->number : ''}}" id="exampleInputFile" placeholder="numero da casa">
                         </div>
                     </div>
                 </div>
@@ -154,11 +154,11 @@ $route = route("funcionarios.index");
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Numero da conta</label>
-                        <input type="text" class="form-control" name="account_number" value="{{$data->bankData ? $data->bankData->account_number : ''}}" id="exampleInputtext1" placeholder="Conta">
+                        <input type="number" class="form-control" name="account_number" value="{{$data->bankData ? $data->bankData->account_number : ''}}" id="exampleInputtext1" placeholder="Conta">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Agencia</label>
-                        <input type="text" class="form-control" name="agency" value="{{$data->bankData ? $data->bankData->agency : ''}}" id="exampleInputtext1" placeholder="Agencia">
+                        <input type="number" class="form-control" name="agency" value="{{$data->bankData ? $data->bankData->agency : ''}}" id="exampleInputtext1" placeholder="Agencia">
                     </div>
                 </div>
             </div>
@@ -178,7 +178,7 @@ $route = route("funcionarios.index");
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Salario</label>
-                        <input type="text" name="salary" value="{{$data->contract->salary ?? ''}}" class="form-control" id="exampleInputtext1" placeholder="Salario">
+                        <input type="text" name="salary" data-money value="{{$data->contract->salary ?? ''}}" class="form-control" id="exampleInputtext1" placeholder="Salario">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Data de Admisão</label>

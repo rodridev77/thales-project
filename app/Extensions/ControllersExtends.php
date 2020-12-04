@@ -14,6 +14,7 @@ abstract class ControllersExtends extends Controller implements ControllersInter
     private $model = null;
     private $template = null;
     private $with = [];
+    private $validate = [];
 
     public function __construct($model, String $template)
     {
@@ -49,6 +50,8 @@ abstract class ControllersExtends extends Controller implements ControllersInter
 
     public function store(Request $request)
     {
+        if(count($this->validate) > 0)
+                $request->validate($this->validate);
         try {
             $data = $request->all();
             unset($data["_token"]);
@@ -77,6 +80,8 @@ abstract class ControllersExtends extends Controller implements ControllersInter
 
     public function update(Request $request, $id)
     {
+        if(count($this->validate) > 0)
+                $request->validate($this->validate);
         try {
             $data = $request->all();
             unset($data["_token"]);
@@ -108,5 +113,9 @@ abstract class ControllersExtends extends Controller implements ControllersInter
 
     public function withAndChange($modules = [],$changes = ["permiss" => false, "key" => ""]){
         $this->with = ["data" => $modules, "changes" => (Object) $changes];
+    }
+    public function setValidate(Array $validate){
+        $this->validate = $validate;
+        return $this;
     }
 }
