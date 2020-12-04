@@ -10,7 +10,7 @@ class StockController extends ControllersExtends
     public function __construct($model = null, $template = null) {
         parent::__construct(Stock::class, "stocks");
         parent::setValidate([
-            "name" => "required|unique:brands"
+            "cod" => "required|unique:stocks"
         ]);
     }
 }
