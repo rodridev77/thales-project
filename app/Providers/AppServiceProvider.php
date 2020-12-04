@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 
+
+use App\Library\ValidatorsClass;
+use Validator;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -57,6 +60,10 @@ class AppServiceProvider extends ServiceProvider
         }catch(Exception $e){
 
         }
+        Validator::extend('cnpj', function ($attribute, $value, $parameters) {
+            $cnpj = new ValidatorsClass();
+            return $cnpj->isCnpj($value);
+        });
         //
         Blade::directive('money', function ($amount) {
             return "<?php echo number_format($amount, 2,',','.'); ?>";

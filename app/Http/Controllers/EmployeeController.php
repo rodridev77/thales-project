@@ -18,6 +18,17 @@ class EmployeeController extends ControllersExtends
     private $template = "employees";
     public function __construct($model = null, $template = null){
         parent::__construct($this->model,$this->template);
+        parent::setValidate([
+            "name" => "required",
+            "rg" => "required|unique:employees",
+            "cpf" => "required|unique:employees",
+            "email" => "required",
+            "phone" => "required",
+            "account_number" => "required",
+            "cargo" => "required",
+            "zipcode" => "required",
+            "number" => "required",
+        ]);
     }
 
     public function update(Request $request, $id){

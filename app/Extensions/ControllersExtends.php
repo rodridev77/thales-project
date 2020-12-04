@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Interfaces\ControllersInterface;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 abstract class ControllersExtends extends Controller implements ControllersInterface
 {
@@ -50,26 +51,26 @@ abstract class ControllersExtends extends Controller implements ControllersInter
 
     public function store(Request $request)
     {
-        if(count($this->validate) > 0)
-                $request->validate($this->validate);
+        if (count($this->validate) > 0)
+            $request->validate($this->validate);
         try {
             $data = $request->all();
             unset($data["_token"]);
             unset($data["_method"]);
-            if(count($this->with) > 0){
+            if (count($this->with) > 0) {
                 $i = 0;
                 $primary = null;
-                foreach($this->with["data"] as $model=>$fields){
-                    if($i == 0 ){
-                      $primary = $this->model::create($fields);
-                      $i++;
-                      continue;
+                foreach ($this->with["data"] as $model => $fields) {
+                    if ($i == 0) {
+                        $primary = $this->model::create($fields);
+                        $i++;
+                        continue;
                     }
                     $i++;
                     $fields[$this->with["changes"]->key] = $primary->id;
                     $model::create($fields);
                 }
-            }else{
+            } else {
                 $this->model::create($data);
             }
             return response()->json(["message" => "Cadastrado com Sucesso!"]);
@@ -80,19 +81,19 @@ abstract class ControllersExtends extends Controller implements ControllersInter
 
     public function update(Request $request, $id)
     {
-        if(count($this->validate) > 0)
-                $request->validate($this->validate);
+        if (count($this->validate) > 0)
+            $request->validate($this->validate);
         try {
             $data = $request->all();
             unset($data["_token"]);
             unset($data["_method"]);
-            if(count($this->with) > 0){
+            if (count($this->with) > 0) {
                 $i = 0;
-                foreach($this->with["data"] as $model=>$fields){
+                foreach ($this->with["data"] as $model => $fields) {
                     $model::where($i == 0 ? 'id' : $this->with["changes"]->key, $id)->update($fields);
                     $i++;
                 }
-            }else{
+            } else {
                 $this->model::where('id', $id)->update($data);
             }
             return response()->json(["message" => "Atualizado com Sucesso!"]);
@@ -111,10 +112,12 @@ abstract class ControllersExtends extends Controller implements ControllersInter
         }
     }
 
-    public function withAndChange($modules = [],$changes = ["permiss" => false, "key" => ""]){
-        $this->with = ["data" => $modules, "changes" => (Object) $changes];
+    public function withAndChange($modules = [], $changes = ["permiss" => false, "key" => ""])
+    {
+        $this->with = ["data" => $modules, "changes" => (object) $changes];
     }
-    public function setValidate(Array $validate){
+    public function setValidate(array $validate)
+    {
         $this->validate = $validate;
         return $this;
     }

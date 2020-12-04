@@ -283,6 +283,13 @@
             $("#spinner").removeClass("d-none");
 
             axios.get(url).then((response) => {
+                console.log(response);
+                if(response.data.errors !== undefined)
+                    Toast.fire({
+                        icon: 'error',
+                        title: response.data.message
+                    });
+
                 $("#spinner").addClass("d-none");
                 $("#home_menu_container").html(response.data);
                 defaultMasks();

@@ -149,4 +149,9 @@ return [
 
     'attributes' => [],
 
+
+    /**** CUSTOM VALIDATION BY MAOU */
+
+    "cnpj" => "O CNPJ informado é inválido!",
+
 ];

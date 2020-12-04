@@ -12,8 +12,10 @@ class ShopController extends ControllersExtends
 {
     public function __construct($model = null, $template = null){
         parent::__construct(Shop::class,"shops");
-        /*parent::validate([
-            "cnpj" => "aaa"
-        ]);*/
+        parent::setValidate([
+            "fantasyname" => "required",
+            "companyname" => "required",
+            "cnpj" => "cnpj|required|unique:shops"
+        ]);
     }
 }

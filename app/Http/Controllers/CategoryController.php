@@ -12,5 +12,8 @@ class CategoryController extends ControllersExtends
 {
     public function __construct($model = null, $template = null){
         parent::__construct(Category::class,"category");
+        parent::setValidate([
+            "name" => "required"
+        ]);
     }
 }

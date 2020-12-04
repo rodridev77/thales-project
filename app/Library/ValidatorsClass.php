@@ -3,10 +3,11 @@ namespace App\Library;
 
 class ValidatorsClass {
 
-    function isCnpj($cnpj)
+    public function isCnpj($cnpj)
     {
        //Etapa 1: Cria um array com apenas os digitos numéricos, isso permite receber o cnpj em diferentes formatos como "00.000.000/0000-00", "00000000000000", "00 000 000 0000 00" etc...
        $j=0;
+       $num = [];
        for($i=0; $i<(strlen($cnpj)); $i++)
            {
                if(is_numeric($cnpj[$i]))
