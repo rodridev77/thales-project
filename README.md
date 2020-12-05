@@ -1,5 +1,7 @@
 # Projeto ERP LOJASWEST
 
+#Instalação
+
 para iniciar o projeto basta clonar o repositorio e utilizar o branch ```dev```
 
 para baixar o repositório rode o comando no terminal :
@@ -31,3 +33,12 @@ public function __construct($model = null, $template = null){
 ?>
 ```
 
+neste exemplo extamos extentendo a classe : ControllerExtension
+está classe é responsavel por tratar os métodos padrões de um Controller Básico, ele oferece os seguintes métodos:
+
+- [X] index - responsável por renderizar o arquivo index.blade.php
+- [X] create - reponsável por renderizar o arquivo create.blade.php
+- [X] edit - responsável por renderizar o arquivo edit.blade.php
+- [X] store - responsável por cadastrar um novo registro
+- [X] update - responsável por atualizar o novo registro
+- [X] destroy - responsável por deletar o registro escolhido
