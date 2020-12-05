@@ -8,6 +8,10 @@ $route = route("funcionarios.index");
     @method('PUT')
     @csrf
     <div class="row">
+        <div id="errors" class="alert alert-danger d-none">
+            <ul>
+            </ul>
+        </div>
         <div class="col-md-12">
             <div class="card card-primary">
                 <div class="card-header">
@@ -203,9 +207,8 @@ $route = route("funcionarios.index");
             img.src = event.target.result;
         }
     });
-    $(document).ready(function(){
+    $(document).ready(function() {
         $(document).getAddress();
     })
-
 </script>
 @endsection

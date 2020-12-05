@@ -11,6 +11,10 @@ $route = route('categorias.index');
                 @csrf
                 @method('PUT')
                 <div class="form-row">
+                    <div id="errors" class="alert alert-danger d-none">
+                        <ul>
+                        </ul>
+                    </div>
                     <div class="form-group col-sm-12">
                         <label for="name">Categoria: </label>
                         <input type="text" class="form-control" name="name" id="name" required="required" value="{{$data->name}}">
@@ -22,9 +26,9 @@ $route = route('categorias.index');
                         <label for="fathercat">Categoria Pai</label>
                         <select class="form-control" id="fathercat" name="subcategory" require="require">
                             <option value={{null}}> Nenhuma </option>
-                                @foreach($globalCategories as $category)
-                                    <option @if($data->subcategory == $category->id) selected  @endif value="{{$category->id}}"> {{$category->name}} </option>
-                                @endforeach
+                            @foreach($globalCategories as $category)
+                            <option @if($data->subcategory == $category->id) selected @endif value="{{$category->id}}"> {{$category->name}} </option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

@@ -19,15 +19,10 @@ $route = route("lojas.index");
                 <!-- form start -->
 
                 <div class="card-body">
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
+                    <div id="errors" class="alert alert-danger d-none">
                         <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
                         </ul>
                     </div>
-                    @endif
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="exampleInputEmail1">Nome Fantasia</label>

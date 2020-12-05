@@ -10,6 +10,10 @@ $route = route("marcas.index");
     <div class="row">
         <div class="col-md-12">
             <div class="form-row">
+                <div id="errors" class="alert alert-danger d-none">
+                    <ul>
+                    </ul>
+                </div>
                 <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Nome da marca</label>
                     <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Nome da marca" value="{{$data->name}}">

@@ -7,6 +7,10 @@ $route = route("produtos.index");
 <form data-sendrequest="{{route('produtos.store')}}" method="POST">
     @csrf
     <div class="row">
+        <div id="errors" class="alert alert-danger d-none">
+            <ul>
+            </ul>
+        </div>
         <div class="col-md-12">
             <div class="card-body">
                 <div class="form-row">

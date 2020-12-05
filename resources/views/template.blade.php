@@ -282,18 +282,11 @@
 
             $("#spinner").removeClass("d-none");
 
-            axios.get(url).then((response) => {
-                console.log(response);
-                if(response.data.errors !== undefined)
-                    Toast.fire({
-                        icon: 'error',
-                        title: response.data.message
-                    });
-
+            axios.get(url).then((response, error) => {
                 $("#spinner").addClass("d-none");
                 $("#home_menu_container").html(response.data);
                 defaultMasks();
-            });
+            })
         }
         // Save Employee from request
         request.makeRequest("data-saveemployee", (response) => {
@@ -313,13 +306,33 @@
 
         // Save Employee from request
         request.makeRequest("data-sendrequest", (response) => {
+            $("div#errors ul").html("");
+            $("input").removeClass("bg-danger");
+            if (response.status === 422) {
+                Object.keys(response.data.errors).map(function(field, index) {
+                    var value = response.data.errors[field];
+                    //console.log(value);
+                    value.map(error => {
+                        $("div#errors ul").append('<li>'+error+'</li>')
+                        console.log(field+" ? " + error)
+                    });
+                    $("input[name='" + field + "']").addClass("bg-danger");
+                    $("div#errors").removeClass("d-none");
+                });
+                Toast.fire({
+                    icon: 'error',
+                    title: "alguns campos estão divergentes"
+                });
+            }
             if (response.status === 500) {
+                $("div#errors").addClass("d-none");
                 Toast.fire({
                     icon: 'error',
                     title: response.data.message
                 });
             }
             if (response.status === 200) {
+                $("div#errors").addClass("d-none");
                 Toast.fire({
                     icon: 'success',
                     title: response.data.message

@@ -16,6 +16,10 @@ $route = route("marcas.index");
                     </div>
                 </div>
                 <div class="card-body">
+                    <div id="errors" class="alert alert-danger d-none">
+                        <ul>
+                        </ul>
+                    </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="exampleInputEmail1">Nome da Marca</label>

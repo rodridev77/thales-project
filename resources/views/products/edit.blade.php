@@ -8,6 +8,10 @@ $route = route("produtos.index");
     @csrf
     @method('PUT')
     <div class="row">
+        <div id="errors" class="alert alert-danger d-none">
+            <ul>
+            </ul>
+        </div>
         <div class="col-md-12">
             <div class="form-row">
                 <div class="form-group col-md-4">
