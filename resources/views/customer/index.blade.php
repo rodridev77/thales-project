@@ -25,7 +25,7 @@ $title = "Clientes";
             <td>{{$item->phone}}</td>
             <td>
                 <button class="btn btn-xs btn-info"
-                    onclick="loadViewInHome('{{route("customer.edit",$data->id)}}')"><i
+                    onclick="loadViewInHome('{{route('customer.edit',$item->id)}}')"><i
                         class="fa fa-edit"></i></button>
                         <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal"
                                 data-employeeid="{{$item->id}}"><i class="fa fa-trash"></i></button>

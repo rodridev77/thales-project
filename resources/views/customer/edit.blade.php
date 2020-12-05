@@ -92,14 +92,14 @@ $title = "Cadastro de Clientes"
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">Escolaridade</label>
                             <select class="form-control" id="exampleInputtext1" name="level_of_schooling" required>
-                                <option selected disabled>Selecione sua Escolaridade</option>
-                                <option value="Ensino Fundamental">Ensino Fundamental</option>
-                                <option value="Ensino Fundamental incompleto">Ensino Fundamental incompleto</option>
-                                <option value="Ensino Medio">Ensino Medio</option>
-                                <option value="Ensino Medio incompleto">Ensino Medio incompleto</option>
-                                <option value="Ensino Medio técnico">Ensino Medio técnico</option>
-                                <option value="Ensino Superior">Ensino Superior</option>
-                                <option value="Não Alfabetizado">Não Alfabetizado</option>
+                            <option disabled>Selecione sua Escolaridade</option>
+                                <option @if($data->level_of_schooling == "Ensino Fundamental") selected @endif value="Ensino Fundamental">Ensino Fundamental</option>
+                                <option @if($data->level_of_schooling == "Ensino Fundamental incompleto") selected @endif value="Ensino Fundamental incompleto">Ensino Fundamental incompleto</option>
+                                <option @if($data->level_of_schooling == "Ensino Medio") selected @endif value="Ensino Medio">Ensino Medio</option>
+                                <option @if($data->level_of_schooling == "Ensino Medio incompleto") selected @endif value="Ensino Medio incompleto">Ensino Medio incompleto</option>
+                                <option @if($data->level_of_schooling == "Ensino Medio técnico") selected @endif value="Ensino Medio técnico">Ensino Medio técnico</option>
+                                <option @if($data->level_of_schooling == "Ensino Superior") selected @endif value="Ensino Superior">Ensino Superior</option>
+                                <option @if($data->level_of_schooling == "Não Alfabetizado") selected @endif value="Não Alfabetizado">Não Alfabetizado</option>
                             </select>
                         </div>
                         <div class="form-group col-md-4">
