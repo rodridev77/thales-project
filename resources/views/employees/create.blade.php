@@ -11,8 +11,8 @@ $route = route("funcionarios.index");
             <ul>
             </ul>
         </div>
-        <div class="col-md-12">
-            <div class="card card-primary">
+        <div class="col-md-12 connectedSortable ui-sortable">
+            <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Dados Pessoais</h3>
                     <div class="card-tools">
@@ -95,8 +95,8 @@ $route = route("funcionarios.index");
                 </div>
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="card card-primary">
+        <div class="col-md-12 connectedSortable ui-sortable">
+            <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Endereço</h3>
                 </div>
@@ -142,8 +142,8 @@ $route = route("funcionarios.index");
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card card-primary">
+        <div class="col-md-6 connectedSortable ui-sortable">
+            <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Dados Bancários</h3>
                 </div>

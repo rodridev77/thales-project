@@ -15,10 +15,6 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
-            ["name"=> "TV"],
-            ["name"=> "radio"],
-            ["name"=> "telefone"]
-        ]);
+        Category::factory()->count(60)->create();
     }
 }

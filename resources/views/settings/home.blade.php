@@ -42,7 +42,7 @@
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
                 </div>
-                <a href="#" onclick="loadViewInHome('{{url('/marcas')}}')" title="Marcas" id="btnModal" class="small-box-footer" data-toggle="modal" data-target="#myModal">Ir <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" onclick="loadViewInHome('{{route('marcas.index')}}')" title="Marcas" id="btnModal" class="small-box-footer" data-toggle="modal" data-target="#myModal">Ir <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -86,7 +86,7 @@
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
                 </div>
-                <a href="#" class="small-box-footer" onclick="loadViewInHome('{{route('user.home')}}')">Ir <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer" onclick="loadViewInHome('{{route('user.index')}}')">Ir <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>

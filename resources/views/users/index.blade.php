@@ -4,7 +4,7 @@ $title = "Usuários";
 $route = route("settings.home");
 @endphp
 @section('card-tools')
-<button type="button" class="btn btn-success" onclick="loadViewInHome('{{url('user/create')}}')"><i
+<button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('user.create')}}')"><i
         class="fas fa-plus"></i>Adicionar Usuário</button>
 @endsection
 @section('card-body')
@@ -23,7 +23,7 @@ $route = route("settings.home");
             <td>{{$item->name}}</td>
             <td>{{$item->email}}</td>
             <td>
-                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('user/edit/'.$item->id)}}')"><i
+                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{route('user.edit',$item->id)}}')"><i
                         class="fa fa-edit"></i></button>
                 <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#user-delete"
                     data-userid="{{$item->id}}"><i class="fa fa-trash"></i></button>
@@ -46,7 +46,7 @@ $route = route("settings.home");
                 <p>Você realmente deseja excluir este usuário ?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <form id="delete" data-sendrequest="{{url('/user/'.$item->id)}}" method="DELETE">
+                <form id="delete" data-sendrequest="{{route('user.destroy',$item->id)}}" method="DELETE">
                     @method("DELETE")
                     <button class="btn btn-primary" data-dismiss="modal">Não</button>
                     <button class="btn btn-danger pull-right" id="confirm-delete">Sim</button>
@@ -84,7 +84,7 @@ $('#user-delete').on('show.bs.modal', function(event) {
                         title: 'Usuário Exclúido'
                     });
                     $('#user-delete').modal("hide");
-                    loadViewInHome('{{route('user.home')}}');
+                    loadViewInHome('{{route('user.index')}}');
                 }
             })
             .catch((err) => {

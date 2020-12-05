@@ -99,7 +99,7 @@
                             </a>
                         </li>
                         <li class="nav-item border-bottom">
-                            <a href="#" class="nav-link" onclick="loadViewInHome('{{route('customer.home')}}')">
+                            <a href="#" class="nav-link" onclick="loadViewInHome('{{route('customer.index')}}')">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Clientes
@@ -192,7 +192,8 @@
 
     <!-- jQuery -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
-
+    jQuery UI 1.11.4 -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
     <!-- INPUT MASK -->
     <script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
@@ -286,6 +287,7 @@
                 $("#spinner").addClass("d-none");
                 $("#home_menu_container").html(response.data);
                 defaultMasks();
+                moveCards();
             })
         }
         // Save Employee from request
@@ -312,7 +314,7 @@
                 Object.keys(response.data.errors).map(function(field, index) {
                     var value = response.data.errors[field];
                     value.map(error => {
-                        $("div#errors ul").append('<li>'+error+'</li>')
+                        $("div#errors ul").append('<li>' + error + '</li>')
                     });
                     $("input[name='" + field + "']").addClass("is-invalid");
                     $("div#errors").removeClass("d-none");
@@ -371,6 +373,18 @@
                 });
             }
         });
+        function moveCards() {
+            // Make the dashboard widgets sortable Using jquery UI
+            $('.connectedSortable').sortable({
+                placeholder: 'sort-highlight',
+                connectWith: '.connectedSortable',
+                handle: '.card-header, .nav-tabs',
+                forcePlaceholderSize: true,
+                zIndex: 999999
+            })
+            $('.connectedSortable .card-header, .connectedSortable .nav-tabs-custom').css('cursor', 'move')
+
+        }
     </script>
 </body>
 

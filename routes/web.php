@@ -42,6 +42,8 @@ Route::group(['prefix' => '/', 'middleware' => ['employeeauth']], function () {
     })->name("products.cadastro");
 */
     // CUSTOMER
+    Route::resource("/customer","CustomerController");
+    /*
     Route::get('customer', "CustomerController@index")->name('customer.home');
     Route::get('customer/create', "CustomerController@create")->name("customer.create");
 
@@ -53,7 +55,7 @@ Route::group(['prefix' => '/', 'middleware' => ['employeeauth']], function () {
     Route::delete('customer/destroy', "CustomerController@destroy")->name("customer.destroy");
     Route::get('customer/show', "CustomerController@show")->name("customer.show");
     Route::post('customer/search', "CustomerController@search")->name("customer.search");
-
+    */
     // COMPANY
     Route::get('company', "CompanyController@index")->name('company.home');
     Route::get('/company/list', "CompanyController@showAll")->name("company.list");
@@ -82,7 +84,8 @@ Route::group(['prefix' => '/', 'middleware' => ['employeeauth']], function () {
     Route::post('sku/search', "SkuController@search")->name("sku.search");
 
     // USERS
-    Route::get('user', "UserController@index")->name('user.home');
+    Route::resource("user","UserController");
+    /*Route::get('user', "UserController@index")->name('user.home');
     Route::get('/user/list', "UserController@showAll")->name("user.list");
     Route::get('user/create', "UserController@create")->name("user.create");
     Route::post('user/store', "UserController@store")->name("user.store");
@@ -92,7 +95,7 @@ Route::group(['prefix' => '/', 'middleware' => ['employeeauth']], function () {
     Route::delete('user/destroy/{id}', "UserController@destroy")->name("user.destroy");
     Route::get('user/show', "UserController@show")->name("user.show");
     Route::post('user/search', "UserController@search")->name("user.search");
-
+*/
     // SHOPS
     Route::resource('lojas', 'ShopController');
     // EMPLOYEE

@@ -2,7 +2,7 @@
 
 @php
 $title = "Cadastro de Usuário";
-$route = route("user.home");
+$route = route("user.index");
 @endphp
 @section('card-tools')
 
@@ -30,8 +30,8 @@ $route = route("user.home");
             <label for="employee_id">Funcionário</label>
             <select class="form-control" id="employee_id" name="employee_id" required="required">
                 <option disabled> Nenhum </option>
-                @if (!empty($employeesList)) :
-                @foreach ($employeesList as $emp)
+                @if (!empty($globalEmployees)) :
+                @foreach ($globalEmployees as $emp)
                 <option value="{{$emp->id}}">
                     {{$emp->name}}
                 </option>

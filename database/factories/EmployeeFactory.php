@@ -31,7 +31,8 @@ class EmployeeFactory extends Factory
             "birthday" => "1998-11-28",
             "gender" => $this->faker->randomElement($array =array('Masculino', 'Feminino')),
             "level_of_schooling" => $this->faker->randomElement($array =array('Medio', 'Fundamental',"Superior")),
-            "email" => $this->faker->unique()->safeEmail
+            "email" => $this->faker->unique()->safeEmail,
+            "shop_id" => $this->faker->numberBetween(1,60)
         ];;
     }
 }

@@ -8,10 +8,28 @@ use App\Models\User;
 use App\Models\Employee;
 use DB;
 use Illuminate\Support\Facades\Hash;
+use App\Extensions\ControllersExtends;
 use Throwable;
-class UserController extends Controller
+class UserController extends ControllersExtends
 {
+    public function __construct($model = null, $template = null){
+        parent::__construct(User::class,"users");
+        parent::setValidate([
+            "name" => "required|unique:users",
+            "email" => "required|unique:users",
+            "password" => "required"
+        ]);
+    }
+    public function store(Request $request){
+        $request->password = Hash::make($request->password);
+        parent::store($request);
+    }
 
+    public function update(Request $request,$id){
+        $request->password = Hash::make($request->password);
+        parent::update($request,$id);
+    }
+/*
     public function index()
     {
         $data = User::all();
@@ -48,7 +66,7 @@ class UserController extends Controller
 
             return response()->json(['success' => 'Usuario inserido']);
 
-           /*  return redirect()->back()->with("msg","usuario inserido"); */
+           //  return redirect()->back()->with("msg","usuario inserido");
         } catch (Throwable $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
@@ -82,5 +100,6 @@ class UserController extends Controller
         User::destroy($id);
         return response()->json(["message" => "Usuário Removido"]);
     }
+    */
 
 }

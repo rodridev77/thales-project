@@ -6,10 +6,7 @@ use App\Models\Address;
 use App\Models\BankData;
 use App\Models\Contract;
 use App\Models\Employee;
-use App\Models\Shop;
-use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Extensions\ControllersExtends;
 
 class EmployeeController extends ControllersExtends
