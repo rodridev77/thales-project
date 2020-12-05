@@ -307,16 +307,14 @@
         // Save Employee from request
         request.makeRequest("data-sendrequest", (response) => {
             $("div#errors ul").html("");
-            $("input").removeClass("bg-danger");
+            $("input").removeClass("is-invalid");
             if (response.status === 422) {
                 Object.keys(response.data.errors).map(function(field, index) {
                     var value = response.data.errors[field];
-                    //console.log(value);
                     value.map(error => {
                         $("div#errors ul").append('<li>'+error+'</li>')
-                        console.log(field+" ? " + error)
                     });
-                    $("input[name='" + field + "']").addClass("bg-danger");
+                    $("input[name='" + field + "']").addClass("is-invalid");
                     $("div#errors").removeClass("d-none");
                 });
                 Toast.fire({
