@@ -35,10 +35,18 @@ public function __construct($model = null, $template = null){
 
 neste exemplo extamos extentendo a classe : ControllerExtension
 está classe é responsavel por tratar os métodos padrões de um Controller Básico, ele oferece os seguintes métodos:
+- [X] __construct($model, $template) - responsável por inicializar a classe e definir o Model e Diretorio de template a ser trabalhado.
+- [X] index() - responsável por renderizar o arquivo index.blade.php do modulo atual
+- [X] create() - reponsável por renderizar o arquivo create.blade.php do modulo atual
+- [X] edit($id) - responsável por renderizar o arquivo edit.blade.php do modulo atual
+- [X] store() - responsável por cadastrar um novo registro
+- [X] update($id) - responsável por atualizar o novo registro
+- [X] destroy($id) - responsável por deletar o registro escolhido
+ 
+ os arquivos de template devem estar presenter no diretório informado no paramêtro ```$template``` do método ```__construct()```
 
-- [X] index - responsável por renderizar o arquivo index.blade.php
-- [X] create - reponsável por renderizar o arquivo create.blade.php
-- [X] edit - responsável por renderizar o arquivo edit.blade.php
-- [X] store - responsável por cadastrar um novo registro
-- [X] update - responsável por atualizar o novo registro
-- [X] destroy - responsável por deletar o registro escolhido
+ há métodos adicionais nesta classe, que permite o trabalho com mais de um Model, o mesmo será apresentado a seguir.
+
+ # Trabalhando com Models
+
+ ( ... )
