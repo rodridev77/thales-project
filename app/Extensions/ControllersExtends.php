@@ -51,8 +51,10 @@ abstract class ControllersExtends extends Controller implements ControllersInter
 
     public function store(Request $request)
     {
-        if (count($this->validate) > 0)
+        if (count($this->validate) > 0) {
             $request->validate($this->validate);
+        }
+
         try {
             $data = $request->all();
             unset($data["_token"]);
@@ -81,8 +83,23 @@ abstract class ControllersExtends extends Controller implements ControllersInter
 
     public function update(Request $request, $id)
     {
-        if (count($this->validate) > 0)
+        if (count($this->validate) > 0) {
+            foreach ($this->validate as $k=>$val) {
+                $regras = "";
+                foreach (explode("|", $val) as $rule) {
+                    if (strpos($rule, "unique") === 0) {
+                        $regras = "{$rule},id,{$id}";
+                    }else{
+                        $regras = "{$rule}";
+                    }
+                }
+                $this->validate[$k] = $regras;
+            }
+            /*var_dump($this->validate);
+            exit;*/
             $request->validate($this->validate);
+        }
+
         try {
             $data = $request->all();
             unset($data["_token"]);

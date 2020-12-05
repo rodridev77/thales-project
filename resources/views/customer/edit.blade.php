@@ -1,6 +1,6 @@
 @extends('content_container_card')
 @php
-$title = "Cadastro de Clientes"
+$title = "Atualizacao de Clientes"
 @endphp
 @section('card-body')
 <form data-sendrequest="{{route('customer.update',$data->id)}}" method="post">
@@ -24,7 +24,7 @@ $title = "Cadastro de Clientes"
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Data de Nascimento</label>
-                            <input type="date" name="birthday" class="form-control" id="exampleInputEmail1" required value="{{$data->birthdate}}">
+                            <input type="date" name="birthday" class="form-control" id="exampleInputEmail1" required value="{{date_format(new DateTime($data->birthday),'Y-m-d')}}">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">Nome do Conjugue</label>
@@ -123,7 +123,7 @@ $title = "Cadastro de Clientes"
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="exampleInputFile">CEP</label>
-                            <input type="text" value="{{$data->cep}}" class="form-control" name="zipcode" id="exampleInputFile" placeholder="CEP" required>
+                            <input type="text" value="{{$data->zipcode}}" class="form-control" name="zipcode" id="exampleInputFile" placeholder="CEP" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Estado</label>
