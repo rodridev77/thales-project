@@ -32,7 +32,7 @@ class Customer extends Model
         'email',
         'uf',
         'city',
-        'neighborhood',
+        'district',
         'street',
         'zipcode',
         'number',
