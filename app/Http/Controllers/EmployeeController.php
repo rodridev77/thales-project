@@ -128,7 +128,7 @@ class EmployeeController extends ControllersExtends
 
         $contract = [
             "cargo" => $request->cargo,
-            "salary" => $request->salary,
+            "salary" => str_replace([".",",","R$"," "],["",".","",""],$request->salary),
             "admission_date" => $request->admission_date,
             "dismission_date" => $request->dismission_date,
         ];
