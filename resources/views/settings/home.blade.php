@@ -72,7 +72,7 @@
                 <div class="icon">
                     <i class="fas fa-barcode"></i>
                 </div>
-                <a href="#" class="small-box-footer" onclick="loadViewInHome('{{route('sku.home')}}')">Ir <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer" onclick="loadViewInHome('{{route('sku.index')}}')">Ir <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-lg-3 col-6">

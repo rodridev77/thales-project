@@ -72,7 +72,8 @@ Route::group(['prefix' => '/', 'middleware' => ['employeeauth']], function () {
     Route::get('settings', "SettingsController@index")->name('settings.home');
 
     // SKUS
-    Route::get('sku', "SkuController@index")->name('sku.home');
+    Route::resource("sku","SkuController");
+    /*Route::get('sku', "SkuController@index")->name('sku.home');
     Route::get('/sku/list', "SkuController@showAll")->name("sku.list");
     Route::get('sku/create', "SkuController@create")->name("sku.create");
     Route::post('sku/store', "SkuController@store")->name("sku.store");
@@ -82,7 +83,7 @@ Route::group(['prefix' => '/', 'middleware' => ['employeeauth']], function () {
     Route::delete('sku/destroy/{id}', "SkuController@destroy")->name("sku.destroy");
     Route::get('sku/show', "SkuController@show")->name("sku.show");
     Route::post('sku/search', "SkuController@search")->name("sku.search");
-
+*/
     // USERS
     Route::resource("user","UserController");
     /*Route::get('user', "UserController@index")->name('user.home');

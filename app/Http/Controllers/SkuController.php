@@ -2,15 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Extensions\ControllersExtends;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Exception;
 use Throwable;
 use App\Models\Sku;
 
-class SkuController extends Controller
+class SkuController extends ControllersExtends
 {
-
+    public function __construct($model = null, $template = null){
+        parent::__construct(Sku::class,"sku");
+        parent::setValidate([
+            "cod" => "required",
+            "description" => "required",
+        ]);
+    }
+ /*
     public function index()
     {
         //$id = 1;
@@ -24,7 +32,7 @@ class SkuController extends Controller
         return view("skus.list", ["skus" => $skus]);
     }
 
-    public function store(Request $request) 
+    public function store(Request $request)
     {
         $cod = DB::table('skus')->where('cod', $request->cod)->first();
 
@@ -32,7 +40,7 @@ class SkuController extends Controller
             return response()->json(['message' => 'código SKU já exite no sistema'], 500);
             exit;
         endif;
-        
+
         try
         {
             DB::transaction(function() use ($request)
@@ -44,14 +52,14 @@ class SkuController extends Controller
             });
 
             return response()->json(['message' => 'Codigo SKU criado']);
-        } 
+        }
         catch(Exception $error)
         {
             return response()->json(['message' => 'Não foi possível criar o código SKU'], 500);
         }
 
     }
-    
+
     public function create()
     {
         return view("sku.create");
@@ -99,5 +107,5 @@ class SkuController extends Controller
         endif;
 
         return response()->json(['client' => $sku, 'success' => 'ok'], 200);
-    }
+   } */
 }
