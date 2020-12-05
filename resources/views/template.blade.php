@@ -245,21 +245,21 @@
                 'placeholder': ''
             });
 
-            $("input[name='rg']").inputmask({
+            $("input[name^='rg']").inputmask({
                 mask: ["99.999.999-9", "99.999.999-*"],
                 keepStatic: true
             });
 
-            $("input[name='cpf']").inputmask({
+            $("input[name^='cpf']").inputmask({
                 mask: ['999.999.999-99'],
                 keepStatic: true
             });
-            $("input[name='cnpj']").inputmask({
+            $("input[name^='cnpj']").inputmask({
                 mask: ['99.999.999/9999-99'],
                 keepStatic: true
             });
 
-            $("input[name='ie']").inputmask({
+            $("input[name^='ie']").inputmask({
                 mask: ['999.999.9999'],
                 keepStatic: true
             });

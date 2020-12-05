@@ -177,7 +177,7 @@ $route = route("funcionarios.index");
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Cargo</label>
-                        <input type="text" name="cargo" value="" class="form-control" id="exampleInputEmail1" placeholder="Cargo">
+                        <input type="text" name="cargo" data-mask value="" class="form-control" id="exampleInputEmail1" placeholder="Cargo">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputtext1">Salario</label>
