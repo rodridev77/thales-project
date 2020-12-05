@@ -28,6 +28,6 @@ use App\Extensions\ControllerExtension
 public function __construct($model = null, $template = null){
   parent::__construct(MyModel::class,"templatePath");
 }
-
-?>```
+?>
+```
 
