@@ -20,7 +20,8 @@ para criar um novo controller basta criar um novo arquivo no diretório ```app/H
 
 o arquivo deve conter o seguinte conteúdo:
 
-```<?php
+```
+<?php
 namespace App\Http\Controllers
 use App\Extensions\ControllerExtension
 
