@@ -87,7 +87,7 @@ $route = route("settings.home");
                 <p>Você Realmente deseja excluir este sku?</p>
             </div>
             <div class="modal-footer">
-                <form id="delete" data-sendrequest="{{route('sku.destroy',$item->id)}}" method="DELETE">
+                <form id="delete" data-sendrequest="" method="DELETE">
                     @method("DELETE")
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
                     <button type="button" class="btn btn-success" id="confirm-delete">Sim</button>
