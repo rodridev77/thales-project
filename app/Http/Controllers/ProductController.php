@@ -8,7 +8,7 @@ use App\Models\Product;
 
 class ProductController extends ControllersExtends
 {
-    public function __construct($model = null, $template = null){
+    public function __construct(){
         parent::__construct(Product::class,"products");
         parent::setValidate([
             "name" => "required",
