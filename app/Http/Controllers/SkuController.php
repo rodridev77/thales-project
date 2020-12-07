@@ -14,7 +14,7 @@ class SkuController extends ControllersExtends
     public function __construct($model = null, $template = null){
         parent::__construct(Sku::class,"sku");
         parent::setValidate([
-            "cod" => "required",
+            "cod" => "required|unique:skus",
             "description" => "required",
         ]);
     }
