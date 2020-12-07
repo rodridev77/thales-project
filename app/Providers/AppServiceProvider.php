@@ -48,7 +48,7 @@ class AppServiceProvider extends ServiceProvider
         // Globals
         $request = new URL();
         try{
-        $break = isset($_COOKIE['url']) ?? ["/home"];
+        $break = isset($_COOKIE['url']) ? $_COOKIE['url'] : ["/home"];
         View::share('globalCategories',Category::all());
         View::share('breadcrumb',explode("/",str_replace(['https','http','://'],'',$break)));
         View::share('globalBrands',Brand::all());
