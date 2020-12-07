@@ -89,7 +89,7 @@ $title = "Fornecedor";
     $('#exampleModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
         let Id = button.attr('data-id');
-        $("form#delete").attr('data-sendrequest', '/categorias/' + Id)
+        $("form#delete").attr('data-sendrequest', '/fornecedores/' + Id)
     });
 </script>
 @endsection
