@@ -159,7 +159,7 @@
             <div style="height: 100vh" class="d-none" id="spinner">
                 <div class="d-flex justify-content-center align-items-center  h-100">
                     <div class="text-center">
-                        <img src="../../dist/img/lwlogo.gif" style="width: 15rem; height: 15rem;" alt="Loja 1.0" class="brand-image img-circle elevation-3" style="opacity: .8">
+                        <img src="../../dist/img/lwlogo.gif" style="width: 15rem; height: 15rem;" alt="Loja 1.0" class="brand-image img-circle elevation-8" style="opacity: .8">
                     </div>
                     <div class="text-center d-none">
                         <div class="spinner-border" style="width: 5rem; height: 5rem;" role="status">
