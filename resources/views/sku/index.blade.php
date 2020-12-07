@@ -18,17 +18,16 @@ $route = route("settings.home");
         </tr>
     </thead>
     <tbody>
-    @foreach ($data as $sku)
+        @foreach ($data as $sku)
         <tr>
             <td class="sku-cod">{{$sku->cod}}</td>
             <td class="sku-description">{{$sku->description}}</td>
             <td>
                 <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{route('sku.edit',$sku->id)}}')"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#sku-delete" data-sku-id="{{$sku->id}}"><i
-                        class="fa fa-trash"></i></button>
+                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#sku-delete" data-id="{{$sku->id}}"><i class="fa fa-trash"></i></button>
             </td>
         </tr>
-    @endforeach
+        @endforeach
     </tbody>
 </table>
 @else
@@ -55,16 +54,14 @@ $route = route("settings.home");
                                 <div class="form-row">
                                     <div class="form-group col-sm-12">
                                         <label for="cod">Código SKU: </label>
-                                        <input type="text" class="form-control" name="cod" id="cod"
-                                            required="required" value="">
+                                        <input type="text" class="form-control" name="cod" id="cod" required="required" value="">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-sm-12">
                                         <label for="description">Description: </label>
-                                        <input type="text" class="form-control" name="description" id="description"
-                                            required="required" value="">
+                                        <input type="text" class="form-control" name="description" id="description" required="required" value="">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary" name="enviar">Cadastrar</button>
@@ -90,8 +87,11 @@ $route = route("settings.home");
                 <p>Você Realmente deseja excluir este sku?</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
-                <button type="button" class="btn btn-success" id="confirm-delete">Sim</button>
+                <form id="delete" data-sendrequest="{{route('sku.destroy',$item->id)}}" method="DELETE">
+                    @method("DELETE")
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                    <button type="button" class="btn btn-success" id="confirm-delete">Sim</button>
+                </form>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -99,47 +99,21 @@ $route = route("settings.home");
     <!-- /.modal-dialog -->
 </div>
 <script>
-$(function() {
-    $("#layout-um").DataTable({
-        "responsive": true,
-        "autoWidth": false,
-    });
-});
-
-$('#sku-delete').on('show.bs.modal', function(event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var id = button.data('sku-id') // Extract info from data-* attributes
-    let modalButton = $("#confirm-delete");
-
-    modalButton.on("click", function() {
-
-        axios.delete('{{route("sku.destroy",'+id+')}}')
-            .then((response) => {
-                if (response.status === 200) {
-
-                    Toast.fire({
-                        icon: 'success',
-                        title: 'Sku Exclúido'
-                    });
-                    $('#sku-delete').modal("hide");
-                    loadViewInHome('{{route('sku.index')}}');
-                }
-            })
-            .catch((err) => {
-                if (err.response.status === 500) {
-                    Toast.fire({
-                        icon: 'error',
-                        title: 'Houve um erro tente novamente , ou contacte o suporte'
-                    });
-                }
-            });
+    $(function() {
+        $("#layout-um").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+        });
     });
 
-});
+    $('#sku-delete').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        let Id = button.attr('data-id');
+        $("form#delete").attr('data-sendrequest', '/sku/' + Id)
+    });
 
-function loadSkuForm() {
-    $('#create-sku-form').modal('show');
-}
-
+    function loadSkuForm() {
+        $('#create-sku-form').modal('show');
+    }
 </script>
 @endsection
