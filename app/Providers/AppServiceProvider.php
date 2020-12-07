@@ -50,7 +50,7 @@ class AppServiceProvider extends ServiceProvider
         try{
         //echo $request->current();
         View::share('globalCategories',Category::all());
-        //View::share('breadcrumb',explode("/",str_replace(['https','http','://'],'',$request->fullUrl())));
+        View::share('breadcrumb',explode("/",str_replace(['https','http','://'],'',$_COOKIE['url'])));
         View::share('globalBrands',Brand::all());
         View::share('globalCompanies',Company::all());
         View::share('globalProviders',Provider::all());

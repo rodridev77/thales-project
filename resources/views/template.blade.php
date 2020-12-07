@@ -42,7 +42,7 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
-                <form class="form-inline ml-3">
+                <form class="form-inline ml-3 d-none">
                     <div class="input-group input-group-sm">
                         <input class="form-control form-control-navbar" type="search" placeholder="Busca" aria-label="Search">
                         <div class="input-group-append">
@@ -266,7 +266,7 @@
             });
 
             $("input[name='documento']").inputmask({
-                mask: ["99.999.999-9", "99.999.999-*",'999.999.999-99','99.999.999/9999-99'],
+                mask: ["99.999.999-9", "99.999.999-*", '999.999.999-99', '99.999.999/9999-99'],
                 keepStatic: true
             });
 
@@ -288,7 +288,18 @@
             $('input[data-mask]').inputmask();
         }
 
+        function setCookie(name, value, days = 1) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
         function loadViewInHome(url) {
+            setCookie('url',url,7);
             $("#home_menu_container").html("");
 
             $("#spinner").removeClass("d-none");
@@ -307,22 +318,51 @@
             if (response.status === 422) {
                 Object.keys(response.data.errors).map(function(field, index) {
                     let value = response.data.errors[field];
-                    let translate = [
-                        {"field" : "zipcode", "translate" : "CEP"},
-                        {"field" : "street", "translate" : "Endereco"},
-                        {"field" : "uf", "translate" : "Estado"},
-                        {"field" : "district", "translate" : "Bairro"},
-                        {"field" : "city", "translate" : "Cidade"},
-                        {"field" : "account number", "translate" : "Numero da Conta"},
-                        {"field" : "number", "translate" : "Numero"},
-                        {"field" : "complement", "translate" : "Complemento"},
-                        {"field" : "phone", "translate" : "Telefone"},
-                        {"field" : "name", "translate" : "Nome"},
+                    let translate = [{
+                            "field": "zipcode",
+                            "translate": "CEP"
+                        },
+                        {
+                            "field": "street",
+                            "translate": "Endereco"
+                        },
+                        {
+                            "field": "uf",
+                            "translate": "Estado"
+                        },
+                        {
+                            "field": "district",
+                            "translate": "Bairro"
+                        },
+                        {
+                            "field": "city",
+                            "translate": "Cidade"
+                        },
+                        {
+                            "field": "account number",
+                            "translate": "Numero da Conta"
+                        },
+                        {
+                            "field": "number",
+                            "translate": "Numero"
+                        },
+                        {
+                            "field": "complement",
+                            "translate": "Complemento"
+                        },
+                        {
+                            "field": "phone",
+                            "translate": "Telefone"
+                        },
+                        {
+                            "field": "name",
+                            "translate": "Nome"
+                        },
                     ];
                     value.map(error => {
                         let err = error;
                         translate.map(trs => {
-                            err = err.replace(trs.field,trs.translate);
+                            err = err.replace(trs.field, trs.translate);
                         });
                         $("div#errors ul").append('<li>' + err + '</li>')
                     });
