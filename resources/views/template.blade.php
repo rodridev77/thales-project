@@ -307,17 +307,18 @@
                         {"field" : "uf", "translate" : "Estado"},
                         {"field" : "district", "translate" : "Bairro"},
                         {"field" : "city", "translate" : "Cidade"},
+                        {"field" : "account number", "translate" : "Numero da Conta"},
                         {"field" : "number", "translate" : "Numero"},
                         {"field" : "complement", "translate" : "Complemento"},
                         {"field" : "phone", "translate" : "Telefone"},
                         {"field" : "name", "translate" : "Nome"},
-                        {"field" : "account number", "translate" : "Numero da Conta"},
                     ];
                     value.map(error => {
+                        let err = error;
                         translate.map(trs => {
-                            let err = error.replace(trs.field,trs.translate);
-                            $("div#errors ul").append('<li>' + err + '</li>')
+                            err = err.replace(trs.field,trs.translate);
                         });
+                        $("div#errors ul").append('<li>' + err + '</li>')
                     });
                     $("input[name='" + field + "']").addClass("is-invalid");
                     $("div#errors").removeClass("d-none");
