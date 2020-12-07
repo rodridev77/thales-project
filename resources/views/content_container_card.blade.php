@@ -13,7 +13,7 @@
         @endforeach
         <div class="col-md-12">
             <div class="col-md-4 float-sm-left">
-                <a class="btn btn-outline-secondary btn-sm" onclick="loadViewInHome('{{url($back)}}')">Voltar</a>
+                <a class="btn btn-outline-secondary btn-sm" onclick="loadViewInHome('{{url($breadcrumb[count($breadcrumb)-1] == $back ?'/home' : $back )}}')">Voltar</a>
             </div>
             <ol class="breadcrumb float-sm-right">
                 @foreach($breadcrumb as $bread)
