@@ -48,17 +48,19 @@ class AppServiceProvider extends ServiceProvider
         // Globals
         $request = new URL();
         try{
-        $break = isset($_COOKIE['url']) ? $_COOKIE['url'] : ["/home"];
+        $break = isset($_COOKIE['url']) ? $_COOKIE['url'] : "/home";
+        $break = str_replace(['https','http','://'],'',$break);
+        $break = explode("/", $break);
+        View::share('breadcrumb',$break);
+        View::share('globalShops',Shop::all());
         View::share('globalCategories',Category::all());
-        View::share('breadcrumb',explode("/",str_replace(['https','http','://'],'',$break)));
         View::share('globalBrands',Brand::all());
         View::share('globalCompanies',Company::all());
         View::share('globalProviders',Provider::all());
-        View::share('globalShops',Shop::all());
         View::share('globalProducts',Product::all());
         View::share('globalEmployees',Employee::all());
         }catch(Exception $e){
-
+            echo $e->getMessage();
         }
         Validator::extend('cnpj', function ($attribute, $value, $parameters) {
             $cnpj = new ValidatorsClass();
