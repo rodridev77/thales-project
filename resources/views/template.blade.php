@@ -264,6 +264,11 @@
                 keepStatic: true
             });
 
+            $("input[name='documento']").inputmask({
+                mask: ["99.999.999-9", "99.999.999-*",'999.999.999-99','99.999.999/9999-99'],
+                keepStatic: true
+            });
+
             $("input[name^='ie']").inputmask({
                 mask: ['999.999.9999'],
                 keepStatic: true
