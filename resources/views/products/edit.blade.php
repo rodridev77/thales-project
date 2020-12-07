@@ -34,11 +34,11 @@ $route = route("produtos.index");
 
                 <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">valor de custo</label>
-                    <input type="text" name="cost_price" class="form-control" id="exampleInputEmail1" placeholder="valor de custo" value="{{ $data->cost_price }}">
+                    <input type="text" name="cost_price" class="form-control" id="exampleInputEmail1" placeholder="valor de custo" value="{{ number_format($data->cost_price,2,',','.') }}">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">valor de Venda</label>
-                    <input type="text" name="sale_price" class="form-control" id="exampleInputEmail1" placeholder="valor de venda" value="{{ $data->sale_price }}">
+                    <input type="text" name="sale_price" class="form-control" id="exampleInputEmail1" placeholder="valor de venda" value="{{ number_format($data->sale_price,2,',','.') }}">
                 </div>
 
                 <div class="form-group col-md-12">

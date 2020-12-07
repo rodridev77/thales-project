@@ -18,4 +18,20 @@ class ProductController extends ControllersExtends
             "description" => "required"
         ]);
     }
+
+    public function store(Request $request){
+        $request->merge([
+            "cost_price" => str_replace(",", ".", $request->cost_price),
+            "sale_price" => str_replace(",", ".", $request->sale_price)
+        ]);
+
+        return parent::store($request);
+    }
+
+    public function update(Request $request, $id){
+        $request->cost_price = str_replace([".",","], ["","."], $request->cost_price);
+        $request->sale_price = str_replace([".",","], ["","."], $request->sale_price);
+
+        return parent::update($request, $id);
+    }
 }

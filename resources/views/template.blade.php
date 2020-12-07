@@ -240,6 +240,7 @@
         function defaultMasks() {
             $("input[data-money]").inputmask('decimal', {
                 'alias': 'numeric',
+                'removeMaskOnSubmit': true,
                 'groupSeparator': '.',
                 'autoGroup': true,
                 'digits': 2,
@@ -302,7 +303,6 @@
         // POST/PUT data from request
         request.makeRequest("data-sendrequest", (response) => {
             $("div#errors ul").html("");
-            $("input[data-money]").unmask();
             $("input").removeClass("is-invalid");
             if (response.status === 422) {
                 Object.keys(response.data.errors).map(function(field, index) {

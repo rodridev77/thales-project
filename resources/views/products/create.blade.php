@@ -33,11 +33,11 @@ $route = route("produtos.index");
                     </div>
                     <div class="form-group col-md-6">
                         <label for="exampleInputEmail1">Valor de Custo</label>
-                        <input type="text" name="cost_price" class="form-control" id="exampleInputEmail1" placeholder="valor de Custo" require="require">
+                        <input type="text" data-money name="cost_price" class="form-control" id="exampleInputEmail1" placeholder="valor de Custo" require="require">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="exampleInputEmail1">Valor de Venda</label>
-                        <input type="text" name="sale_price" class="form-control" id="exampleInputEmail1" placeholder="Valor de Venda" require="require">
+                        <input type="text" data-money name="sale_price" class="form-control" id="exampleInputEmail1" placeholder="Valor de Venda" require="require">
                     </div>
                     <div class="form-group col-md-12">
                         <label for="exampleInputtext1">Descricao</label>
