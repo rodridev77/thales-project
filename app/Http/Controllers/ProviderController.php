@@ -12,7 +12,7 @@ class ProviderController extends ControllersExtends
         parent::__construct(Provider::class,"providers");
         parent::setValidate([
             "name" => "required",
-            "documento" => "required|unique:employees",
+            "documento" => "required|unique:providers",
             "email" => "required",
             "phone" => "required",
             "zipcode" => "required",

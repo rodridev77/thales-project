@@ -4,7 +4,7 @@ $title = "Atualizacao de Fornecedor";
 $route = route("fornecedores.index");
 @endphp
 @section('card-body')
-<form data-sendrequest="{{url('/fornecedores/')}}" method="POST">
+<form data-sendrequest="{{route('fornecedores.store')}}" method="POST">
     @csrf
     <div class="row">
         <div id="errors" class="alert alert-danger d-none">

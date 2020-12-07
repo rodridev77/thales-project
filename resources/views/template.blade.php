@@ -309,6 +309,9 @@
                         {"field" : "city", "translate" : "Cidade"},
                         {"field" : "number", "translate" : "Numero"},
                         {"field" : "complement", "translate" : "Complemento"},
+                        {"field" : "phone", "translate" : "Telefone"},
+                        {"field" : "name", "translate" : "Nome"},
+                        {"field" : "account number", "translate" : "Numero da Conta"},
                     ];
                     value.map(error => {
                         translate.map(trs => {
