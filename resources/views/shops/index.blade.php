@@ -25,9 +25,9 @@ $title = "Lojas";
             <td>{{$item->cnpj}}</td>
             <td>{{$item->ie}}</td>
             <td>
-                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('lojas/'.$item->id.'/edit')}}')"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-shopid="{{$item->id}}"><i class="fa fa-trash"></i></button>
-                <button class="btn btn-xs btn-success" onclick="loadViewInHome('{{url('lojas/'.$item->id)}}')"><i class="fa fa-eye"></i></button>
+                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{route('lojas.edit',$item->id)}}')"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-id="{{$item->id}}"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-xs btn-success" onclick="loadViewInHome('{{route('lojas.show',$item->id)}}')"><i class="fa fa-eye"></i></button>
             </td>
         </tr>
         @endforeach
@@ -47,7 +47,7 @@ $title = "Lojas";
                 <p>Você Realmente deseja excluir essa loja ?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <form id="delete" data-sendrequest="{{url('/lojas/'.$item->id)}}" method="DELETE">
+                <form id="delete" data-sendrequest="{{route('lojas.destroy',$item->id)}}" method="DELETE">
                     @method("DELETE")
                     <button class="btn btn-priimary" data-dismiss="modal">Não</button>
                     <button class="btn btn-danger" id="confirm-delete">Sim</button>
@@ -65,7 +65,6 @@ $title = "Lojas";
     $(function() {
         $("button#confirm-delete").on("click", function(e) {
             $('#exampleModal').modal('hide');
-
         })
 
         $("#example1").DataTable({
@@ -88,7 +87,8 @@ $title = "Lojas";
 
     $('#exampleModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
-
+        let Id = button.attr('data-id');
+        $("form#delete").attr('data-sendrequest','/lojas/'+Id)
     });
 </script>
 @endsection

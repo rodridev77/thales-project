@@ -26,7 +26,7 @@ $title = "Fornecedor";
             <td>{{$item->phone}}</td>
             <td>
                 <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('fornecedores/'.$item->id.'/edit')}}')"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-shopid="{{$item->id}}"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-id="{{$item->id}}"><i class="fa fa-trash"></i></button>
                 <button class="btn btn-xs btn-success" onclick="loadViewInHome('{{url('fornecedores/'.$item->id)}}')"><i class="fa fa-eye"></i></button>
             </td>
         </tr>
@@ -72,7 +72,7 @@ $title = "Fornecedor";
             "responsive": true,
             "autoWidth": false,
             "oLanguage": {
-            "sUrl": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Portuguese-Brasil.json"
+                "sUrl": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Portuguese-Brasil.json"
             }
         });
         $('#example2').DataTable({
@@ -88,7 +88,8 @@ $title = "Fornecedor";
 
     $('#exampleModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
-
+        let Id = button.attr('data-id');
+        $("form#delete").attr('data-sendrequest', '/categorias/' + Id)
     });
 </script>
 @endsection

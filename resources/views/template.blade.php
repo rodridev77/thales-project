@@ -294,31 +294,27 @@
                 moveCards();
             })
         }
-        // Save Employee from request
-        request.makeRequest("data-saveemployee", (response) => {
-            if (response.status === 500) {
-                Toast.fire({
-                    icon: 'error',
-                    title: 'Houve um erro tente novamente , ou contacte o suporte'
-                });
-            }
-            if (response.status === 200) {
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Funcionario Cadastrado'
-                });
-            }
-        });
-
-        // Save Employee from request
+        // POST/PUT data from request
         request.makeRequest("data-sendrequest", (response) => {
             $("div#errors ul").html("");
             $("input").removeClass("is-invalid");
             if (response.status === 422) {
                 Object.keys(response.data.errors).map(function(field, index) {
-                    var value = response.data.errors[field];
+                    let value = response.data.errors[field];
+                    let translate = [
+                        {"field" : "zipcode", "translate" : "CEP"},
+                        {"field" : "street", "translate" : "Endereco"},
+                        {"field" : "uf", "translate" : "Estado"},
+                        {"field" : "district", "translate" : "Bairro"},
+                        {"field" : "city", "translate" : "Cidade"},
+                        {"field" : "number", "translate" : "Numero"},
+                        {"field" : "complement", "translate" : "Complemento"},
+                    ];
                     value.map(error => {
-                        $("div#errors ul").append('<li>' + error + '</li>')
+                        translate.map(trs => {
+                            let err = error.replace(trs.field,trs.translate);
+                            $("div#errors ul").append('<li>' + err + '</li>')
+                        });
                     });
                     $("input[name='" + field + "']").addClass("is-invalid");
                     $("div#errors").removeClass("d-none");
@@ -345,8 +341,8 @@
         });
 
 
-        // Delete Employee form request
-        request.makeRequest("data-deleteemployee", (response) => {
+        // Delete data form request
+        request.makeRequest("data-deleterequest", (response) => {
             if (response.status === 500) {
                 Toast.fire({
                     icon: 'error',

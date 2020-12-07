@@ -4,8 +4,7 @@ $title = "Marcas";
 $route = route("settings.home");
 @endphp
 @section('card-tools')
-<button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('marcas.create')}}')"><i
-        class="fas fa-plus"></i>Adicionar Marca</button>
+<button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('marcas.create')}}')"><i class="fas fa-plus"></i>Adicionar Marca</button>
 @endsection
 @section('card-body')
 @if (count($data) > 0)
@@ -21,10 +20,8 @@ $route = route("settings.home");
         <tr>
             <td>{{$item->name}}</td>
             <td>
-                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{route('marcas.edit',$item->id)}}')"><i
-                        class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal"
-                    data-shopid="{{$item->id}}"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{route('marcas.edit',$item->id)}}')"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-id="{{$item->id}}"><i class="fa fa-trash"></i></button>
             </td>
         </tr>
         @endforeach
@@ -59,33 +56,34 @@ $route = route("settings.home");
 <p>Nenhum Registro cadastrado</p>
 @endif
 <script>
-$(function() {
-    $("button#confirm-delete").on("click", function(e) {
-        $('#exampleModal').modal('hide');
+    $(function() {
+        $("button#confirm-delete").on("click", function(e) {
+            $('#exampleModal').modal('hide');
 
-    })
+        })
 
-    $("#example1").DataTable({
-        "responsive": true,
-        "autoWidth": false,
-        "oLanguage": {
-            "sUrl": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Portuguese-Brasil.json"
-        }
+        $("#example1").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "oLanguage": {
+                "sUrl": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Portuguese-Brasil.json"
+            }
+        });
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
     });
-    $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
+
+    $('#exampleModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        let Id = button.attr('data-id');
+        $("form#delete").attr('data-sendrequest', '/marcas/' + Id)
     });
-});
-
-$('#exampleModal').on('show.bs.modal', function(event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-
-});
 </script>
 @endsection

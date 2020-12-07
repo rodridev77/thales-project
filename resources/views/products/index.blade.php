@@ -32,7 +32,7 @@ $title = "Produtos";
             </td>
             <td>
                 <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{route('produtos.edit',$item->id)}}')"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-shopid="{{$item->id}}"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-id="{{$item->id}}"><i class="fa fa-trash"></i></button>
             </td>
         </tr>
         @endforeach
@@ -77,7 +77,7 @@ $title = "Produtos";
             "responsive": true,
             "autoWidth": false,
             "oLanguage": {
-                    "sUrl": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Portuguese-Brasil.json"
+                "sUrl": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Portuguese-Brasil.json"
             }
         });
         $('#example2').DataTable({
@@ -93,7 +93,8 @@ $title = "Produtos";
 
     $('#exampleModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
-
+        let Id = button.attr('data-id');
+        $("form#delete").attr('data-sendrequest', '/produtos/' + Id)
     });
 </script>
 @endsection

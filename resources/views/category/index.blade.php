@@ -17,25 +17,25 @@ $route = route('settings.home');
         </tr>
     </thead>
     <tbody>
-    @foreach ($data as $category)
+        @foreach ($data as $category)
         <tr>
             <td>{{$category->name}}</td>
             <td>
                 @if($category->subcategory === null)
-                    Nenhum
+                Nenhum
                 @endif
                 @foreach($data as $item)
-                    @if($item->id == $category->subcategory)
-                        {{$item->name}}
-                    @endif
+                @if($item->id == $category->subcategory)
+                {{$item->name}}
+                @endif
                 @endforeach
             </td>
             <td>
                 <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('categorias/'.$category->id.'/edit/')}}')"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-shopid="{{$category->id}}"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-id="{{$category->id}}"><i class="fa fa-trash"></i></button>
             </td>
         </tr>
-    @endforeach
+        @endforeach
     </tbody>
 </table>
 <div class="modal " id="exampleModal">
@@ -66,47 +66,21 @@ $route = route('settings.home');
 <p>Nenhuma categoria cadastrada</p>
 @endif
 <script>
-$(function() {
-    $("#layout-um").DataTable({
-        "responsive": true,
-        "autoWidth": false,
-    });
-});
-
-$('#sku-delete').on('show.bs.modal', function(event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var id = button.data('category-id') // Extract info from data-* attributes
-    let modalButton = $("#confirm-delete");
-
-    modalButton.on("click", function() {
-
-        axios.delete(`${'{{url("category/destroy")}}'}/${id}`)
-            .then((response) => {
-                if (response.status === 200) {
-
-                    Toast.fire({
-                        icon: 'success',
-                        title: 'Categoria Excluída'
-                    });
-                    $('#category-delete').modal("hide");
-                    loadViewInHome('{{route('categorias.index')}}');
-                }
-            })
-            .catch((err) => {
-                if (err.response.status === 500) {
-                    Toast.fire({
-                        icon: 'error',
-                        title: 'Houve um erro tente novamente , ou contacte o suporte'
-                    });
-                }
-            });
+    $(function() {
+        $("#layout-um").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+        });
     });
 
-});
+    $('#exampleModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        let Id = button.attr('data-id');
+        $("form#delete").attr('data-sendrequest', '/categorias/' + Id)
+    });
 
-function loadSkuForm() {
-    $('#create-sku-form').modal('show');
-}
-
+    function loadSkuForm() {
+        $('#create-sku-form').modal('show');
+    }
 </script>
 @endsection
