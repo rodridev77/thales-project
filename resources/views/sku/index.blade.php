@@ -90,7 +90,7 @@ $route = route("settings.home");
                 <form id="delete" data-sendrequest="" method="DELETE">
                     @method("DELETE")
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
-                    <button type="button" type="submit" class="btn btn-success" id="confirm-delete">Sim</button>
+                    <button type="submit" class="btn btn-success" id="confirm-delete">Sim</button>
                 </form>
             </div>
         </div>
