@@ -33,7 +33,7 @@ $route = route("settings.home");
     </tbody>
 </table>
 
-<div class="modal " id="user-delete">
+<div class="modal" id="user-delete">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

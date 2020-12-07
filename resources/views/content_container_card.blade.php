@@ -7,7 +7,8 @@
         @foreach($breadcrumb as $bread)
             @if($loop->index === 1)
                 @php
-                $back = $bread
+                $back = $bread;
+                $_COOKIE['view'] = $bread;
                 @endphp
             @endif
         @endforeach

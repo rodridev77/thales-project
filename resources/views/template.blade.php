@@ -288,6 +288,17 @@
             $('input[data-mask]').inputmask();
         }
 
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
         function setCookie(name, value, days = 1) {
             var expires = "";
             if (days) {
@@ -299,7 +310,7 @@
         }
 
         function loadViewInHome(url) {
-            setCookie('url',url,7);
+            setCookie('url', url, 7);
             $("#home_menu_container").html("");
 
             $("#spinner").removeClass("d-none");
@@ -387,6 +398,9 @@
                     icon: 'success',
                     title: response.data.message
                 });
+                if (response.data.type == "delete") {
+                    loadViewInHome("/{{Cookie::get('view')}}")
+                }
             }
         });
 
@@ -404,7 +418,9 @@
                     icon: 'success',
                     title: 'Funcionario Deletado'
                 });
-                loadViewInHome("{{url('/funcionarios/')}}")
+                if (response.data.type == "delete") {
+                    loadViewInHome("/{{Cookie::get('view')}}")
+                }
             }
         });
 
@@ -421,6 +437,9 @@
                     icon: 'success',
                     title: response.data.message
                 });
+                if (response.data.type == "delete") {
+                    loadViewInHome("/{{Cookie::get('view')}}")
+                }
             }
         });
 
