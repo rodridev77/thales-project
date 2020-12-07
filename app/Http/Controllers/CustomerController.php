@@ -8,7 +8,7 @@ use App\Extensions\ControllersExtends;
 
 class CustomerController extends ControllersExtends
 {
-    public function __construct($model = null, $template = null){
+    public function __construct(){
         parent::__construct(Customer::class,"customer");
         parent::setValidate([
             "name" => "required",

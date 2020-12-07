@@ -17,7 +17,7 @@ abstract class ControllersExtends extends Controller implements ControllersInter
     private $with = [];
     private $validate = [];
 
-    public function __construct($model, String $template)
+    public function __construct($model = null, $template = null)
     {
         $this->model = $model;
         $this->template = $template;
@@ -25,6 +25,10 @@ abstract class ControllersExtends extends Controller implements ControllersInter
 
     public function index()
     {
+        if($this->model === null || $this->template === null){
+            return response()->json(["message" => "parametros incorretos", "error" => "é necessário informar o Model e o Diretório de template do módulo para continuar."], 500);
+        }
+
         $data = $this->model::all();
         return view("{$this->template}.index", ["data" => $data]);
     }
