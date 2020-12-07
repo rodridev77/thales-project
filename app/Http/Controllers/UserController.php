@@ -22,12 +22,16 @@ class UserController extends ControllersExtends
     }
     public function store(Request $request){
         $request->password = Hash::make($request->password);
-        parent::store($request);
+        return parent::store($request);
     }
 
     public function update(Request $request,$id){
-        $request->password = Hash::make($request->password);
-        parent::update($request,$id);
+        if(strlen($request->password) > 0){
+            $request->password = Hash::make($request->password);
+        }else{
+            unset($request->password);
+        }
+        return parent::update($request,$id);
     }
 /*
     public function index()

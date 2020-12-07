@@ -23,7 +23,7 @@ $route = route("user.index");
         </div>
         <div class="form-group col-md-6">
             <label for="password">Senha</label>
-            <input type="password" class="form-control" name="password" id="password" value="{{$data->password}}" placeholder="Senha" required="required">
+            <input type="password" class="form-control" name="password" id="password" value="" placeholder="Senha">
         </div>
     </div>
     <div class="form-row">
