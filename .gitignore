@@ -13,11 +13,5 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-<<<<<<< HEAD
-.htaccess
-index.php
-server.php
-=======
 server.php
 .htaccess
->>>>>>> 88b9456c4f2931ea87a8b9a023e3eff055238a5b
