@@ -12,6 +12,10 @@ $route = route("user.index");
 <form autocomplete="off" data-submitajax='{{route('user.store')}}' id="create_user" method="POST">
     @csrf
     <div class="form-row">
+        <div id="errors" class="alert alert-danger d-none">
+            <ul>
+            </ul>
+        </div>
         <div class="form-group col-md-12">
             <label for="name">Nome</label>
             <input type="text" class="form-control" name="name" id="name" placeholder="Nome" required="required">

@@ -17,6 +17,10 @@ $title = "Cadastro de Clientes"
 
                 <div class="card-body">
                     <div class="form-row">
+                        <div id="errors" class="alert alert-danger d-none">
+                            <ul>
+                            </ul>
+                        </div>
                         <div class="form-group col-md-8">
                             <label for="exampleInputEmail1">Nome Completo</label>
                             <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Nome completo" required>

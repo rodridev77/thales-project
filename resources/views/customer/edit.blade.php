@@ -18,6 +18,10 @@ $title = "Atualizacao de Clientes"
 
                 <div class="card-body">
                     <div class="form-row">
+                        <div id="errors" class="alert alert-danger d-none">
+                            <ul>
+                            </ul>
+                        </div>
                         <div class="form-group col-md-8">
                             <label for="exampleInputEmail1">Nome Completo</label>
                             <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Nome completo" required value="{{$data->name}}">
@@ -28,7 +32,7 @@ $title = "Atualizacao de Clientes"
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">Nome do Conjugue</label>
-                            <input type="text" name="conjugate"  value="{{$data->conjugate}}" class="form-control" id="exampleInputtext1" placeholder="Nome do Conjugue" required>
+                            <input type="text" name="conjugate" value="{{$data->conjugate}}" class="form-control" id="exampleInputtext1" placeholder="Nome do Conjugue" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">Telefone do Conjugue</label>
@@ -92,7 +96,7 @@ $title = "Atualizacao de Clientes"
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">Escolaridade</label>
                             <select class="form-control" id="exampleInputtext1" name="level_of_schooling" required>
-                            <option disabled>Selecione sua Escolaridade</option>
+                                <option disabled>Selecione sua Escolaridade</option>
                                 <option @if($data->level_of_schooling == "Ensino Fundamental") selected @endif value="Ensino Fundamental">Ensino Fundamental</option>
                                 <option @if($data->level_of_schooling == "Ensino Fundamental incompleto") selected @endif value="Ensino Fundamental incompleto">Ensino Fundamental incompleto</option>
                                 <option @if($data->level_of_schooling == "Ensino Medio") selected @endif value="Ensino Medio">Ensino Medio</option>

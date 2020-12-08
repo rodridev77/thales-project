@@ -4,8 +4,7 @@
     <div class="row">
         <div class="col-sm-12">
             <a href="#" onclick="loadViewInHome('{{route('sku.index')}}')">
-                <i class='fas fa-arrow-left' style='font-size:16px;color: rgba(0, 123, 255, .7);'></i><span
-                    style="margin-left:5px">voltar</span>
+                <i class='fas fa-arrow-left' style='font-size:16px;color: rgba(0, 123, 255, .7);'></i><span style="margin-left:5px">voltar</span>
             </a>
         </div>
     </div>
@@ -26,6 +25,10 @@ $title = "Tabela de Código SKU";
                 @csrf
                 @method('PUT')
                 <div class="form-row">
+                    <div id="errors" class="alert alert-danger d-none">
+                        <ul>
+                        </ul>
+                    </div>
                     <div class="form-group col-sm-12">
                         <label for="cod">Código SKU: </label>
                         <input type="text" class="form-control" name="cod" id="cod" required="required" value="{{$data->cod}}">
@@ -35,8 +38,7 @@ $title = "Tabela de Código SKU";
                 <div class="form-row">
                     <div class="form-group col-sm-12">
                         <label for="description">Description: </label>
-                        <input type="text" class="form-control" name="description" id="description" required="required"
-                            value="{{$data->description}}">
+                        <input type="text" class="form-control" name="description" id="description" required="required" value="{{$data->description}}">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary" name="enviar">Salvar</button>

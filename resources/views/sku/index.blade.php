@@ -48,6 +48,10 @@ $route = route("settings.home");
             <div class="modal-body">
                 <div class="container" id="">
                     <div class="row justify-content-center">
+                        <div id="errors" class="alert alert-danger d-none">
+                            <ul>
+                            </ul>
+                        </div>
                         <div class="col-sm-12 mb-3">
                             <form data-sendrequest='{{route('sku.store')}}' method="POST">
                                 @csrf
