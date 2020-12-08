@@ -2,6 +2,7 @@
 
 @php
 $title = "Tabela de Código SKU";
+$route = route("sku.index");
 @endphp
 @section('card-tools')
 <button type="button" class="btn btn-success" onclick="loadSkuForm();"><i class="fas fa-plus"></i>Cadastrar SKU</button>
@@ -17,13 +18,20 @@ $title = "Tabela de Código SKU";
         </tr>
     </thead>
     <tbody>
-        @foreach ($data as $sku)
+        @foreach ($data as $item)
         <tr>
-            <td class="sku-cod">{{$sku->cod}}</td>
-            <td class="sku-description">{{$sku->description}}</td>
+            <td class="sku-cod">{{$item->cod}}</td>
+            <td class="sku-description">{{$item->description}}</td>
             <td>
-                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{route('sku.edit',$sku->id)}}')"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#sku-delete" data-id="{{$sku->id}}"><i class="fa fa-trash"></i></button>
+                @include('components.actions', [
+                'id' => $item->id,
+                'route' => "sku",
+                'buttons' =>
+                [
+                'edit' => true,
+                'destroy' => true
+                ]
+                ])
             </td>
         </tr>
         @endforeach
@@ -57,14 +65,16 @@ $title = "Tabela de Código SKU";
                                 <div class="form-row">
                                     <div class="form-group col-sm-12">
                                         <label for="cod">Código SKU: </label>
-                                        <input type="text" class="form-control" name="cod" id="cod" required="required" value="">
+                                        <input type="text" class="form-control" name="cod" id="cod" required="required"
+                                            value="">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-sm-12">
                                         <label for="description">Description: </label>
-                                        <input type="text" class="form-control" name="description" id="description" required="required" value="">
+                                        <input type="text" class="form-control" name="description" id="description"
+                                            required="required" value="">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary" name="enviar">Cadastrar</button>
@@ -77,7 +87,7 @@ $title = "Tabela de Código SKU";
     </div>
 </div>
 
-<div class="modal" id="sku-delete">
+<div class="modal" id="#exampleModal">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
@@ -90,10 +100,10 @@ $title = "Tabela de Código SKU";
                 <p>Você Realmente deseja excluir este sku?</p>
             </div>
             <div class="modal-footer">
-                <form id="delete" data-sendrequest="" method="DELETE">
+                <form id="delete" data-sendrequest="{{url('/sku/'.$item->id)}}" method="DELETE">
                     @method("DELETE")
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
-                    <button type="submit" class="btn btn-success" id="confirm-delete">Sim</button>
+                    <button class="btn btn-primary" data-dismiss="modal">Não</button>
+                    <button class="btn btn-danger" id="confirm-delete">Sim</button>
                 </form>
             </div>
         </div>
@@ -102,21 +112,21 @@ $title = "Tabela de Código SKU";
     <!-- /.modal-dialog -->
 </div>
 <script>
-    $(function() {
-        $("#layout-um").DataTable({
-            "responsive": true,
-            "autoWidth": false,
-        });
+$(function() {
+    $("#layout-um").DataTable({
+        "responsive": true,
+        "autoWidth": false,
     });
+});
 
-    $('#sku-delete').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        let Id = button.attr('data-id');
-        $("form#delete").attr('data-sendrequest', '/sku/' + Id)
-    });
+$('#exampleModal').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    let Id = button.attr('data-id');
+    $("form#delete").attr('data-sendrequest', '/sku/' + Id)
+});
 
-    function loadSkuForm() {
-        $('div#create-sku-form').modal('show');
-    }
+function loadSkuForm() {
+    $('div#create-sku-form').modal('show');
+}
 </script>
 @endsection
