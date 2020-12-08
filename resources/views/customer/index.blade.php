@@ -23,8 +23,14 @@ $title = "Clientes";
             <td>{{$item->cpf}}</td>
             <td>{{$item->phone}}</td>
             <td>
-                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{route('customer.edit',$item->id)}}')"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-id="{{$item->id}}"><i class="fa fa-trash"></i></button>
+                @include('components.actions', [
+                'id' => $item->id,
+                'route' => "funcionarios",
+                'buttons' => [
+                'edit' => true,
+                'destroy' => true
+                ]
+                ])
 
             </td>
         </tr>

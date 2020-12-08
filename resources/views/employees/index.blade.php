@@ -26,7 +26,15 @@ $route = route("funcionarios.index");
             <td>{{$item->cpf}}</td>
             <td>{{$item->phone}}</td>
             <td>
-                @include('components.actions', ['id' => $item->id, 'route' => "funcionarios"])
+                @include('components.actions', [
+                'id' => $item->id,
+                'route' => "funcionarios",
+                'buttons' => [
+                'edit' => true,
+                'view' => true,
+                'destroy' => true
+                ]
+                ])
             </td>
         </tr>
         @endforeach
