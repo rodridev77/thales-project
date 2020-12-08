@@ -25,7 +25,7 @@ abstract class ControllersExtends extends Controller implements ControllersInter
 
     public function index()
     {
-        if($this->model === null || $this->template === null){
+        if ($this->model === null || $this->template === null) {
             return response()->json(["message" => "parametros incorretos", "error" => "é necessário informar o Model e o Diretório de template do módulo para continuar."], 500);
         }
 
@@ -79,21 +79,21 @@ abstract class ControllersExtends extends Controller implements ControllersInter
             } else {
                 $this->model::create($data);
             }
-            return response()->json(["type" => "store","message" => "Cadastrado com Sucesso!"]);
+            return response()->json(["type" => "store", "message" => "Cadastrado com Sucesso!"]);
         } catch (Exception $error) {
-            return response()->json(["type" => "error","message" => "Problema ao Cadastrar. ", "error" => $error->getMessage()], 500);
+            return response()->json(["type" => "error", "message" => "Problema ao Cadastrar. ", "error" => $error->getMessage()], 500);
         }
     }
 
     public function update(Request $request, $id)
     {
         if (count($this->validate) > 0) {
-            foreach ($this->validate as $k=>$val) {
+            foreach ($this->validate as $k => $val) {
                 $regras = "";
                 foreach (explode("|", $val) as $rule) {
                     if (strpos($rule, "unique") === 0) {
                         $regras = "{$rule},id,{$id}";
-                    }else{
+                    } else {
                         $regras = "{$rule}";
                     }
                 }
@@ -127,9 +127,12 @@ abstract class ControllersExtends extends Controller implements ControllersInter
     {
         try {
             $this->model::destroy($id);
-            return response()->json(["type" => "delete","message" => "Deletado com Sucesso!"]);
+            $break = isset($_COOKIE['url']) ? $_COOKIE['url'] : "/home";
+            $break = str_replace(['https', 'http', '://'], '', $break);
+            $break = explode("/", $break);
+            return response()->json(["type" => "delete", "message" => "Deletado com Sucesso!", "url" => "/".$break[1]]);
         } catch (Exception $error) {
-            return response()->json(["type" => "error","message" => "Problema ao Deletar."], 500);
+            return response()->json(["type" => "error", "message" => "Problema ao Deletar. "], 500);
         }
     }
 

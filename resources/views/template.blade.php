@@ -221,7 +221,6 @@
     <script src="{{asset('js/ajaxRequests.js')}}"></script>
     <script src="{{asset('js/commonmethods.js')}}"></script>
 
-
     <script>
         $(function() {
             $("#example1").DataTable({
@@ -399,7 +398,7 @@
                     title: response.data.message
                 });
                 if (response.data.type == "delete") {
-                    loadViewInHome("/{{Cookie::get('view')}}")
+                    loadViewInHome(response.data.url);
                 }
             }
         });
@@ -419,7 +418,7 @@
                     title: 'Funcionario Deletado'
                 });
                 if (response.data.type == "delete") {
-                    loadViewInHome("/{{Cookie::get('view')}}")
+                    loadViewInHome("/@php echo $_COOKIE['view']; @endphp");
                 }
             }
         });
@@ -438,7 +437,7 @@
                     title: response.data.message
                 });
                 if (response.data.type == "delete") {
-                    loadViewInHome("/{{Cookie::get('view')}}")
+                    loadViewInHome("/{{$breadcrumb[count($breadcrumb)-1]}}");
                 }
             }
         });

@@ -8,7 +8,7 @@
             @if($loop->index === 1)
                 @php
                 $back = $bread;
-                $_COOKIE['view'] = $bread;
+                $_COOKIE['view'] = $back;
                 @endphp
             @endif
         @endforeach
