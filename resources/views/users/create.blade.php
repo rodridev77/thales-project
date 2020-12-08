@@ -44,6 +44,8 @@ $route = route("user.index");
             </select>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <div class="card-footer">
+        <button class="btn btn-success btn-lg" type="submit"> <i class="fa fa-check"></i> Cadastrar</button>
+    </div>
 </form>
 @endsection

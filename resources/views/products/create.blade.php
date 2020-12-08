@@ -75,7 +75,9 @@ $route = route("produtos.index");
                         </div>
                     </div>
                 </div>
-        <button class="btn btn-success" type="submit"> <i class="fa fa-plus"></i> Cadastrar</button>
+                <div class="card-footer">
+            <button class="btn btn-success btn-lg" type="submit"> <i class="fa fa-check"></i> Cadastrar</button>
+        </div>
     </div>
 </form>
 @endsection

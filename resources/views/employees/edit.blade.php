@@ -16,9 +16,6 @@ $route = route("funcionarios.index");
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Dados Pessoais</h3>
-                    <div class="card-tools">
-                        <button class="btn btn-success" type="submit"> <i class="fa fa-edit"></i> Editar</button>
-                    </div>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -167,7 +164,7 @@ $route = route("funcionarios.index");
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 connectedSortable ui-sortable">
             <div class="card card-primary">
                 <div class="card-header">
                     <h3 class="card-title">Dados do Contrato</h3>
@@ -194,6 +191,9 @@ $route = route("funcionarios.index");
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-success btn-lg" type="submit"> <i class="fa fa-check"></i> Salvar</button>
         </div>
     </div>
 </form>

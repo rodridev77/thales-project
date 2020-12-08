@@ -167,10 +167,9 @@ $title = "Atualizacao de Clientes"
             </div>
         </div>
 
-        <div class="card-tools ml-1">
-            <input type="submit" value="cadastrar" class="btn btn-success btn-lg">
+        <div class="card-footer">
+            <button class="btn btn-success btn-lg" type="submit"> <i class="fa fa-check"></i> Salvar</button>
         </div>
-
     </div>
     </div>
 </form>

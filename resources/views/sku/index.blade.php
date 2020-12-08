@@ -2,7 +2,6 @@
 
 @php
 $title = "Tabela de Código SKU";
-$route = route("settings.home");
 @endphp
 @section('card-tools')
 <button type="button" class="btn btn-success" onclick="loadSkuForm();"><i class="fas fa-plus"></i>Cadastrar SKU</button>
@@ -117,7 +116,7 @@ $route = route("settings.home");
     });
 
     function loadSkuForm() {
-        $('#create-sku-form').modal('show');
+        $('div#create-sku-form').modal('show');
     }
 </script>
 @endsection

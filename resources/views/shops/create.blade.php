@@ -8,13 +8,7 @@ $route = route("lojas.index");
     @csrf
     <div class="row">
         <div class="col-md-12">
-            <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">Informacoes basicas</h3>
-                    <div class="card-tools">
-                        <button class="btn btn-success" type="submit"> <i class="fa fa-plus"></i> Cadastrar</button>
-                    </div>
-                </div>
+            <div class="card">
                 <!-- /.card-header -->
                 <!-- form start -->
 
@@ -41,6 +35,9 @@ $route = route("lojas.index");
                             <input type="text" name='ie' class="form-control" id="exampleInputtext1" placeholder="IE">
                         </div>
                     </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-success" type="submit"> <i class="fa fa-check"></i> Cadastrar</button>
                 </div>
             </div>
         </div>

@@ -15,9 +15,6 @@ $route = route("funcionarios.index");
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Dados Pessoais</h3>
-                    <div class="card-tools">
-                        <button class="btn btn-success" type="submit"> <i class="fa fa-plus"></i> Cadastrar</button>
-                    </div>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -193,6 +190,9 @@ $route = route("funcionarios.index");
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-success btn-lg" type="submit"> <i class="fa fa-check"></i> Cadastrar</button>
         </div>
     </div>
 </form>
