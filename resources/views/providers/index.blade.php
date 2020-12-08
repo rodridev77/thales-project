@@ -25,9 +25,15 @@ $title = "Fornecedor";
             <td>{{$item->email}}</td>
             <td>{{$item->phone}}</td>
             <td>
-                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('fornecedores/'.$item->id.'/edit')}}')"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-id="{{$item->id}}"><i class="fa fa-trash"></i></button>
-                <button class="btn btn-xs btn-success" onclick="loadViewInHome('{{url('fornecedores/'.$item->id)}}')"><i class="fa fa-eye"></i></button>
+                @include('components.actions', [
+                'id' => $item->id,
+                'route' => "fornecedores",
+                'buttons' => [
+                'edit' => true,
+                'view' => true,
+                'destroy' => true
+                ]
+                ])
             </td>
         </tr>
         @endforeach
