@@ -26,9 +26,9 @@ $route = route("funcionarios.index");
             <td>{{$item->cpf}}</td>
             <td>{{$item->phone}}</td>
             <td>
-                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{route('funcionarios.edit',$item->id)}}')"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-id="{{$item->id}}"><i class="fa fa-trash"></i></button>
-                <button class="btn btn-xs btn-success" onclick="loadViewInHome('{{route('funcionarios.show',$item->id)}}')"><i class="fa fa-eye"></i></button>
+                <button class="btn btn-xs" onclick="loadViewInHome('{{route('funcionarios.edit',$item->id)}}')" id="employee-edit"><img src="../../images/icon-edit.png" title="Editar" width="24px"></button>
+                <button class="btn btn-xs" data-toggle="modal" data-target="#exampleModal" data-id="{{$item->id}}" id="employee-delete"><img src="../../images/icon-trash.png" title="Remover" width="24px"></button>
+                <button class="btn btn-xs" onclick="loadViewInHome('{{route('funcionarios.show',$item->id)}}')" id="employee-view"><img src="../../images/icon-view.png" title="Ver" width="24px"></button>
             </td>
         </tr>
         @endforeach
