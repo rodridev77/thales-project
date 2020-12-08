@@ -117,7 +117,7 @@ $route = route("settings.home");
     });
 
     function loadSkuForm() {
-        $('#create-sku-form').modal('show');
+        $('div#create-sku-form').modal('show');
     }
 </script>
 @endsection
