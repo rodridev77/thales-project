@@ -31,9 +31,14 @@ $route = route('settings.home');
                 @endforeach
             </td>
             <td>
-                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{url('categorias/'.$category->id.'/edit/')}}')"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#exampleModal" data-id="{{$category->id}}"><i class="fa fa-trash"></i></button>
-            </td>
+                @include('components.actions', [
+                'id' => $category->id,
+                'route' => "categorias",
+                'buttons' => [
+                'edit' => true,
+                'destroy' => true
+                ]
+                ]) </td>
         </tr>
         @endforeach
     </tbody>

@@ -25,7 +25,7 @@ $title = "Clientes";
             <td>
                 @include('components.actions', [
                 'id' => $item->id,
-                'route' => "funcionarios",
+                'route' => "customer",
                 'buttons' => [
                 'edit' => true,
                 'destroy' => true
