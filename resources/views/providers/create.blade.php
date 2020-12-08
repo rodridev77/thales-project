@@ -13,12 +13,6 @@ $route = route("fornecedores.index");
         </div>
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Informacoes basicas</h3>
-                    <div class="card-tools">
-                        <button class="btn btn-success" type="submit"> <i class="fa fa-plus"></i> Cadastrar</button>
-                    </div>
-                </div>
                 <!-- /.card-header -->
                 <!-- form start -->
 
@@ -79,6 +73,9 @@ $route = route("fornecedores.index");
                             <input type="text" name='uf' class="form-control" id="exampleInputtext1" placeholder="Estado">
                         </div>
                     </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-success btn-lg" type="submit"> <i class="fa fa-check"></i> Cadastrar</button>
                 </div>
             </div>
         </div>

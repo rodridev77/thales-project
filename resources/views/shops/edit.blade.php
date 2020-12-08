@@ -10,12 +10,6 @@ $route = route("lojas.index");
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Informacoes basicas</h3>
-                    <div class="card-tools">
-                        <button class="btn btn-success" type="submit"> <i class="fa fa-plus"></i> Atualizar</button>
-                    </div>
-                </div>
                 <!-- /.card-header -->
                 <!-- form start -->
 
@@ -46,6 +40,9 @@ $route = route("lojas.index");
                             value="{{$data->ie}}">
                         </div>
                     </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-success" type="submit"> <i class="fa fa-check"></i> Salvar</button>
                 </div>
             </div>
         </div>
