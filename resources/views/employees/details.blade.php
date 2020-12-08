@@ -11,7 +11,7 @@ $route = route("funcionarios.index");
         <div class="card card-primary card-outline">
             <div class="card-body box-profile">
                 <div class="text-center">
-                    <img class="profile-user-img img-fluid img-circle" src="{{$data->image}}" alt="User profile picture">
+                    <img class="profile-user-img img-fluid img-circle" style="min-height:65px !important" src="{{$data->image ? $data->image : 'https://minhaagenda.nic.br/palestrantes/foto/1111'}}" alt="User profile picture">
                 </div>
 
                 <h3 class="profile-username text-center">{{$data->name ?? ''}}</h3>
