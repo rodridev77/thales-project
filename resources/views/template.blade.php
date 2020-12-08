@@ -418,7 +418,7 @@
                     title: 'Funcionario Deletado'
                 });
                 if (response.data.type == "delete") {
-                    loadViewInHome("/@php echo $_COOKIE['view']; @endphp");
+                    loadViewInHome(response.data.url);
                 }
             }
         });
@@ -437,7 +437,7 @@
                     title: response.data.message
                 });
                 if (response.data.type == "delete") {
-                    loadViewInHome("/{{$breadcrumb[count($breadcrumb)-1]}}");
+                    loadViewInHome(response.data.url);
                 }
             }
         });
