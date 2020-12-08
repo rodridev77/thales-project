@@ -26,9 +26,15 @@ $route = route("funcionarios.index");
             <td>{{$item->cpf}}</td>
             <td>{{$item->phone}}</td>
             <td>
-                <button class="btn btn-xs" onclick="loadViewInHome('{{route('funcionarios.edit',$item->id)}}')" id="employee-edit"><img src="../../dist/img/icon-edit.png" title="Editar" width="24px"></button>
-                <button class="btn btn-xs" data-toggle="modal" data-target="#exampleModal" data-id="{{$item->id}}" id="employee-delete"><img src="../../dist/img/icon-trash.png" title="Remover" width="24px"></button>
-                <button class="btn btn-xs" onclick="loadViewInHome('{{route('funcionarios.show',$item->id)}}')" id="employee-view"><img src="../../dist/img/icon-view.png" title="Ver" width="24px"></button>
+                @include('components.actions', [
+                'id' => $item->id,
+                'route' => "funcionarios",
+                'buttons' => [
+                'edit' => true,
+                'view' => true,
+                'destroy' => true
+                ]
+                ])
             </td>
         </tr>
         @endforeach
