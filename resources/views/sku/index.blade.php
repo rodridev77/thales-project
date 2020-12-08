@@ -87,7 +87,7 @@ $route = route("sku.index");
     </div>
 </div>
 
-<div class="modal" id="#exampleModal">
+<div class="modal" id="exampleModal">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
