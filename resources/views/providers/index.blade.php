@@ -3,7 +3,7 @@
 $title = "Fornecedor";
 @endphp
 @section('card-tools')
-<button type="button" class="btn btn-success" onclick="loadViewInHome('{{url('fornecedores/create')}}')"><i class="fas fa-plus"></i>Adicionar Fornecedor</button>
+<button type="button" class="btn btn-success" onclick="loadViewInHome('{{url('fornecedores/create')}}')"><i class="fas fa-plus"></i> Adicionar Fornecedor</button>
 @endsection
 @section('card-body')
 @if (count($data) > 0)

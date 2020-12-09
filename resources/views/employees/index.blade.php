@@ -4,7 +4,7 @@ $title = "Funcionarios";
 $route = route("funcionarios.index");
 @endphp
 @section('card-tools')
-<button type="button" class="btn btn-success" onclick="loadViewInHome('{{url('funcionarios/create')}}')"><i class="fas fa-plus"></i>Adicionar Funcionario</button>
+<button type="button" class="btn btn-success" onclick="loadViewInHome('{{url('funcionarios/create')}}')"><i class="fas fa-plus"></i> Adicionar Funcionario</button>
 @endsection
 @section('card-body')
 @if (count($data) > 0)

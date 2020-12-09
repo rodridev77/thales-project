@@ -16,8 +16,8 @@ $route = route('categorias.index');
                         </ul>
                     </div>
                     <div class="form-group col-sm-12">
-                        <label for="name">Categoria: </label>
-                        <input type="text" class="form-control" name="name" id="name" required="required" value="">
+                        <label for="name">Nome da Categoria </label>
+                        <input placeholder="Digite um nome para a categoria" type="text" class="form-control" name="name" id="name" required="required" value="">
                     </div>
                 </div>
 

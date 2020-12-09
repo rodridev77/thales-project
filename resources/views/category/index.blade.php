@@ -4,7 +4,7 @@ $title = "Lista de Categorias";
 $route = route('settings.home');
 @endphp
 @section('card-tools')
-<button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('categorias.create')}}')"><i class="fas fa-plus"></i>Cadastrar Categoria</button>
+<button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('categorias.create')}}')"><i class="fas fa-plus"></i> Cadastrar Categoria</button>
 @endsection
 @section('card-body')
 @if (count($data) > 0)

@@ -20,7 +20,7 @@ $route = route("marcas.index");
                 </div>
             </div>
         </div>
-        <button class="btn btn-success" type="submit"> <i class="fa fa-plus"></i> Salvar</button>
+        <button class="btn btn-success" type="submit"> <i class="fa fa-check"></i> Salvar</button>
     </div>
 </form>
 @endsection

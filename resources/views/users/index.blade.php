@@ -4,7 +4,7 @@ $title = "Usuários";
 $route = route("settings.home");
 @endphp
 @section('card-tools')
-<button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('user.create')}}')"><i class="fas fa-plus"></i>Adicionar Usuário</button>
+<button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('user.create')}}')"><i class="fas fa-plus"></i> Adicionar Usuário</button>
 @endsection
 @section('card-body')
 @if (count($data) > 0)

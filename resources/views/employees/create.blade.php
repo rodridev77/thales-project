@@ -86,7 +86,7 @@ $route = route("funcionarios.index");
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputtext1">Email</label>
-                            <input type="email" name="email" value="" class="form-control" id="exampleInputtext1" placeholder="Email">
+                            <input type="email" name="email" value="" class="form-control" id="exampleInputtext1" placeholder="Endereço de E-mail">
                         </div>
                     </div>
                 </div>
@@ -129,11 +129,11 @@ $route = route("funcionarios.index");
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputFile">Rua</label>
-                            <input type="text" class="form-control" name="street" value="" id="exampleInputFile" placeholder="nome da rua">
+                            <input type="text" class="form-control" name="street" value="" id="exampleInputFile" placeholder="Nome da rua">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputFile">Numero</label>
-                            <input type="number" class="form-control" name="number" value="" id="exampleInputFile" placeholder="numero da casa">
+                            <input type="number" class="form-control" name="number" value="" id="exampleInputFile" placeholder="Numero da casa">
                         </div>
                     </div>
                 </div>

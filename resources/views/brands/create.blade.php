@@ -9,12 +9,6 @@ $route = route("marcas.index");
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Informacoes</h3>
-                    <div class="card-tools">
-                        <button class="btn btn-success" type="submit"> <i class="fa fa-plus"></i> Cadastrar</button>
-                    </div>
-                </div>
                 <div class="card-body">
                     <div id="errors" class="alert alert-danger d-none">
                         <ul>
@@ -29,6 +23,7 @@ $route = route("marcas.index");
                 </div>
             </div>
         </div>
+        <button class="btn btn-success" type="submit"> <i class="fa fa-check"></i> Cadastrar</button>
     </div>
 </form>
 @endsection
