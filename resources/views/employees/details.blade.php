@@ -37,7 +37,7 @@ $route = route("funcionarios.index");
         <!-- /.card -->
 
         <!-- About Me Box -->
-        <div class="card card-primary">
+        <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Sobre</h3>
             </div>

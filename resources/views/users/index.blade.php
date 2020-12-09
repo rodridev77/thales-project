@@ -4,8 +4,7 @@ $title = "Usuários";
 $route = route("settings.home");
 @endphp
 @section('card-tools')
-<button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('user.create')}}')"><i
-        class="fas fa-plus"></i>Adicionar Usuário</button>
+<button type="button" class="btn btn-success" onclick="loadViewInHome('{{route('user.create')}}')"><i class="fas fa-plus"></i>Adicionar Usuário</button>
 @endsection
 @section('card-body')
 @if (count($data) > 0)
@@ -23,17 +22,21 @@ $route = route("settings.home");
             <td>{{$item->name}}</td>
             <td>{{$item->email}}</td>
             <td>
-                <button class="btn btn-xs btn-info" onclick="loadViewInHome('{{route('user.edit',$item->id)}}')"><i
-                        class="fa fa-edit"></i></button>
-                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#user-delete"
-                    data-userid="{{$item->id}}"><i class="fa fa-trash"></i></button>
-            </td>
+                @include('components.actions', [
+                'id' => $item->id,
+                'route' => "user",
+                'buttons' =>
+                [
+                'edit' => true,
+                'destroy' => true
+                ]
+                ])</td>
         </tr>
         @endforeach
     </tbody>
 </table>
 
-<div class="modal" id="user-delete">
+<div class="modal" id="exampleModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -46,7 +49,7 @@ $route = route("settings.home");
                 <p>Você realmente deseja excluir este usuário ?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <form id="delete" data-sendrequest="{{route('user.destroy',$item->id)}}" method="DELETE">
+                <form id="delete" data-sendrequest="" method="DELETE">
                     @method("DELETE")
                     <button class="btn btn-primary" data-dismiss="modal">Não</button>
                     <button class="btn btn-danger pull-right" id="confirm-delete">Sim</button>
@@ -61,42 +64,21 @@ $route = route("settings.home");
 <p>Nenhum Registro cadastrado</p>
 @endif
 <script>
-$(function() {
-    $("#layout-um").DataTable({
-        "responsive": true,
-        "autoWidth": false,
-    });
-});
+    $(function() {
+        $("button#confirm-delete").on("click", function(e) {
+            $('#exampleModal').modal('hide');
+        })
 
-$('#user-delete').on('show.bs.modal', function(event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var id = button.data('userid') // Extract info from data-* attributes
-    let modalButton = $("#confirm-delete");
-
-    modalButton.on("click", function() {
-
-        axios.delete(`${'{{url("user/destroy")}}'}/${id}`)
-            .then((response) => {
-                if (response.status === 200) {
-
-                    Toast.fire({
-                        icon: 'success',
-                        title: 'Usuário Exclúido'
-                    });
-                    $('#user-delete').modal("hide");
-                    loadViewInHome('{{route('user.index')}}');
-                }
-            })
-            .catch((err) => {
-                if (err.response.status === 500) {
-                    Toast.fire({
-                        icon: 'error',
-                        title: 'Houve um erro tente novamente , ou contacte o suporte'
-                    });
-                }
-            });
+        $("#layout-um").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+        });
     });
 
-});
+    $('#exampleModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        let Id = button.attr('data-id');
+        $("form#delete").attr('data-sendrequest', '/sku/' + Id)
+    });
 </script>
 @endsection
