@@ -65,16 +65,14 @@ $route = route("sku.index");
                                 <div class="form-row">
                                     <div class="form-group col-sm-12">
                                         <label for="cod">Código SKU: </label>
-                                        <input type="text" class="form-control" name="cod" id="cod" required="required"
-                                            value="">
+                                        <input type="text" class="form-control" name="cod" id="cod" required="required" value="">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-sm-12">
                                         <label for="description">Description: </label>
-                                        <input type="text" class="form-control" name="description" id="description"
-                                            required="required" value="">
+                                        <input type="text" class="form-control" name="description" id="description" required="required" value="">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary" name="enviar">Cadastrar</button>
@@ -100,7 +98,7 @@ $route = route("sku.index");
                 <p>Você Realmente deseja excluir este sku?</p>
             </div>
             <div class="modal-footer">
-                <form id="delete" data-sendrequest="{{url('/sku/'.$item->id)}}" method="DELETE">
+                <form id="delete" data-sendrequest="" method="DELETE">
                     @method("DELETE")
                     <button class="btn btn-primary" data-dismiss="modal">Não</button>
                     <button class="btn btn-danger" id="confirm-delete">Sim</button>
@@ -112,21 +110,25 @@ $route = route("sku.index");
     <!-- /.modal-dialog -->
 </div>
 <script>
-$(function() {
-    $("#layout-um").DataTable({
-        "responsive": true,
-        "autoWidth": false,
+    $(function() {
+        $("button#confirm-delete").on("click", function(e) {
+            $('#exampleModal').modal('hide');
+        })
+
+        $("#layout-um").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+        });
     });
-});
 
-$('#exampleModal').on('show.bs.modal', function(event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    let Id = button.attr('data-id');
-    $("form#delete").attr('data-sendrequest', '/sku/' + Id)
-});
+    $('#exampleModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        let Id = button.attr('data-id');
+        $("form#delete").attr('data-sendrequest', '/sku/' + Id)
+    });
 
-function loadSkuForm() {
-    $('div#create-sku-form').modal('show');
-}
+    function loadSkuForm() {
+        $('div#create-sku-form').modal('show');
+    }
 </script>
 @endsection
